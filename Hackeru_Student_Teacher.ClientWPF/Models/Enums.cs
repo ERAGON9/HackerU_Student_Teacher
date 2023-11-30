@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Hackeru_Student_Teacher.ClientWPF.Models
 {
-    internal class Enums
+    public class Enums
     {
+        public enum UserRole
+        {
+            Student = 0,
+            Teacher = 1
+        }
     }
 }

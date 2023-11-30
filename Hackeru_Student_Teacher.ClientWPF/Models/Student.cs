@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Hackeru_Student_Teacher.ClientWPF.Models
 {
-    internal class Student
+    public class Student
     {
+        public int Id { get; set; }
     }
 }
