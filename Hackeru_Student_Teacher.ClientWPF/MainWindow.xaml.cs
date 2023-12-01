@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Hackeru_Student_Teacher.ClientWPF.Models;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,9 +17,16 @@ namespace Hackeru_Student_Teacher.ClientWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
