@@ -17,7 +17,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Models
         // Student Properties
 
 
-        //c'tor
+        //C'tor
         public Student(string userName, string email, string password)
         {
             UserName = userName;

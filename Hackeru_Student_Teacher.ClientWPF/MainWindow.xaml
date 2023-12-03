@@ -18,7 +18,6 @@
         <TextBlock Grid.Row="0" Name="tbMenu" FontSize="50" Text="Student-Teacher" TextAlignment="Center" Background="CornflowerBlue"/>
 
 
-
         <!-- Content Window -->
         <Grid Grid.Row="1" Background="AliceBlue">
             <Grid.ColumnDefinitions >
@@ -33,35 +32,38 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <TextBlock  TextAlignment="Center" Text="Register" FontWeight="Bold" FontSize="35" Grid.Column="1" />
-            <TextBlock  TextAlignment="Center" Text="Login" FontWeight="Bold" FontSize="35" />
-            <TextBlock  TextAlignment="Center" Text="Email" FontWeight="Bold" FontSize="15" Grid.Row="1" VerticalAlignment="Center" Height="30" />
-            <TextBlock  TextAlignment="Center" Text="Password" FontWeight="Bold" FontSize="15" Grid.Row="3" VerticalAlignment="Center" Height="30" />
+
+            <!-- Login section -->
+            <TextBlock  TextAlignment="Center" Text="Login" FontWeight="Bold" FontSize="35" Grid.Column="0" Grid.Row="0"/>
+            <TextBlock  TextAlignment="Center" Text="Email" FontWeight="Bold" FontSize="15" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Height="30" />
+            <TextBlock  TextAlignment="Center" Text="Password" FontWeight="Bold" FontSize="15" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" Height="30" />
+
+            <TextBox  Name="tbEmailLogin" Width="200" Height="25" Background="WhiteSmoke" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Foreground="Gray"  />
+            <PasswordBox  Name="tbPasswordLogin" Width="200" Height="25" Background="WhiteSmoke" Grid.Column="0" Grid.Row="3" VerticalAlignment="Bottom" VerticalContentAlignment="Center" />
+            <Button Content="Show Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="308,35,0,0" Grid.Column="0" Grid.Row="3" Click="ShowPasswordLogin_Click"/>
+            <Button  Name ="btnLogin" Content="Login" Click="btnRegister_Click"  Width="100" Height="25" Grid.Column="0" Grid.Row="5" BorderThickness="2" Background="PeachPuff" FontSize="14" FontStyle="Italic" FontWeight="DemiBold"/>
+
+
+            <!-- Register section -->
+            <TextBlock  TextAlignment="Center" Text="Register" FontWeight="Bold" FontSize="35" Grid.Column="1" Grid.Row="0"/>
             <TextBlock  TextAlignment="Center" Text="UserName" FontWeight="Bold" FontSize="15" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Height="30" />
             <TextBlock  TextAlignment="Center" Text="Email" FontWeight="Bold" FontSize="15" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Height="30" />
             <TextBlock  TextAlignment="Center" Text="Password" FontWeight="Bold" FontSize="15" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Height="30" />
 
-            <TextBox  Name="tbEmailLogin" Width="200" Height="25" Background="WhiteSmoke" Grid.Row="1" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Foreground="Gray"  />
-            <TextBox  Name="tbPasswordLogin" Width="200" Height="25" Background="WhiteSmoke" Grid.Row="3" VerticalAlignment="Bottom" VerticalContentAlignment="Center" />
-            <TextBox  Name="tbUserName" Width="200" Height="25" Background="WhiteSmoke" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Foreground="Gray"  />
+            <TextBox  Name="tbUserNameRegister" Width="200" Height="25" Background="WhiteSmoke" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Foreground="Gray"  />
             <TextBox  Name="tbEmailRegister" Width="200" Height="25" Background="WhiteSmoke" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Foreground="Gray"  />
-            <TextBox  Name="tbPasswordRegister" Width="200" Height="25" Background="WhiteSmoke" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Foreground="Gray"  />
-
-
+            <PasswordBox  Name="tbPasswordRegister" Width="200" Height="25" Background="WhiteSmoke" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Foreground="Gray"  />
+            <Button Content="Show Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="306,34,0,0" Grid.Column="1" Grid.Row="3" Click="ShowPasswordRegister_Click"/>
             <Button  Name ="btnRegister" Content="Register" Click="btnRegister_Click"  Width="100" Height="25" Grid.Column="1" Grid.Row="5" BorderThickness="2" Background="PeachPuff" FontSize="14" FontStyle="Italic" FontWeight="DemiBold"   />
-            <Button  Name ="btnLogin" Content="Login" Click="btnRegister_Click"  Width="100" Height="25"  Grid.Row="5" BorderThickness="2" Background="PeachPuff" FontSize="14" FontStyle="Italic" FontWeight="DemiBold"   />
-            <ComboBox Width="150" Height="25" Grid.Column="1" Grid.Row="4" ></ComboBox>
-
+            <ComboBox Name="comboBoxRegister" Width="150" Height="25" Grid.Column="1" Grid.Row="4">
+                <ComboBoxItem Content="Student"/>
+                <ComboBoxItem Content="Teacher"/>
+            </ComboBox>
 
         </Grid>
 
-
-
         <!-- Footer -->
         <TextBlock Grid.Row="2" Name="tbFooter" FontSize="15" Text="created by Lior Barak and Oz ..." TextAlignment="Center" Background="LightGray"/>
-
-
-
 
     </Grid>
 </Window>
