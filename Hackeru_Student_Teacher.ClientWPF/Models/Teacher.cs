@@ -11,12 +11,8 @@ namespace Hackeru_Student_Teacher.ClientWPF.Models
         // IUser Properties
         public string UserName { get; }
         public Enums.UserRole IsTeacher { get; }
-
-        private string email;
-        public string Email { get { return email; } }
-
-        private string password;
-        public string Password { get { return password; } }
+        public string Email { get; set; }
+        public string Password { get; set; }
 
         // Teacher Properties
 
@@ -25,18 +21,19 @@ namespace Hackeru_Student_Teacher.ClientWPF.Models
         public Teacher(string userName, string email, string password)
         {
             UserName = userName;
-            this.email = email;
-            this.password = password;
+            Email = email;
+            Password = password;
             IsTeacher = Enums.UserRole.Teacher;
         }
 
+        // Functions
         public void SetEmail(string newEmail)
         {
-            this.email = newEmail;
+            Email = newEmail;
         }
         public void SetPassword(string newPassword)
         {
-            this.password = newPassword;
+            Password = newPassword;
         }
     }
 }
