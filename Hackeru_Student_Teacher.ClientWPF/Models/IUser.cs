@@ -6,34 +6,25 @@ using System.Threading.Tasks;
 
 namespace Hackeru_Student_Teacher.ClientWPF.Models
 {
-    public class User
+    public interface IUser
     {
-        public static int id = 0;
         public string UserName { get; }
         public Enums.UserRole IsTeacher { get; }
+        public string Email { get; }
+        public string Password { get; }
 
-        private string email;
-        public string Email { get { return email; } }
-
-        private string password;
-        public string Password { get { return password; } }
-
-
+        /*
         public User(string userName, string email, string password, Enums.UserRole isTeacher)
         {
+            ++id;
             UserName = userName;
             this.email = email;
             this.password = password;
             IsTeacher = isTeacher;
         }
+        */
 
-        public void SetEmail(string newEmail)
-        {
-            this.email = newEmail;
-        }
-        public void SetPassword(string newPassword)
-        {
-            this.password = newPassword;
-        }
+        public void SetEmail(string newEmail);
+        public void SetPassword(string newPassword);
     }
 }

@@ -58,7 +58,7 @@
 
 
         <!-- Footer -->
-        <TextBlock Grid.Row="2" Name="tbFooter" FontSize="15" Text="Made by Lior + Oz" TextAlignment="Center" Background="LightGray"/>
+        <TextBlock Grid.Row="2" Name="tbFooter" FontSize="15" Text="created by Lior Barak and Oz ..." TextAlignment="Center" Background="LightGray"/>
 
 
 
