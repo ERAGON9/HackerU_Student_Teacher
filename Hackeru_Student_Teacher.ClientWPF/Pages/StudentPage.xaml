@@ -9,6 +9,6 @@
       Title="StudentPage">
 
     <Grid>
-        
+        <TextBlock Background="Aqua"></TextBlock>
     </Grid>
 </Page>

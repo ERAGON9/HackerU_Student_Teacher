@@ -60,6 +60,9 @@ namespace Hackeru_Student_Teacher.ClientWPF
             MessageBox.Show($"Entered Password: {tbPasswordRegister.Password}");
         }
 
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(new Pages.StudentPage());
+        }
     }
 }
