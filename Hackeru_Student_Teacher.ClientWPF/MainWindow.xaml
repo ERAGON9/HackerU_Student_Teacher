@@ -43,8 +43,8 @@
 
             <TextBox  Name="tbEmailLogin" Width="200" Height="25" Background="WhiteSmoke" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Foreground="Gray"  />
             <PasswordBox  Name="tbPasswordLogin" Width="200" Height="25" Background="WhiteSmoke" Grid.Column="0" Grid.Row="3" VerticalAlignment="Bottom" VerticalContentAlignment="Center" />
-            <Button Content="Show Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="308,35,0,0" Grid.Column="0" Grid.Row="3" Click="ShowPasswordLogin_Click"/>
-            <Button  Name ="btnLogin" Content="Login" Click="btnRegister_Click"  Width="100" Height="25" Grid.Column="0" Grid.Row="5" BorderThickness="2" Background="PeachPuff" FontSize="14" FontStyle="Italic" FontWeight="DemiBold"/>
+            <Button  Content="Show Password" Width="80" Height="25" Grid.Column="0" Grid.Row="3" Click="ShowPasswordLogin_Click" Margin="302,0,18,0" VerticalAlignment="Bottom" VerticalContentAlignment="Center" FontSize="10" FontWeight="Bold" FontStyle="Italic"/>
+            <Button  Name="btnLogin" Content="Login" Click="btnRegister_Click" Width="100" Height="25" Grid.Column="0" Grid.Row="5" BorderThickness="2" Background="PeachPuff" FontSize="14" FontStyle="Italic" FontWeight="DemiBold"/>
 
 
             <!-- Register section -->
@@ -57,7 +57,7 @@
             <TextBox  Name="tbUserNameRegister" Width="200" Height="25" Background="WhiteSmoke" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Foreground="Gray"  />
             <TextBox  Name="tbEmailRegister" Width="200" Height="25" Background="WhiteSmoke" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Foreground="Gray"  />
             <PasswordBox  Name="tbPasswordRegister" Width="200" Height="25" Background="WhiteSmoke" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Foreground="Gray"  />
-            <Button Content="Show Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="306,34,0,0" Grid.Column="1" Grid.Row="3" Click="ShowPasswordRegister_Click"/>
+            <Button Content="Show Password" Width="80" Height="25" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="3" Click="ShowPasswordRegister_Click" Margin="301,0,19,0" FontSize="10" FontWeight="Bold" FontStyle="Italic"/>
             <Button  Name ="btnRegister" Content="Register" Click="btnRegister_Click"  Width="100" Height="25" Grid.Column="1" Grid.Row="5" BorderThickness="2" Background="PeachPuff" FontSize="14" FontStyle="Italic" FontWeight="DemiBold"   />
             <ComboBox Name="comboBoxRegister" Width="150" Height="25" Grid.Column="1" Grid.Row="4">
                 <ComboBoxItem Content="Student"/>
@@ -67,7 +67,7 @@
         </Grid >
 
         <!-- Footer section -->
-        
+
         <UserControls:Footer Grid.Row="2"/>
 
     </Grid>
