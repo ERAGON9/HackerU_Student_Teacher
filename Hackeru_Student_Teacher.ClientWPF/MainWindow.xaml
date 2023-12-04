@@ -51,6 +51,7 @@
 
 
             <!-- Register section -->
+
             <TextBlock  TextAlignment="Center" Text="Register" FontWeight="Bold" FontSize="35" Grid.Column="1" Grid.Row="0"/>
             <TextBlock  TextAlignment="Center" Text="UserName" FontWeight="Bold" FontSize="15" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Height="30" />
             <TextBlock  TextAlignment="Center" Text="Email" FontWeight="Bold" FontSize="15" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Height="30" />

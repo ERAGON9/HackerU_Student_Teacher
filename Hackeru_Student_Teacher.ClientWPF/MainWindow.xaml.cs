@@ -1,17 +1,8 @@
 ﻿using Hackeru_Student_Teacher.ClientWPF.Models;
 using Hackeru_Student_Teacher.ClientWPF.Progarm;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
+using Hackeru_Student_Teacher.ClientWPF.Pages;
+using Hackeru_Student_Teacher.ClientWPF.Views;
 namespace Hackeru_Student_Teacher.ClientWPF
 {
     /// <summary>
@@ -69,9 +60,6 @@ namespace Hackeru_Student_Teacher.ClientWPF
             MessageBox.Show($"Entered Password: {tbPasswordRegister.Password}");
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            mainFrame.Navigate(new Pages.StudentWindow());
-        }
+
     }
 }

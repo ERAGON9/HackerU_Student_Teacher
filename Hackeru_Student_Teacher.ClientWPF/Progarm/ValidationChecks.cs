@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 namespace Hackeru_Student_Teacher.ClientWPF.Progarm
 {
@@ -19,7 +14,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
             {
                 if (character == '@')
                     validateAt = true;
-                if(character == '.')
+                if (character == '.')
                     validateDot = true;
             }
             if (!validateAt)
