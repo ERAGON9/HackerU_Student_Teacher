@@ -17,11 +17,8 @@
         </Grid.RowDefinitions>
 
 
-
         <!-- Menu Bar -->
         <TextBlock Grid.Row="0" Name="tbMenu" FontSize="50" Text="Student-Teacher" TextAlignment="Center" Background="CornflowerBlue"/>
-
-
 
         <!-- Content Window -->
         <Grid Grid.Row="1" Background="AliceBlue">
@@ -67,9 +64,10 @@
                 <ComboBoxItem Content="Teacher"/>
             </ComboBox>
 
-            <!-- Footer section -->
         </Grid >
 
+        <!-- Footer section -->
+        
         <UserControls:Footer Grid.Row="2"/>
 
     </Grid>

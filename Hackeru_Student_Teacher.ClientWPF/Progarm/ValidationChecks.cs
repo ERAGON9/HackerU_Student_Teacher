@@ -4,7 +4,8 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
 {
     public class ValidationChecks
     {
-        //liorbarak99@gmai.com
+        //liorbarak99@gmail.com
+        //liorbaa@mta.ac.il
         public static bool EmailChecksAtAndDot(string emailToCheck)
         {
             bool validateAt = false;
