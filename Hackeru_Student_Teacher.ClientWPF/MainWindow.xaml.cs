@@ -52,10 +52,12 @@ namespace Hackeru_Student_Teacher.ClientWPF
                     IUser newUser = new Teacher(username, email, password);
                 }
 
-                // Add newUser to a list of students!
+                // Add newUser to a list of students! \ add messege box "user registerd" \ validate if user already registered
 
             }
         }
+
+        //btn login to teacher\student window
 
         private void ShowPasswordLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -67,5 +69,9 @@ namespace Hackeru_Student_Teacher.ClientWPF
             MessageBox.Show($"Entered Password: {tbPasswordRegister.Password}");
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(new Pages.StudentWindow());
+        }
     }
 }
