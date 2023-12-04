@@ -1,11 +1,21 @@
-﻿using System.Windows;
+﻿using Hackeru_Student_Teacher.ClientWPF.Models;
+using System.Windows;
 
 namespace Hackeru_Student_Teacher.ClientWPF.Progarm
 {
     public class ValidationChecks
     {
+        // Example of legal mail addresses:
         //liorbarak99@gmail.com
         //liorbaa@mta.ac.il
+
+        /// <summary>
+        /// The function check if an email adress that gotten from the user is a valid mail address,
+        /// by checking it's contain '@' and '.' like all mail address must included!
+        /// </summary>
+        /// <param name="emailToCheck"></param>
+        /// <returns>'true' if the mail is legal,
+        /// or specific error message and 'false'</returns>
         public static bool EmailChecksAtAndDot(string emailToCheck)
         {
             bool validateAt = false;
@@ -18,20 +28,32 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
                 if (character == '.')
                     validateDot = true;
             }
-            if (!validateAt)
+            if (!validateAt || !validateDot)
             {
-                MessageBox.Show("Invalid mail, there is no @ at your mail!");
-                return false;
-            }
-            if (!validateDot)
-            {
-                MessageBox.Show("Invalid mail, there is no . at your mail!");
                 return false;
             }
 
             return true;
         }
 
-
+        /// <summary>
+        /// The function check if a user that already registered before trying to register again,
+        /// with thw same mail adress.
+        /// </summary>
+        /// <param name="users"></param>
+        /// <param name="newUser"></param>
+        /// <returns>'true' is the mail not used before,
+        /// or specific error message and 'false'</returns>
+        public static bool ValidateIfUserAlreadyExist(List<IUser> users, string mailgotten)
+        {
+            foreach (IUser user in users)
+            {
+                if (user.Email == mailgotten)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

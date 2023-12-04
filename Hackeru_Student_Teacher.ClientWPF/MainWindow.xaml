@@ -45,7 +45,7 @@
             <TextBox  Name="tbEmailLogin" Width="200" Height="25" Background="WhiteSmoke" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Foreground="Gray"  />
             <PasswordBox  Name="tbPasswordLogin" Width="200" Height="25" Background="WhiteSmoke" Grid.Column="0" Grid.Row="3" VerticalAlignment="Bottom" VerticalContentAlignment="Center" />
             <Button  Content="Show Password" Width="80" Height="25" Grid.Column="0" Grid.Row="3" Click="ShowPasswordLogin_Click" HorizontalAlignment="Right" Margin="0,0,5,0" VerticalAlignment="Bottom" VerticalContentAlignment="Center" FontSize="10" FontWeight="Bold" FontStyle="Italic"/>
-            <Button  Name="btnLogin" Content="Login" Click="btnRegister_Click" Width="100" Height="25" Grid.Column="0" Grid.Row="5" BorderThickness="2" Background="PeachPuff" FontSize="14" FontStyle="Italic" FontWeight="DemiBold"/>
+            <Button  Name="btnLogin" Content="Login" Click="btnLogin_Click" Width="100" Height="25" Grid.Column="0" Grid.Row="5" BorderThickness="2" Background="PeachPuff" FontSize="14" FontStyle="Italic" FontWeight="DemiBold"/>
 
 
             <!-- Register section -->
