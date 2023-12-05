@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hackeru_Student_Teacher.ClientWPF.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
     /// </summary>
     public partial class TeacherPage : UserControl
     {
+        List<Exam> Exams = new List<Exam>();
         public TeacherPage()
         {
             InitializeComponent();

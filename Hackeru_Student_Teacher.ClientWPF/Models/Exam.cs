@@ -4,17 +4,39 @@
     {
         // Properties
         public string Name { get; set; }
-        public int Grade { get; set; }
         public string Description { get; set; }
-        public int QuestionNumber { get; set; }
+        public List<Question> Questions { get; set; }
+        public int Grade { get; set; }
+        public int QuestionNumber { get; set; } = 0;
+
 
         //C'tor
-        public Exam(string name, int grade, string description, int questionNumber)
+        public Exam(string name, string description)
         {
             Name = name;
-            Grade = grade;
             Description = description;
-            QuestionNumber = questionNumber;
+        }
+
+
+        //Functions
+        public void AddQuestion(Question question)
+        {
+            Questions.Add(question);
+            QuestionNumber++;
+        }
+
+        public void CalculateGrade(List<Question> questions)
+        {
+            int sum = 0;
+
+            //questions.ForEach(question => )
+            foreach (Question question in questions)
+            {
+                if (question.ChoosenAnswer == question.CorrectAnswer)
+                    sum += question.GradeTheQuestionEqual;
+            }
+
+            Grade = sum;
         }
     }
 }

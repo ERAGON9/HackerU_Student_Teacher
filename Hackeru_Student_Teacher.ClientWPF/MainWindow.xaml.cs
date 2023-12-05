@@ -15,7 +15,6 @@ namespace Hackeru_Student_Teacher.ClientWPF
         public MainWindow()
         {
             InitializeComponent();
-
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
@@ -44,8 +43,8 @@ namespace Hackeru_Student_Teacher.ClientWPF
             bool mailCheck = ValidationChecks.EmailChecksAtAndDot(email);
 
             // Password validation
-            //bool passwordCheck = ValidationChecks.LegalPassword(password);
-            bool passwordCheck = true;
+            bool passwordCheck = ValidationChecks.LegalPassword(password);
+            //bool passwordCheck = true;
 
             if (!isEmptyFields)
             {
@@ -88,7 +87,6 @@ namespace Hackeru_Student_Teacher.ClientWPF
                 MessageBox.Show("Invalid fields format. Please fill all the fields to register.");
             }
         }
-
 
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -145,17 +143,5 @@ namespace Hackeru_Student_Teacher.ClientWPF
             MessageBox.Show($"Entered Password: {tbPasswordRegister.Password}");
         }
 
-
-
-        /// <summary>
-        /// delete later- how to display diffrent page
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //StudentPage.Content = new StudentPage();
-            TeacherPage.Content = new TeacherPage();
-        }
     }
 }
