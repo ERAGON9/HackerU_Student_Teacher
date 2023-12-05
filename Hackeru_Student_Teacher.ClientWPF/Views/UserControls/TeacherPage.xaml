@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Hackeru_Student_Teacher.ClientWPF.Views.UserControls.TeacherPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hackeru_Student_Teacher.ClientWPF.Views.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="AliceBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="401*"/>
+            <ColumnDefinition Width="399*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="74*"/>
+            <RowDefinition Height="45*" />
+            <RowDefinition Height="315*"/>
+        </Grid.RowDefinitions>
+
+        <Label Foreground="black" Content="Teacher Window" Grid.ColumnSpan="2" HorizontalAlignment="Left" FontSize="25" FontWeight="light" FontStyle="Italic"/>
+        <TextBlock Foreground="black" TextWrapping="Wrap" Text="Search for Exam:"  Grid.Row="1" FontSize="20" Grid.Column="1" />
+        <ListBox Name ="ExamList" Grid.Row="1" Grid.Column="1" Margin="20,35,20,20" Grid.RowSpan="2" />
+
+        <StackPanel Grid.Row="2" HorizontalAlignment="Left">
+            <Button Name="newExam" Content="Create New Exam" Margin="20" Width="150" Height="30" HorizontalAlignment="Left" BorderThickness="3" />
+            <Button Name="editExam" Content="Edit Exams" Margin="20,50" Width="150" Height="30" HorizontalAlignment="Left" BorderThickness="3" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" HorizontalAlignment="right" >
+            <Button Name="addQuestion" Content="Add new Question" Margin="20"  Width="150" Height="30" BorderThickness="3" />
+            <Button Name="editQuestion" Content="Edit Questions" Margin="20,50" Width="150" Height="30" BorderThickness="3"   />
+        </StackPanel>
+
+        <Button Name="examStatistics" Content="Show Exams Statistics" Margin="10" Height="30"  Width="200" Grid.Row="2" VerticalAlignment="Bottom" BorderThickness="3" />
+
+    </Grid>
+</UserControl>

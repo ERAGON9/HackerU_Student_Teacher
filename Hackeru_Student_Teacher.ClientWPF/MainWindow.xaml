@@ -5,20 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hackeru_Student_Teacher.ClientWPF"
         xmlns:UserControls="clr-namespace:Hackeru_Student_Teacher.ClientWPF.Views.UserControls"
+
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1000">
+        Title="Student-Teacher" Height="600" Width="1000">
 
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="15*"/>
+            <RowDefinition Height="10*"/>
             <RowDefinition Height="80*"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
 
 
-        <!-- Menu Bar -->
-        <TextBlock Grid.Row="0" Name="tbMenu" FontSize="50" Text="Student-Teacher" TextAlignment="Center" Background="CornflowerBlue"/>
+        <!-- Header Bar -->
+        <UserControls:Header Grid.Row="0"/>
 
 
         <!-- Content Window -->
@@ -65,9 +66,12 @@
                 <ComboBoxItem Content="Teacher"/>
             </ComboBox>
 
-            <!-- Frame Section -->
-            <Frame Name="mainFrame" NavigationUIVisibility="Hidden" Grid.Row="0" Grid.RowSpan="6" Grid.ColumnSpan="3"/>
-            <Button Content="Go to Second Page" Click="Button_Click" Width="50" Height="50" HorizontalAlignment="Left"/>
+            <!-- Contentcontrol section-->
+            <ContentControl Name="TeacherPage" Grid.ColumnSpan="2"  Grid.RowSpan="6"/>
+
+
+            <!--Delete later-->
+            <Button Content="Button" Margin="57,11,297,10" Grid.Row="2" Click="Button_Click"/>
 
         </Grid >
 

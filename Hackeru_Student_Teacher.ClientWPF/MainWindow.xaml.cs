@@ -1,8 +1,7 @@
 ﻿using Hackeru_Student_Teacher.ClientWPF.Models;
 using Hackeru_Student_Teacher.ClientWPF.Progarm;
 using System.Windows;
-using Hackeru_Student_Teacher.ClientWPF.Pages;
-using Hackeru_Student_Teacher.ClientWPF.Views;
+using Hackeru_Student_Teacher.ClientWPF.Views.UserControls;
 namespace Hackeru_Student_Teacher.ClientWPF
 {
     /// <summary>
@@ -15,6 +14,7 @@ namespace Hackeru_Student_Teacher.ClientWPF
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
@@ -110,10 +110,17 @@ namespace Hackeru_Student_Teacher.ClientWPF
             MessageBox.Show($"Entered Password: {tbPasswordRegister.Password}");
         }
 
+
+
+        /// <summary>
+        /// delete later- how to display diffrent page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new Pages.StudentPage());
+            //StudentPage.Content = new StudentPage();
+            TeacherPage.Content = new TeacherPage();
         }
-
     }
 }
