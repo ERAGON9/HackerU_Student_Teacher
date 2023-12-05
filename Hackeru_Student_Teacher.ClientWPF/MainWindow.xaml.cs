@@ -115,14 +115,12 @@ namespace Hackeru_Student_Teacher.ClientWPF
                     if (existsUser.IsTeacher == Enums.UserRole.Teacher)
                     {
                         // Navigate to TeacherPage.xaml
-                        //this.NavigationService.Navigate(new TeacherPage());
-                        TeacherPage.Content = new TeacherPage();
+                        contentControl.Content = new TeacherPage();
                     }
                     else
                     {
                         // Navigate to StudentPage.xaml
-                        //this.NavigationService.Navigate(new StudentPage());
-                        StudentPage.Content = new StudentPage();
+                        contentControl.Content = new StudentPage();
                     }
                 }
             }

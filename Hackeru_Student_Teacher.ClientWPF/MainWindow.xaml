@@ -67,12 +67,7 @@
             </ComboBox>
 
             <!-- Contentcontrol section-->
-            <ContentControl Name="TeacherPage" Grid.ColumnSpan="2"  Grid.RowSpan="6"/>
-            <ContentControl Name="StudentPage" Grid.ColumnSpan="2"  Grid.RowSpan="6"/>
-
-
-            <!--Delete later-->
-            <Button Content="Button" Margin="57,11,297,10" Grid.Row="2" Click="Button_Click"/>
+            <ContentControl Name="contentControl" Grid.ColumnSpan="2"  Grid.RowSpan="6"/>
 
         </Grid >
 

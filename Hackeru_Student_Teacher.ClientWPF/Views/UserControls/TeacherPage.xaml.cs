@@ -26,5 +26,37 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         {
             InitializeComponent();
         }
+
+        private void newExam_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void addQuestion_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void editExam_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void editQuestion_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void examStatistics_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            // Need to go back to the MainWindow.
+            // contentControl.Content = new MainWindow();   (not working)
+
+        }
     }
 }
