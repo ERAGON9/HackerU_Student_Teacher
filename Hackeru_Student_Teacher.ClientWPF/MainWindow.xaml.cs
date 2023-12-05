@@ -2,6 +2,7 @@
 using Hackeru_Student_Teacher.ClientWPF.Progarm;
 using System.Windows;
 using Hackeru_Student_Teacher.ClientWPF.Views.UserControls;
+using System.Windows.Controls;
 namespace Hackeru_Student_Teacher.ClientWPF
 {
     /// <summary>
@@ -23,35 +24,58 @@ namespace Hackeru_Student_Teacher.ClientWPF
             string username = tbUserNameRegister.Text;
             string email = tbEmailRegister.Text;
             string password = tbPasswordRegister.Password;
-            Enums.UserRole role = comboBoxRegister.Text == "1" ? Enums.UserRole.Teacher : Enums.UserRole.Student;
+            Enums.UserRole role = Enums.UserRole.Student; // Default value
+
+            if (comboBoxRegister.SelectedItem != null)
+            {
+                ComboBoxItem selectedComboBoxItem = (ComboBoxItem)comboBoxRegister.SelectedItem;
+
+                if (selectedComboBoxItem.Content != null && selectedComboBoxItem.Content.ToString() == "Teacher")
+                    role = Enums.UserRole.Teacher;            
+            }
+            else
+                MessageBox.Show("Invalid fields format. Please fill you status (teacher/student) to register.");
+
 
             // Empty fields validation
             bool isEmptyFields = ValidationChecks.IsFieldsAreEmpty(username, email, password);
 
             // Mail validation
             bool mailCheck = ValidationChecks.EmailChecksAtAndDot(email);
-            if (isEmptyFields)
+
+            // Password validation
+            //bool passwordCheck = ValidationChecks.LegalPassword(password);
+            bool passwordCheck = true;
+
+            if (!isEmptyFields)
             {
                 if (mailCheck)
                 {
-                    bool userExists = ValidationChecks.ValidateIfUserAlreadyExist(users, email);
-
-                    if (!userExists)
+                    if (passwordCheck)
                     {
-                        IUser newUser = role == Enums.UserRole.Student
-                            ? new Student(username, email, password)
-                            : new Teacher(username, email, password);
+                        bool userExists = ValidationChecks.ValidateIfUserAlreadyExist(users, email);
 
-                        // New user added
-                        users.Add(newUser);
+                        if (!userExists)
+                        {
+                            IUser newUser = role == Enums.UserRole.Student
+                                ? new Student(username, email, password)
+                                : new Teacher(username, email, password);
 
-                        MessageBox.Show($"User registered!" +
-                                        $"\n UserName: {newUser.UserName}" +
-                                        $"\n Email: {newUser.Email}");
+                            // New user added
+                            users.Add(newUser);
+
+                            MessageBox.Show($"User registered!" +
+                                            $"\n UserName: {newUser.UserName}" +
+                                            $"\n Email: {newUser.Email}");
+                        }
+                        else
+                        {
+                            MessageBox.Show("User with this email already exists. Please use a different email.");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("User with this email already exists. Please use a different email.");
+                        MessageBox.Show("Invalid password format. Please enter a valid password that incluse: more than 8 characters, a digit, an upper case letter and a symbol(special character).");
                     }
                 }
                 else
@@ -94,11 +118,13 @@ namespace Hackeru_Student_Teacher.ClientWPF
                     {
                         // Navigate to TeacherPage.xaml
                         //this.NavigationService.Navigate(new TeacherPage());
+                        TeacherPage.Content = new TeacherPage();
                     }
                     else
                     {
                         // Navigate to StudentPage.xaml
                         //this.NavigationService.Navigate(new StudentPage());
+                        StudentPage.Content = new StudentPage();
                     }
                 }
             }

@@ -57,12 +57,14 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
         }
 
         /// <summary>
-        /// 
+        /// The function check when new user filling the register form he leave a empty field
+        /// without filling it with necessary data.
         /// </summary>
         /// <param name="username"></param>
         /// <param name="email"></param>
         /// <param name="password"></param>
-        /// <returns></returns>
+        /// <returns>'true' if there is empty field after clicking 'register'
+        /// or 'false' if all the fields include data.</returns>
         public static bool IsFieldsAreEmpty(string username, string email, string password)
         {
             if (string.IsNullOrEmpty(username))
@@ -74,5 +76,40 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
 
             return false;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public static bool LegalPassword(string password)
+        {
+            bool thereIsNumber = false;
+            bool thereIsUpperLetter = false;
+            bool thereIsSymbolchar = false;
+
+            if (password.Length >= 8)
+            {
+                foreach (char character in password)
+                {
+                    if (char.IsDigit(character))
+                    {
+                        thereIsNumber = true;
+                    }
+                    if (char.IsUpper(character))
+                    {
+                        thereIsUpperLetter = true;
+                    }
+                    if (char.IsSymbol(character))
+                    {
+                        thereIsSymbolchar = true;
+                    }
+                }
+                if (thereIsNumber && thereIsUpperLetter && thereIsSymbolchar)
+                    return true;
+            }
+            return false;
+        }
+
     }
 }
