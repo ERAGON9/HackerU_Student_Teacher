@@ -61,7 +61,7 @@
             <PasswordBox  Name="tbPasswordRegister" Width="200" Height="25" Background="WhiteSmoke" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Foreground="Gray"  />
             <Button Content="Show Password" Width="80" Height="25" HorizontalAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Margin="0,0,5,0" Grid.Column="1" Grid.Row="3" Click="ShowPasswordRegister_Click" FontSize="10" FontWeight="Bold" FontStyle="Italic"/>
             <Button  Name ="btnRegister" Content="Register" Click="btnRegister_Click"  Width="100" Height="25" Grid.Column="1" Grid.Row="5" BorderThickness="2" Background="PeachPuff" FontSize="14" FontStyle="Italic" FontWeight="DemiBold"   />
-            <ComboBox Name="comboBoxRegister" Width="150" Height="25" Grid.Column="1" Grid.Row="4">
+            <ComboBox Name="comboBoxRegister" SelectedIndex="0" Width="150" Height="25" Grid.Column="1" Grid.Row="4">
                 <ComboBoxItem Content="Student"/>
                 <ComboBoxItem Content="Teacher"/>
             </ComboBox>

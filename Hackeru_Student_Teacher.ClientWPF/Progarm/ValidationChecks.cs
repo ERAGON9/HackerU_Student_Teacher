@@ -55,5 +55,24 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
             }
             return false;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public static bool IsFieldsAreEmpty(string username, string email, string password)
+        {
+            if (string.IsNullOrEmpty(username))
+                return true;
+            if (string.IsNullOrEmpty(email))
+                return true;
+            if (string.IsNullOrEmpty(password))
+                return true;
+
+            return false;
+        }
     }
 }

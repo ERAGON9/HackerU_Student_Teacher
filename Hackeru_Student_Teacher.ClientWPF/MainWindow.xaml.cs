@@ -25,34 +25,43 @@ namespace Hackeru_Student_Teacher.ClientWPF
             string password = tbPasswordRegister.Password;
             Enums.UserRole role = comboBoxRegister.Text == "1" ? Enums.UserRole.Teacher : Enums.UserRole.Student;
 
+            // Empty fields validation
+            bool isEmptyFields = ValidationChecks.IsFieldsAreEmpty(username, email, password);
+
             // Mail validation
             bool mailCheck = ValidationChecks.EmailChecksAtAndDot(email);
-
-            if (mailCheck)
+            if (isEmptyFields)
             {
-                bool userExists = ValidationChecks.ValidateIfUserAlreadyExist(users, email);
-
-                if (!userExists)
+                if (mailCheck)
                 {
-                    IUser newUser = role == Enums.UserRole.Student
-                        ? new Student(username, email, password)
-                        : new Teacher(username, email, password);
+                    bool userExists = ValidationChecks.ValidateIfUserAlreadyExist(users, email);
 
-                    // New user added
-                    users.Add(newUser);
+                    if (!userExists)
+                    {
+                        IUser newUser = role == Enums.UserRole.Student
+                            ? new Student(username, email, password)
+                            : new Teacher(username, email, password);
 
-                    MessageBox.Show($"User registered!" +
-                                    $"\n UserName: {newUser.UserName}" +
-                                    $"\n Email: {newUser.Email}");
+                        // New user added
+                        users.Add(newUser);
+
+                        MessageBox.Show($"User registered!" +
+                                        $"\n UserName: {newUser.UserName}" +
+                                        $"\n Email: {newUser.Email}");
+                    }
+                    else
+                    {
+                        MessageBox.Show("User with this email already exists. Please use a different email.");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("User with this email already exists. Please use a different email.");
+                    MessageBox.Show("Invalid email format. Please enter a valid email address.");
                 }
             }
             else
             {
-                MessageBox.Show("Invalid email format. Please enter a valid email address.");
+                MessageBox.Show("Invalid fields format. Please fill all the fields to register.");
             }
         }
 
