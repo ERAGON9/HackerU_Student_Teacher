@@ -7,6 +7,70 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF376DF1" Offset="1"/>
+                <GradientStop Color="AliceBlue"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="153*"/>
+            <ColumnDefinition Width="380*"/>
+            <ColumnDefinition Width="267*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="30*"/>
+        </Grid.RowDefinitions>
+
+
+
+        <StackPanel Grid.ColumnSpan="2">
+            <Label FontWeight="Bold" FontSize="30" Content="Exam Creation"   />
+            <Label FontWeight="Bold" FontSize="25" Content="Teacher: x" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Left" Width="150">
+            <!-- left StackPanel-->
+            <Label FontWeight="Bold" FontSize="15" Content="Name Of Exam:"   />
+            <TextBox Name="txtExamName" Grid.Column="0" Width="135" Height="25" HorizontalAlignment="Left" />
+
+            <Label FontWeight="Bold" FontSize="15" Content="Exam ID:"  />
+            <TextBox Name="txtExamId" Grid.Column="0" Width="135" Height="25" HorizontalAlignment="Left"/>
+
+
+            <Label FontWeight="Bold" FontSize="15" Content="Name of Teacher:" Grid.Column="0"/>
+            <TextBox Name="txtTeacherName" Grid.Column="0"  Width="135" Height="25" HorizontalAlignment="Left"/>
+
+        </StackPanel>
+
+
+        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"    >
+            <!-- right StackPanel-->
+            <Label FontWeight="Bold" FontSize="15" Content="Exam Date:"  />
+            <DatePicker Name="ExamDate" Foreground="Gray" Grid.Column="1" Width="150"/>
+
+            <Label FontWeight="Bold" FontSize="15" Content="Starts at:"  Grid.Column="1"/>
+            <!-- insert timer?-->
+
+
+            <Label FontWeight="Bold" FontSize="15" Content="Ends at:"  Grid.RowSpan="2" Grid.Column="1"/>
+            <!-- insert timer?-->
+
+        </StackPanel>
+
+        <RadioButton FontWeight="Bold" FontSize="15" Content="Random Questions Order" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Top" Checked="RadioButton_Checked" Height="20" />
+
+        <Button Content="Create"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="50" />
+        <Button Content="Cancel" Grid.Row="2"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="70" Height="50"   />
+
+        <ListBox Grid.RowSpan="3" Grid.Column="2" Height="300"/>
+        <Button Content="Add Question"  Grid.Column="2" Grid.Row="1"/>
+        <Button Content="Delete Question"  Grid.Column="2" Grid.Row="1"/>
+        <Label FontWeight="Bold" FontSize="10" Content="Questions in Exam:"  Grid.Column="2"/>
+
     </Grid>
 </UserControl>

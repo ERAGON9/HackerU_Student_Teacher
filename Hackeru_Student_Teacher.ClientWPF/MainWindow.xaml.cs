@@ -30,7 +30,7 @@ namespace Hackeru_Student_Teacher.ClientWPF
                 ComboBoxItem selectedComboBoxItem = (ComboBoxItem)comboBoxRegister.SelectedItem;
 
                 if (selectedComboBoxItem.Content != null && selectedComboBoxItem.Content.ToString() == "Teacher")
-                    role = Enums.UserRole.Teacher;            
+                    role = Enums.UserRole.Teacher;
             }
             else
                 MessageBox.Show("Invalid fields format. Please fill you status (teacher/student) to register.");

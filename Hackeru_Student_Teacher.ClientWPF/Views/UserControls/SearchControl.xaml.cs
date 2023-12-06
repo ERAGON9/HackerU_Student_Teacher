@@ -16,20 +16,13 @@ using System.Windows.Shapes;
 namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 {
     /// <summary>
-    /// Interaction logic for CreateExamPage.xaml
+    /// Interaction logic for SearchControl.xaml
     /// </summary>
-    public partial class CreateExamPage : UserControl
+    public partial class SearchControl : UserControl
     {
-        public CreateExamPage()
+        public SearchControl()
         {
             InitializeComponent();
         }
-
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-
     }
 }

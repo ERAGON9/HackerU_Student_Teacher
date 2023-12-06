@@ -6,7 +6,34 @@
              xmlns:local="clr-namespace:Hackeru_Student_Teacher.ClientWPF.Views.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid Background="AliceBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- Column 2-->
+        <TextBox Name="searchTextBox" Text="Search exam..." Height="30" Grid.Column="2" VerticalAlignment="Top" TextChanged="SearchTextBox_TextChanged" Foreground="LightGray"  />
+        <Button Name="Search" Height="30" Width="30" Content="*" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Search_Click"  Background="Transparent" BorderBrush="LightGray" Foreground="Gray" ></Button>
+        <ListBox Name="SearchExamListBox" Height="350" Width="200" Grid.Column="2" Grid.RowSpan="3" VerticalAlignment="Center"></ListBox>
+        <Button Name="ShowExamsHistory" Content="Show Exam History"  Width="150" Height="30" Grid.Column="2" Grid.Row="3" VerticalAlignment="Bottom" Click="ShowExamsHistory_Click" />
+
+        <!-- Column 1 (Currently Empty maybe add something later)-->
+
+
+        <!-- Column 0-->
+        <Label Foreground="black" Content="Student: x" Grid.ColumnSpan="2" HorizontalAlignment="Left" FontSize="30" FontWeight="Medium" FontStyle="Italic"/>
+        <ListBox  Name="SelectedExamListBox" Grid.Row="2" VerticalContentAlignment="Top" Height="50" Width="200" BorderBrush="RoyalBlue" BorderThickness="2" ></ListBox>
+        <Button Name="ExamStart" Content="Begin Exam"  Width="150" Height="30" Grid.Row="2" VerticalAlignment="Bottom" Margin="0,0,0,5"/>
+        <StackPanel Grid.Row="1">
+            <!-- insert user data here (avrg grade,full name, etc..)-->
+        </StackPanel>
+
     </Grid>
 </UserControl>
