@@ -13,32 +13,34 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="74*"/>
-            <RowDefinition Height="45*" />
-            <RowDefinition Height="315*"/>
+            <RowDefinition Height="77*"/>
+            <RowDefinition Height="47*" />
+            <RowDefinition Height="168*"/>
+            <RowDefinition Height="96*"/>
+            <RowDefinition Height="62*"/>
         </Grid.RowDefinitions>
 
-        <Label Foreground="black" Content="Teacher X" Grid.ColumnSpan="2" HorizontalAlignment="Left" FontSize="30" FontWeight="Medium" FontStyle="Italic"/>
+        <Label Foreground="black" Content="Teacher X" HorizontalAlignment="Left" FontSize="30" FontWeight="Medium" FontStyle="Italic"  Width="143"/>
         <!-- Need to put at 'UserName' the userName of the Teacher that is login -->
-        <Label Foreground="black" Content="Hello (UserName)" Margin="0,0,90,0" Grid.ColumnSpan="2" HorizontalAlignment="Right" FontSize="15" FontWeight="bold" FontStyle="Oblique"/>
+        <Label Foreground="black" Content="Hello (UserName)" Margin="173,0,0,46" HorizontalAlignment="Left" FontSize="15" FontWeight="bold" FontStyle="Oblique" Grid.Column="1" Grid.RowSpan="2" Width="136"/>
         <Button Name="Logout" Content="Logout" Width="80" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" BorderThickness="3" Grid.Column="1" Margin="0,0,0,47" Click="Logout_Click"/>
-        <TextBlock Foreground="black" TextWrapping="Wrap" Text="Search for Exam:"  Grid.Row="1" FontSize="20" Grid.Column="1" FontWeight="Medium" />
-        <ListBox Name ="ExamList" Grid.Row="1" Grid.Column="1" Margin="20,35,20,20" Grid.RowSpan="2" />
+        <TextBlock Foreground="black" TextWrapping="Wrap" Text="Search for Exam:"  Grid.Row="1" FontSize="20" Grid.Column="1" FontWeight="Medium"  />
+        <ListBox Name ="ExamList" Grid.Row="1" Grid.Column="1" Margin="20,35,20,20" Grid.RowSpan="4" />
 
         <!-- Left StackPanel-->
-        <StackPanel Grid.Row="2" HorizontalAlignment="Left">
+        <StackPanel Grid.Row="1" HorizontalAlignment="Left" Margin="0,46,0,0" Grid.RowSpan="4" Width="190">
             <Button Name="newExam" Content="Create New Exam" Margin="20" Width="150" Height="30" HorizontalAlignment="Left" BorderThickness="3" Click="newExam_Click" />
             <Button Name="editExam" Content="Edit Exams" Margin="20,50" Width="150" Height="30" HorizontalAlignment="Left" BorderThickness="3" Click="editExam_Click" />
         </StackPanel>
 
         <!-- Right StackPanel-->
-        <StackPanel Grid.Row="2" HorizontalAlignment="right" >
+        <StackPanel Grid.Row="1" HorizontalAlignment="Right" Margin="0,46,0,0" Grid.RowSpan="4" Width="190" >
             <Button Name="addQuestion" Content="Add new Question" Margin="20"  Width="150" Height="30" BorderThickness="3" Click="addQuestion_Click" />
             <Button Name="editQuestion" Content="Edit Questions" Margin="20,50" Width="150" Height="30" BorderThickness="3" Click="editQuestion_Click"   />
         </StackPanel>
 
         <!-- Bottom-->
-        <Button Name="examStatistics" Content="Show Exams Statistics" Margin="10" Height="30"  Width="200" Grid.Row="2" VerticalAlignment="Bottom" BorderThickness="3" Click="examStatistics_Click" />
+        <Button Name="examStatistics" Content="Show Exams Statistics" Width="200" Height="30" Grid.Row="4" VerticalAlignment="Center" BorderThickness="3" Click="examStatistics_Click" />
 
 
         <!-- Contentcontrol section-->

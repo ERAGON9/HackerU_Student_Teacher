@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:Hackeru_Student_Teacher.ClientWPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
     </Application.Resources>
 </Application>
