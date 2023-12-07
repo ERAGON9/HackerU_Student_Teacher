@@ -3,18 +3,23 @@
     public class Exam
     {
         // Properties
+
+        public int ExamId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public List<Question> Questions { get; set; }
         public int Grade { get; set; }
         public int QuestionNumber { get; set; } = 0;
+        public bool IsRandomAnswers { get; set; }
 
 
         //C'tor
-        public Exam(string name, string description)
+        public Exam(int examId, string name, string description, bool isRandomAnswers)
         {
+            ExamId = examId;
             Name = name;
             Description = description;
+            IsRandomAnswers = isRandomAnswers;
         }
 
 

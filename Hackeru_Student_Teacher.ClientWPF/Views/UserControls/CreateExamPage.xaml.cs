@@ -23,13 +23,29 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         public CreateExamPage()
         {
             InitializeComponent();
+
+            // Populate hours ComboBox
+            for (int i = 0; i < 24; i++)
+            {
+                hoursComboBox.Items.Add(i.ToString("D2")); // Format with leading zero
+            }
+
+            // Populate minutes ComboBox
+            for (int i = 0; i < 60; i++)
+            {
+                minutesComboBox.Items.Add(i.ToString("D2"));
+            }
         }
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        private void Create_Click(object sender, RoutedEventArgs e)
         {
+            string examName = txtExamName.Text;
+            int examId = int.Parse(txtExamId.Text);
+            bool isRandomAnswer = Random_Questions_Order.IsChecked == true;
+
+
+
 
         }
-
-
     }
 }

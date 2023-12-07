@@ -29,47 +29,45 @@
 
 
         <StackPanel Grid.ColumnSpan="2">
-            <Label FontWeight="Bold" FontSize="30" Content="Exam Creation"   />
-            <Label FontWeight="Bold" FontSize="25" Content="Teacher: x" />
+            <Label Content="Exam Creation" FontWeight="Bold" FontSize="30"/>
+            <Label Content="Teacher: x" FontWeight="Bold" FontSize="25"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1" HorizontalAlignment="Left" Width="150">
+            
             <!-- left StackPanel-->
-            <Label FontWeight="Bold" FontSize="15" Content="Name Of Exam:"   />
-            <TextBox Name="txtExamName" Grid.Column="0" Width="135" Height="25" HorizontalAlignment="Left" />
+            <Label Content="Name Of Exam:" FontWeight="Bold" FontSize="15"/>
+            <TextBox Name="txtExamName" Grid.Column="0" Width="135" Height="25" HorizontalAlignment="Left"/>
 
-            <Label FontWeight="Bold" FontSize="15" Content="Exam ID:"  />
+            <Label  Content="Exam ID:"   FontWeight="Bold" FontSize="15"/>
             <TextBox Name="txtExamId" Grid.Column="0" Width="135" Height="25" HorizontalAlignment="Left"/>
-
-
-            <Label FontWeight="Bold" FontSize="15" Content="Name of Teacher:" Grid.Column="0"/>
-            <TextBox Name="txtTeacherName" Grid.Column="0"  Width="135" Height="25" HorizontalAlignment="Left"/>
 
         </StackPanel>
 
 
-        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"    >
+        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left">
+            
             <!-- right StackPanel-->
-            <Label FontWeight="Bold" FontSize="15" Content="Exam Date:"  />
+            <Label Content="Exam Date:" FontWeight="Bold" FontSize="15"/>
             <DatePicker Name="ExamDate" Foreground="Gray" Grid.Column="1" Width="150"/>
 
-            <Label FontWeight="Bold" FontSize="15" Content="Time for test:"  Grid.Column="1"/>
+            <Label Content="Time for test:" FontWeight="Bold" FontSize="15" Grid.Column="1"/>
 
             <!-- insert  ACTUAL timer-->
 
 
-
-
         </StackPanel>
+        
+        <!-- Bottom-->
+        <RadioButton Name="Random_Questions_Order" Content="Random Questions Order" FontWeight="Bold" FontSize="15" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Top" Height="20"/>
 
-        <RadioButton FontWeight="Bold" FontSize="15" Content="Random Questions Order" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Top" Checked="RadioButton_Checked" Height="20" />
-
-        <Button Content="Create"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="50" />
-        <Button Content="Cancel" Grid.Row="2"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="70" Height="50"   />
-
+        <Button Name="Create" Content="Create"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="50" Click="Create_Click"/>
+        <Button Name="Cancel" Content="Cancel" Grid.Row="2"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="70" Height="50"   />
+        
+        <!-- Right screen-->
         <ListBox Grid.RowSpan="3" Grid.Column="2" Height="300"/>
-        <Button Content="Add Question"  Grid.Column="2" Grid.Row="1"/>
-        <Button Content="Delete Question"  Grid.Column="2" Grid.Row="1" Height="50" Margin="0,22,0,128" />
+        <Button Name="Add_Question" Content="Add Question"  Grid.Column="2" Grid.Row="1"/>
+        <Button Name="Delete_Question" Content="Delete Question"  Grid.Column="2" Grid.Row="1" Height="50" Margin="0,22,0,128" />
         <Label FontWeight="Bold" FontSize="10" Content="Questions in Exam:"  Grid.Column="2"/>
 
     </Grid>
