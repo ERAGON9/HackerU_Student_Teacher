@@ -1,0 +1,10 @@
+﻿to do next in project:
+
+starting work on API (Azure) 
+
+-in teacher page + create exam will include the Questions manging system (add new question + add question to exam , [need to modife the taecher page +create exam])
+-modife the AddQuestion.xaml to teacher page.
+
+-check if the random order of answers will affect the model Question by dedicate who answer is right (int answer number and not string answer content)
+
+-Consider modifie validation REGEX 

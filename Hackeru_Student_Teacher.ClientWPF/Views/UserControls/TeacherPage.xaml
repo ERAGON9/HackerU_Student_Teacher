@@ -8,8 +8,8 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="AliceBlue">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="401*"/>
-            <ColumnDefinition Width="399*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -40,11 +40,10 @@
         </StackPanel>
 
         <!-- Bottom-->
-        <Button Name="examStatistics" Content="Show Exams Statistics" Width="200" Height="30" Grid.Row="4" VerticalAlignment="Center" BorderThickness="3" Click="examStatistics_Click" />
+        <Button Name="examStatistics" Content="Show Exams Statistics" Height="30" Grid.Row="4" VerticalAlignment="Center" BorderThickness="3" Click="examStatistics_Click" Margin="102,0,102,0" />
 
 
-        <!-- Contentcontrol section-->
-        <!--<ContentControl Name="LogOutContentTeacher" Grid.ColumnSpan="2"  Grid.RowSpan="3" ContextMenuOpening="LogOutContentTeacher_ContextMenuOpening" />-->
+
 
     </Grid>
 </UserControl>

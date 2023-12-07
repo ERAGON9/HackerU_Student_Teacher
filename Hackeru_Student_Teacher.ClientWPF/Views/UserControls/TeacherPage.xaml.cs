@@ -1,4 +1,5 @@
 ﻿using Hackeru_Student_Teacher.ClientWPF.Models;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,10 +57,8 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         {
 
 
-
-            // Need to go back to the MainWindow.
-            // contentControl.Content = new MainWindow();   (not working)
             // need to make seperate login \ register contents and navigate between them to solve (main window will be a window you wont go back to)
+
         }
 
 

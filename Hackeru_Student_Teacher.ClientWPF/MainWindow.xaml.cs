@@ -11,10 +11,14 @@ namespace Hackeru_Student_Teacher.ClientWPF
     public partial class MainWindow : Window
     {
         List<IUser> users = new List<IUser>();
+        //delete later- we add them to Database
 
         public MainWindow()
         {
             InitializeComponent();
+            // Add Hard coded data (delete at the end)
+            users.Add(new Teacher("Lior Teacher", "LiorT@gmail.com", "LiorTeacher"));
+            users.Add(new Student("Lior Student", "LiorS@gmail.com", "LiorStudent"));
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)

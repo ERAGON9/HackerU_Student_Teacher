@@ -10,16 +10,16 @@ namespace Hackeru_Student_Teacher.ClientWPF.Models
     {
         // Properties
         public string Description { get; set; }
-        public int GradeTheQuestionEqual {  get; set; }
+        public int GradeTheQuestionEqual { get; set; }
         public string Answer1 { get; set; }
         public string Answer2 { get; set; }
         public string Answer3 { get; set; }
         public string Answer4 { get; set; }
         public int CorrectAnswer { get; set; }
-        public int ChoosenAnswer {  get; set; }
+        public int ChoosenAnswer { get; set; }
 
         // C'tor
-        public Question(string description, int grade ,string answer1, string answer2, string answer3, string answer4, int correctAnswer)
+        public Question(string description, int grade, string answer1, string answer2, string answer3, string answer4, int correctAnswer)
         {
             Description = description;
             GradeTheQuestionEqual = grade;
@@ -31,9 +31,9 @@ namespace Hackeru_Student_Teacher.ClientWPF.Models
         }
 
         // Functions
-        public void UpdateCoosenAnswer(int choosenNumber)
+        public void UpdateChoosenAnswer(int choosenNumber)
         {
-            CorrectAnswer = choosenNumber;
+            ChoosenAnswer = choosenNumber;
         }
     }
 }
