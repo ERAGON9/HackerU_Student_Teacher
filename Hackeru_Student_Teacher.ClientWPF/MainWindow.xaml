@@ -13,6 +13,7 @@
 
     <Grid Background="AliceBlue">
 
+
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="80*"/>
@@ -22,17 +23,16 @@
         <!-- Header Bar -->
         <UserControls:Header Grid.Row="0"/>
 
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="139*"/>
+                <RowDefinition Height="353*"/>
+            </Grid.RowDefinitions>
+            <Button Content="lets get started" Grid.Row="0" Width="200" Height="50" Click="Button_Click" VerticalAlignment="Bottom"/>
+            <Image Source="Items/Student-edited.jpg" Grid.Row="1" Width="550" Height="400" VerticalAlignment="Bottom" HorizontalAlignment="Right"  ></Image>
+            <Image Source="Items/University.jpg" Grid.Row="1" Width="450" Height="300" VerticalAlignment="Bottom" HorizontalAlignment="Left" ></Image>
 
-        <!--main window Section   - save for later.
-        <Image Source="Items/Student.jpg" Grid.Row="1" ></Image> 
-        <Image Source="Items/Teacher.jpg" Grid.Row="1" ></Image> 
-        <Image Source="Items/University.jpg" Grid.Row="1" ></Image> 
-      
--->
-
-        <Button Content="lets get started" Grid.Row="1" Width="100" Height="100" Click="Button_Click"/>
-
-
+        </Grid>
 
         <!-- Content Window -->
         <Grid Grid.Row="1">

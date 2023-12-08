@@ -27,13 +27,13 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
             // Populate hours ComboBox
             for (int i = 0; i < 24; i++)
             {
-                hoursComboBox.Items.Add(i.ToString("D2")); // Format with leading zero
+                // hoursComboBox.Items.Add(i.ToString("D2")); // Format with leading zero
             }
 
             // Populate minutes ComboBox
             for (int i = 0; i < 60; i++)
             {
-                minutesComboBox.Items.Add(i.ToString("D2"));
+                //minutesComboBox.Items.Add(i.ToString("D2"));
             }
         }
 
@@ -41,13 +41,18 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         {
             string examName = txtExamName.Text;
             int examId = int.Parse(txtExamId.Text);
-            bool isRandomAnswer = Random_Questions_Order.IsChecked == true;
-
+            // bool isRandomAnswer = //Random_Questions_Order.IsChecked == true;
+        }
 
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             contentControl.Content = new TeacherPage();
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
