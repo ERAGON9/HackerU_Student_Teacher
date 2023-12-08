@@ -24,3 +24,8 @@
 -DataBinding (teacher:x , student:x)
 -Create the ExamPage
 
+
+
+Formats:
+-------
+<Label  Name=... Contant=... Grid.Row=... Grid.Column=... Width=... Height=...  Margin=...  {(More style...)}  Onclick=...

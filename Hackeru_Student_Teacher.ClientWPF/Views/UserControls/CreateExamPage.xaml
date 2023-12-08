@@ -29,21 +29,17 @@
 
         <!-- header StackPanel-->
         <StackPanel Grid.ColumnSpan="2">
-            <Label FontWeight="Bold" FontSize="30" Content="Exam Creation"   />
-            <Label FontWeight="Bold" FontSize="25" Content="Teacher: x" />
+            <Label Content="Exam Creation" FontWeight="Bold" FontSize="30"/>
+            <Label Content="Teacher: x" FontWeight="Bold" FontSize="25"/>
         </StackPanel>
 
         <!-- left StackPanel-->
         <StackPanel Grid.Row="1" HorizontalAlignment="Left" Width="150">
-            <Label FontWeight="Bold" FontSize="15" Content="Name Of Exam:"   />
-            <TextBox Name="txtExamName" Grid.Column="0" Width="135" Height="25" HorizontalAlignment="Left" />
+            <Label Content="Name Of Exam:" FontWeight="Bold" FontSize="15"/>
+            <TextBox Name="txtExamName" Grid.Column="0" Width="135" Height="25" HorizontalAlignment="Left"/>
 
-            <Label FontWeight="Bold" FontSize="15" Content="Exam ID:"  />
+            <Label  Content="Exam ID:"   FontWeight="Bold" FontSize="15"/>
             <TextBox Name="txtExamId" Grid.Column="0" Width="135" Height="25" HorizontalAlignment="Left"/>
-
-
-            <Label FontWeight="Bold" FontSize="15" Content="Name of Teacher:" Grid.Column="0"/>
-            <TextBox Name="txtTeacherName" Grid.Column="0"  Width="135" Height="25" HorizontalAlignment="Left"/>
 
         </StackPanel>
 
@@ -60,7 +56,7 @@
             <Label FontWeight="Bold" FontSize="15" Content="Exam Date:"  />
             <DatePicker Name="ExamDate" Foreground="Gray" Grid.Column="1" Width="150"/>
 
-            <Label FontWeight="Bold" FontSize="15" Content="Time for test:"  Grid.Column="1"/>
+            <Label Content="Time for test:" FontWeight="Bold" FontSize="15" Grid.Column="1"/>
 
             <!-- insert  ACTUAL timer-->
 
