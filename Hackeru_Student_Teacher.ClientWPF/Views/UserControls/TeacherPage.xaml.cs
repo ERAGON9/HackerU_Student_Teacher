@@ -30,23 +30,17 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
         private void newExam_Click(object sender, RoutedEventArgs e)
         {
-
+            contentControl.Content = new CreateExamPage();
+            //consider maybe to change it to a new window dialog?
         }
 
-        private void addQuestion_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
 
         private void editExam_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void editQuestion_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void examStatistics_Click(object sender, RoutedEventArgs e)
         {
@@ -55,9 +49,9 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show("Logged out!");
+            contentControl.Content = new LoginRegisterPage();
 
-
-            // need to make seperate login \ register contents and navigate between them to solve (main window will be a window you wont go back to)
 
         }
 

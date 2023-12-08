@@ -16,7 +16,6 @@
             <RowDefinition Height="77*"/>
             <RowDefinition Height="47*" />
             <RowDefinition Height="168*"/>
-            <RowDefinition Height="96*"/>
             <RowDefinition Height="62*"/>
         </Grid.RowDefinitions>
 
@@ -28,21 +27,17 @@
         <ListBox Name ="ExamList" Grid.Row="1" Grid.Column="1" Margin="20,35,20,20" Grid.RowSpan="4" />
 
         <!-- Left StackPanel-->
-        <StackPanel Grid.Row="1" HorizontalAlignment="Left" Margin="0,46,0,0" Grid.RowSpan="4" Width="190">
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" >
             <Button Name="newExam" Content="Create New Exam" Margin="20" Width="150" Height="30" HorizontalAlignment="Left" BorderThickness="3" Click="newExam_Click" />
             <Button Name="editExam" Content="Edit Exams" Margin="20,50" Width="150" Height="30" HorizontalAlignment="Left" BorderThickness="3" Click="editExam_Click" />
         </StackPanel>
 
-        <!-- Right StackPanel-->
-        <StackPanel Grid.Row="1" HorizontalAlignment="Right" Margin="0,46,0,0" Grid.RowSpan="4" Width="190" >
-            <Button Name="addQuestion" Content="Add new Question" Margin="20"  Width="150" Height="30" BorderThickness="3" Click="addQuestion_Click" />
-            <Button Name="editQuestion" Content="Edit Questions" Margin="20,50" Width="150" Height="30" BorderThickness="3" Click="editQuestion_Click"   />
-        </StackPanel>
 
         <!-- Bottom-->
         <Button Name="examStatistics" Content="Show Exams Statistics" Height="30" Grid.Row="4" VerticalAlignment="Center" BorderThickness="3" Click="examStatistics_Click" Margin="102,0,102,0" />
 
-
+        <!-- Contentcontrol section-->
+        <ContentControl Name="contentControl" Grid.ColumnSpan="2"  Grid.RowSpan="4"/>
 
 
     </Grid>

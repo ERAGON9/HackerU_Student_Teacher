@@ -30,6 +30,9 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
         }
 
-
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            contentControl.Content = new TeacherPage();
+        }
     }
 }
