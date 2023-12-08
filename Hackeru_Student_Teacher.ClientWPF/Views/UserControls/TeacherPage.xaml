@@ -18,24 +18,23 @@
             <RowDefinition Height="168*"/>
             <RowDefinition Height="62*"/>
         </Grid.RowDefinitions>
+        
+        <!-- Left window-->
+        <Label Foreground="black" Content="Teacher Page" HorizontalAlignment="Left" FontSize="30" FontWeight="Medium" FontStyle="Italic"/>
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" >
+            <Button Name="newExam" Content="Create New Exam" Margin="20" Width="150" Height="30" HorizontalAlignment="Left" BorderThickness="3" Click="newExam_Click" />
+            <Button Name="editExam" Content="Edit Exams" Margin="20,50" Width="150" Height="30" HorizontalAlignment="Left" BorderThickness="3" Click="editExam_Click" />
+        </StackPanel>
+        <Button Name="examStatistics" Content="Show Exams Statistics" Height="30" Grid.Row="4" VerticalAlignment="Center" BorderThickness="3" Click="examStatistics_Click" Margin="102,0,102,0" />
 
-        <Label Foreground="black" Content="Teacher X" HorizontalAlignment="Left" FontSize="30" FontWeight="Medium" FontStyle="Italic"  Width="143"/>
-        <!-- Need to put at 'UserName' the userName of the Teacher that is login -->
+        <!-- Right window-->
+        <!-- Need to put at 'UserName' the userName of the Teacher that is login.  And put the Label and Button on same row.-->
         <Label Foreground="black" Content="Hello (UserName)" Margin="173,0,0,46" HorizontalAlignment="Left" FontSize="15" FontWeight="bold" FontStyle="Oblique" Grid.Column="1" Grid.RowSpan="2" Width="136"/>
         <Button Name="Logout" Content="Logout" Width="80" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" BorderThickness="3" Grid.Column="1" Margin="0,0,0,47" Click="Logout_Click"/>
         <TextBlock Foreground="black" TextWrapping="Wrap" Text="Search for Exam:"  Grid.Row="1" FontSize="20" Grid.Column="1" FontWeight="Medium"  />
         <ListBox Name ="ExamList" Grid.Row="1" Grid.Column="1" Margin="20,35,20,20" Grid.RowSpan="4" />
 
-        <!-- Left StackPanel-->
-        <StackPanel Grid.Row="2" HorizontalAlignment="Center" >
-            <Button Name="newExam" Content="Create New Exam" Margin="20" Width="150" Height="30" HorizontalAlignment="Left" BorderThickness="3" Click="newExam_Click" />
-            <Button Name="editExam" Content="Edit Exams" Margin="20,50" Width="150" Height="30" HorizontalAlignment="Left" BorderThickness="3" Click="editExam_Click" />
-        </StackPanel>
-
-
-        <!-- Bottom-->
-        <Button Name="examStatistics" Content="Show Exams Statistics" Height="30" Grid.Row="4" VerticalAlignment="Center" BorderThickness="3" Click="examStatistics_Click" Margin="102,0,102,0" />
-
+       
         <!-- Contentcontrol section-->
         <ContentControl Name="contentControl" Grid.ColumnSpan="2"  Grid.RowSpan="4"/>
 

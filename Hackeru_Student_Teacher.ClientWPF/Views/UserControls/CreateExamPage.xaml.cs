@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hackeru_Student_Teacher.ClientWPF.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,33 +27,30 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
             // Populate hours ComboBox
             for (int i = 0; i < 24; i++)
-            {
-                // hoursComboBox.Items.Add(i.ToString("D2")); // Format with leading zero
-            }
+                hoursComboBox.Items.Add(i.ToString("D2")); // Format with leading zero
 
             // Populate minutes ComboBox
             for (int i = 0; i < 60; i++)
-            {
-                //minutesComboBox.Items.Add(i.ToString("D2"));
-            }
+                minutesComboBox.Items.Add(i.ToString("D2")); // Format with leading zero
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)
         {
-            string examName = txtExamName.Text;
+            string Name = txtExamName.Text;
             int examId = int.Parse(txtExamId.Text);
-            // bool isRandomAnswer = //Random_Questions_Order.IsChecked == true;
+            string description = Description.Text;
+            bool isRandomAnswer = Random_Questions_Order.IsChecked == true;
+
+            Exam newExan = new Exam(examId, Name, description, isRandomAnswer);
+            // teacher.AddExam(newExan);
+
+
         }
 
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             contentControl.Content = new TeacherPage();
-        }
-
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

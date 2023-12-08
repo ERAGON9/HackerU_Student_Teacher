@@ -12,7 +12,8 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
     {
 
         List<IUser> users = new List<IUser>();
-        //delete later- we add them to Database
+        //delete later - we add them to Database.
+
         public LoginRegisterPage()
         {
             InitializeComponent();
@@ -83,7 +84,5 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
 
     }
-
-
 }
 

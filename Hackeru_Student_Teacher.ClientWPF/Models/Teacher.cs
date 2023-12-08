@@ -8,7 +8,9 @@
         public string Email { get; set; }
         public string Password { get; set; }
 
+
         // Teacher Properties
+        public List<Exam> Exams { get; set; }
 
 
         //C'tor
@@ -18,7 +20,9 @@
             Email = email;
             Password = password;
             IsTeacher = Enums.UserRole.Teacher;
+            Exams = new List<Exam>();
         }
+
 
         // Functions
         public void SetEmail(string newEmail)
@@ -28,6 +32,10 @@
         public void SetPassword(string newPassword)
         {
             Password = newPassword;
+        }
+        public void AddExam(Exam exam)
+        {
+            Exams.Add(exam);
         }
     }
 }

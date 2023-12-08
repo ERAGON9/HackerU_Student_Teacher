@@ -8,7 +8,6 @@ namespace Hackeru_Student_Teacher.ClientWPF
     public partial class MainWindow : Window
     {
 
-
         public MainWindow()
         {
             InitializeComponent();
@@ -16,13 +15,9 @@ namespace Hackeru_Student_Teacher.ClientWPF
         }
 
 
-
-
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             contentControl.Content = new LoginRegisterPage();
-
         }
     }
 }

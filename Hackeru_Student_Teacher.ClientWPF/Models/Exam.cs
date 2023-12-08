@@ -20,6 +20,7 @@
             Name = name;
             Description = description;
             IsRandomAnswers = isRandomAnswers;
+            Questions = new List<Question>();
         }
 
 
@@ -34,7 +35,6 @@
         {
             int sum = 0;
 
-            //questions.ForEach(question => )
             foreach (Question question in questions)
             {
                 if (question.ChoosenAnswer == question.CorrectAnswer)

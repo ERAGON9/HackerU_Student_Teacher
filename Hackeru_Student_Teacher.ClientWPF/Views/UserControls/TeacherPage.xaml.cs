@@ -51,8 +51,6 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         {
             MessageBox.Show("Logged out!");
             contentControl.Content = new LoginRegisterPage();
-
-
         }
 
 

@@ -8,7 +8,10 @@
         public string Email { get; set; }
         public string Password { get; set; }
 
+
         // Student Properties
+        public List<Exam> Exams { get; set; }
+        public double AvgGrade {  get; set; }
 
 
         //C'tor
@@ -18,7 +21,9 @@
             Email = email;
             Password = password;
             IsTeacher = Enums.UserRole.Student;
+            Exams = new List<Exam>();
         }
+
 
         // Functions
         public void SetEmail(string newEmail)

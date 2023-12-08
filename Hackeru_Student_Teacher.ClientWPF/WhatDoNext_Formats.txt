@@ -1,31 +1,38 @@
 ﻿to do next in project:
+----------------------
 
 @@@-done
  
--starting work on API (Azure) 
+ Lior to do:
+ ------------
+ - backend fuctionality.
 
--in teacher page + create exam will include the Questions manging system (add new question + add question to exam , [need to modife the taecher page +create exam])
--modife the AddQuestion.xaml to teacher page. @@@
+- working on API + database + Azure. 
 
--Seperate mainWindow login+register contents. @@@
-
--check if the random order of answers will affect the model Question by dedicate who answer is right (int answer number and not string answer content)
-
+- check if the random order of answers will affect the model Question by dedicate who answer is right(int answer number and not string answer content)
 
 
 
 
-08/12/23- oz to do
--add pictures to main window (edit them first)
--toggle switch with mah.apps
--STYLE!!!
--insert timer to create exam (gonna need Roi help ) , add the DateTime to exam prop
--Consider modifie validation REGEX 
--DataBinding (teacher:x , student:x)
--Create the ExamPage
+- in teacher page + create exam will include the Questions manging system (add new question + add question to exam , [need to modife the taecher page + create exam])
+
+- modife the AddQuestion.xaml to teacher page. @@@
+
+- Seperate mainWindow login+register contents. @@@
 
 
 
-Formats:
+
+08/12/23 - Oz to do:
+--------------------
+- add pictures to main window (edit them first)
+- toggle switch with mah.apps
+- STYLE!!!
+- insert timer to create exam (gonna need Roi help ) , add the DateTime to exam prop 
+- DataBinding (teacher:x , student:x)
+- Create the ExamPage
+
+
+Formats for xaml tags:
 -------
 <Label  Name=... Contant=... Grid.Row=... Grid.Column=... Width=... Height=...  Margin=...  {(More style...)}  Onclick=...
