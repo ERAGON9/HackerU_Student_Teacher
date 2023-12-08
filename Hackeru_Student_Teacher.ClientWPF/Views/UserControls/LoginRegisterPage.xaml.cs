@@ -16,6 +16,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         public LoginRegisterPage()
         {
             InitializeComponent();
+
             // Add Hard coded data (delete at the end)
             users.Add(new Teacher("Lior Teacher", "LiorT@gmail.com", "LiorTeacher"));
             users.Add(new Student("Lior Student", "LiorS@gmail.com", "LiorStudent"));
@@ -30,67 +31,21 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
             string password = tbPasswordRegister.Password;
             Enums.UserRole role = Enums.UserRole.Student; // Default value
 
-            if (comboBoxRegister.SelectedItem != null)
+            bool dataValid = ValidationChecks.IsRegisterValid(users, username, email, password, comboBoxRegister.SelectedItem);
+
+            if (dataValid)
             {
                 ComboBoxItem selectedComboBoxItem = (ComboBoxItem)comboBoxRegister.SelectedItem;
-
-                if (selectedComboBoxItem.Content != null && selectedComboBoxItem.Content.ToString() == "Teacher")
+                if (selectedComboBoxItem.Content.ToString() == "Teacher")
                     role = Enums.UserRole.Teacher;
+
+                IUser newUser = role == Enums.UserRole.Student ? new Student(username, email, password) : new Teacher(username, email, password);
+                
+                // New user added
+                users.Add(newUser);
+                MessageBox.Show($"{selectedComboBoxItem.Content.ToString()} registered! \n UserName: {newUser.UserName} \n Email: {newUser.Email}");
             }
-            else
-                MessageBox.Show("Invalid fields format. Please fill you status (teacher/student) to register.");
 
-
-            // Empty fields validation
-            bool isEmptyFields = ValidationChecks.IsFieldsAreEmpty(username, email, password);
-
-            // Mail validation
-            bool mailCheck = ValidationChecks.EmailChecksAtAndDot(email);
-
-            // Password validation
-            bool passwordCheck = ValidationChecks.LegalPassword(password);
-            //bool passwordCheck = true;
-
-            if (!isEmptyFields)
-            {
-                if (mailCheck)
-                {
-                    if (passwordCheck)
-                    {
-                        bool userExists = ValidationChecks.ValidateIfUserAlreadyExist(users, email);
-
-                        if (!userExists)
-                        {
-                            IUser newUser = role == Enums.UserRole.Student
-                                ? new Student(username, email, password)
-                                : new Teacher(username, email, password);
-
-                            // New user added
-                            users.Add(newUser);
-
-                            MessageBox.Show($"User registered!" +
-                                            $"\n UserName: {newUser.UserName}" +
-                                            $"\n Email: {newUser.Email}");
-                        }
-                        else
-                        {
-                            MessageBox.Show("User with this email already exists. Please use a different email.");
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid password format. Please enter a valid password that incluse: more than 8 characters, a digit, an upper case letter and a symbol(special character).");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Invalid email format. Please enter a valid email address.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Invalid fields format. Please fill all the fields to register.");
-            }
         }
 
 
@@ -100,40 +55,20 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
             string email = tbEmailLogin.Text;
             string password = tbPasswordLogin.Password;
 
-            // Mail validation
-            bool mailCheck = ValidationChecks.EmailChecksAtAndDot(email);
+            bool dataValid = ValidationChecks.IsLoginValid(users, email, password);
 
-            if (mailCheck)
+            if (dataValid)
             {
                 IUser existsUser = users.FirstOrDefault(user => user.Email == email && user.Password == password);
 
-                if (existsUser == null)
-                {
-                    // User not found
-                    MessageBox.Show("User not found, please check your mailaddress and password or register.");
-                }
+                MessageBox.Show("User found, you redirect to your workplace.");
+
+                if (existsUser.IsTeacher == Enums.UserRole.Teacher) // Check user role
+                    contentControl.Content = new TeacherPage(); // Navigate to TeacherPage.xaml
                 else
-                {
-                    // User found
-                    MessageBox.Show("User found, you redirect to your workplace.");
-                    // Check user role
-                    if (existsUser.IsTeacher == Enums.UserRole.Teacher)
-                    {
-                        // Navigate to TeacherPage.xaml
-                        contentControl.Content = new TeacherPage();
-                    }
-                    else
-                    {
-                        // Navigate to StudentPage.xaml
-                        contentControl.Content = new StudentPage();
-                    }
-                }
+                    contentControl.Content = new StudentPage(); // Navigate to StudentPage.xaml
             }
-            else
-            {
-                // Invalid email format
-                MessageBox.Show("Invalid email format, please try again.");
-            }
+
         }
 
         private void ShowPasswordLogin_Click(object sender, RoutedEventArgs e)
