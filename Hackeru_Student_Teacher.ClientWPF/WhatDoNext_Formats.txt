@@ -25,12 +25,23 @@
 
 08/12/23 - Oz to do:
 --------------------
-- add pictures to main window (edit them first)
+- add pictures to main window (edit them first) @@ 
 - toggle switch with mah.apps
-- STYLE!!!
-- insert timer to create exam (gonna need Roi help ) , add the DateTime to exam prop 
-- DataBinding (teacher:x , student:x)
+- STYLE!!!				 (WIP)
 - Create the ExamPage
+
+
+12/12/23 - Oz To do:
+------------------
+- seperate login from register (login main ----> register by link [content])
+
+
+
+
+
+
+
+
 
 
 Formats for xaml tags:
