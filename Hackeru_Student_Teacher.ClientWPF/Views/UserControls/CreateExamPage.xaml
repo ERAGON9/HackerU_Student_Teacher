@@ -31,7 +31,7 @@
         <!-- header StackPanel-->
         <StackPanel Grid.ColumnSpan="3">
             <Label Content="Exam Creation" FontWeight="Bold" FontSize="30"/>
-            <!-- <Label Content="Teacher: x" FontWeight="Bold" FontSize="25"/>    //Not necessary in my opinion, you agree? -->
+
         </StackPanel>
 
         
@@ -44,9 +44,9 @@
             <Label  Content="Description:" FontWeight="Bold" FontSize="15"/>
             <TextBox Name="Description" Grid.Column="0" Width="135" Height="50" HorizontalAlignment="Left"/>
         </StackPanel>
-        <RadioButton Name="Random_Questions_Order" Content="Random Questions Order" FontWeight="Bold" FontSize="15" Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Top" Height="19"/>
+        <RadioButton Name="Random_Questions_Order" Content="Random Questions Order" FontWeight="Bold" FontSize="15" Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Top" Height="19" Background="Transparent"/>
 
-        
+
         <!-- Center StackPanel-->
         <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Grid.ColumnSpan="2" Width="150">
             <Label FontWeight="Bold" FontSize="15" Content="Exam Date:"  />
@@ -75,6 +75,7 @@
 
 
         <!-- Bottom window-->
+
         <Button Content="Create" Name="btnCreate" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="50" Grid.ColumnSpan="2"  />
         <Button Content="Cancel" Name="btnCancel" Grid.Row="2"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="70" Height="50" Click="btnCancel_Click"   />
 
