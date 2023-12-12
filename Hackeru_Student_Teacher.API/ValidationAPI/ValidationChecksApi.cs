@@ -48,9 +48,9 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
         /// <param name="newUser"></param>
         /// <returns>'true' is the mail not used before,
         /// or specific error message and 'false'</returns>
-        public static bool ValidateIfUserAlreadyExist(List<IUser> users, string mailGotten)
+        public static bool ValidateIfUserAlreadyExist(List<User> users, string mailGotten)
         {
-            foreach (IUser user in users)
+            foreach (User user in users)
             {
                 if (user.Email == mailGotten)
                 {
@@ -192,18 +192,18 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
         /// 
         /// </summary>
         /// <returns></returns>
-        public static bool IsLoginValid(List<IUser> users, UserLogin userLogin)
+        public static bool IsLoginValid(List<User> users, LoginUser userLogin)
         {
-            // User mail address registered
+            // Mail address gotten is belong to registered user.
             bool isUserExists = ValidateIfUserAlreadyExist(users, userLogin.Email);
             if (!isUserExists)
             {
                 return false; //NotFound("User with this mail not exists. Please use a different email."); // ?
             }
 
-            // User password correct
-            IUser existsUser = users.FirstOrDefault(user => user.Password == userLogin.Password);
-            if (existsUser == null)
+            // Password gotten is equal to the password belong to the user with the mail above. 
+            User existsUser = users.FirstOrDefault(user => user.Email == userLogin.Email);
+            if (existsUser.Password != userLogin.Password)
             {
                 return false; // NotFound("Incorrect password, Please try again.")  // ?
             }

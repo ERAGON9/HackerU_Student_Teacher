@@ -11,7 +11,7 @@ namespace Hackeru_Student_Teacher.API.Controllers
     [ApiController]
     public class StudentTeacherController : ControllerBase
     {
-        List<IUser> users = new List<IUser>();
+        List<User> users = new List<User>();
 
         /*
         // GET: api/<StudentTeacherController>
@@ -43,13 +43,14 @@ namespace Hackeru_Student_Teacher.API.Controllers
 		/// <param name="userLogin"></param>
 		/// <returns></returns>
 		[HttpPost("login")]
-        public ActionResult<IUser> Login([FromBody] UserLogin userLogin)
+        public ActionResult<User> Login([FromBody] LoginUser userLogin)
         {
-            bool UserFound = true; //ValidationChecksApi.IsLoginValid(users, userLogin);
+            bool UserFound = true; //ValidationChecksApi.IsLoginValid(users, userLogin);  // Your validation logic here.
             if (UserFound)
             {
                 //IUser existsUser = users.FirstOrDefault(user => user.Email == userLogin.Email && user.Password == userLogin.Password);
-                IUser existsUser = new Teacher("Lior Teacher", "LiorT@gmail.com", "LiorTeacher");
+                User existsUser = new Teacher("Lior Teacher", "LiorT@gmail.com", "LiorTeacher");
+                //User existsUser = new Student("Lior Student", "LiorS@gmail.com", "LiorStudent"));
                 return Ok(existsUser);
             }
             else
@@ -57,7 +58,6 @@ namespace Hackeru_Student_Teacher.API.Controllers
                 return NotFound("User Not Found");
         }
 
-        
 
         /*
         // PUT api/<StudentTeacherController>/5

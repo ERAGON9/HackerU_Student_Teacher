@@ -30,7 +30,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.ApiRequestorWPF
         /// </summary>
         /// <param name="credentials"></param>
         /// <returns></returns>
-        public async Task<IUser> LoginRequestAsync(UserLogin userLogin)
+        public async Task<DeserializerUser> LoginRequestAsync(UserLogin userLogin)
         {
             try
             {
@@ -44,16 +44,17 @@ namespace Hackeru_Student_Teacher.ClientWPF.ApiRequestorWPF
                 response.EnsureSuccessStatusCode(); // Check the status code that returned is 200 types.
 
                 //3.3 Get Json Data From Server Result
-                IUser userResponse = await response.Content.ReadFromJsonAsync<IUser>();
+                DeserializerUser userResponse = await response.Content.ReadFromJsonAsync<DeserializerUser>();
 
                 return userResponse;
             }
             catch (Exception ex)
             {
+                // Handle exception
                 return null;
             }
-
         }
+
 
     }
 }

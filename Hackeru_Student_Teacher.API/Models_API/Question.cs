@@ -15,8 +15,8 @@ namespace Hackeru_Student_Teacher.API.Models_API
         public string Answer2 { get; set; }
         public string Answer3 { get; set; }
         public string Answer4 { get; set; }
-        public int CorrectAnswer { get; set; }
-        public int ChoosenAnswer { get; set; }
+        public int CorrectAnswer { get; set; } = 0; // Defult value before initialize;
+        public int ChoosenAnswer { get; set; } = 0; // Defult value before initialize;
 
         // C'tor
         public Question(string description, int grade, string answer1, string answer2, string answer3, string answer4, int correctAnswer)

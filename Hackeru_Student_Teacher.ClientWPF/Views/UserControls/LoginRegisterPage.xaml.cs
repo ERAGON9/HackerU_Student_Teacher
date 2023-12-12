@@ -14,7 +14,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
     {
         ApiRequestor apiRequestor;
 
-        List<IUser> users = new List<IUser>();
+        List<User> users = new List<User>();
         //delete later - we add them to Database.
 
         public LoginRegisterPage()
@@ -45,7 +45,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
                 if (selectedComboBoxItem.Content.ToString() == "Teacher")
                     role = Enums.UserRole.Teacher;
 
-                IUser newUser = role == Enums.UserRole.Student ? new Student(username, email, password) : new Teacher(username, email, password);
+                User newUser = role == Enums.UserRole.Student ? new Student(username, email, password) : new Teacher(username, email, password);
                 
                 // New user added
                 users.Add(newUser);
@@ -69,19 +69,16 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
                 UserLogin userLogin = new UserLogin(email, password);
 
                 //2.3 Run Async RequestLoginAsync and Get
-                IUser userReturned = await apiRequestor.LoginRequestAsync(userLogin);
+                DeserializerUser returnedUser = await apiRequestor.LoginRequestAsync(userLogin);
 
-                if (userReturned != null)
+                if (returnedUser != null)
                 {
-
-                    //IUser existsUser = users.FirstOrDefault(user => user.Email == email && user.Password == password);
-
                     MessageBox.Show("User found, you redirect to your workplace.");
 
-                    if (userReturned.IsTeacher == Enums.UserRole.Teacher) // Check user role
-                        contentControl.Content = new TeacherPage(); // Navigate to TeacherPage.xaml
+                    if (returnedUser.IsTeacher == Enums.UserRole.Teacher)
+                        contentControl.Content = new TeacherPage();
                     else
-                        contentControl.Content = new StudentPage(); // Navigate to StudentPage.xaml
+                        contentControl.Content = new StudentPage();
                 }
                 else
                 {

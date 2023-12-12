@@ -1,38 +1,19 @@
 ﻿namespace Hackeru_Student_Teacher.API.Models_API
 {
-    public class Teacher : IUser
+    public class Teacher : User
     {
-        // IUser Properties
-        public string UserName { get; }
-        public Enums.UserRole IsTeacher { get; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-
+        // User Properties: {UserName, IsTeacher, Email, Password, Exams} already included from Base class 'User'
 
         // Teacher Properties
-        public List<Exam> Exams { get; set; }
 
 
         //C'tor
-        public Teacher(string userName, string email, string password)
-        {
-            UserName = userName;
-            Email = email;
-            Password = password;
-            IsTeacher = Enums.UserRole.Teacher;
-            Exams = new List<Exam>();
-        }
+        public Teacher(string userName, string email, string password) : base(userName, email, password, Enums.UserRole.Teacher)
+        {}
 
 
         // Functions
-        public void SetEmail(string newEmail)
-        {
-            Email = newEmail;
-        }
-        public void SetPassword(string newPassword)
-        {
-            Password = newPassword;
-        }
+        // From Base class 'User' {SetEmail(), SetPassword()}
         public void AddExam(Exam exam)
         {
             Exams.Add(exam);

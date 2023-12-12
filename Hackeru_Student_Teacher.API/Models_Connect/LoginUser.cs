@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Hackeru_Student_Teacher.API.Models_Connect
 {
-    public class UserLogin
+    public class LoginUser
     {
         public string Email {  get; set; }
         public string Password { get; set; }
 
-        public UserLogin(string email, string password)
+        public LoginUser(string email, string password)
         {
             Email = email;
             Password = password;

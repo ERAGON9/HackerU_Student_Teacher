@@ -45,9 +45,9 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
         /// <param name="newUser"></param>
         /// <returns>'true' is the mail not used before,
         /// or specific error message and 'false'</returns>
-        public static bool ValidateIfUserAlreadyExist(List<IUser> users, string mailGotten)
+        public static bool ValidateIfUserAlreadyExist(List<User> users, string mailGotten)
         {
-            foreach (IUser user in users)
+            foreach (User user in users)
             {
                 if (user.Email == mailGotten)
                 {
@@ -144,7 +144,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
         /// <param name="email"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public static bool IsRegisterValid(List<IUser> users, string username, string email, string password, object comboBoxRegister)
+        public static bool IsRegisterValid(List<User> users, string username, string email, string password, object comboBoxRegister)
         {
             // Empty fields validation
             bool isEmptyFields = IsRegisterFieldsAreEmpty(username, email, password, comboBoxRegister);
