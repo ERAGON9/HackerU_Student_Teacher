@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hackeru_Student_Teacher.ClientWPF.Models
+namespace Hackeru_Student_Teacher.ClientWPF.Models_WPF
 {
     public class Question
     {

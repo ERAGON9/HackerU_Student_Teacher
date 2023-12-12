@@ -1,4 +1,4 @@
-﻿using Hackeru_Student_Teacher.ClientWPF.Models;
+﻿using Hackeru_Student_Teacher.ClientWPF.Models_WPF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +27,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
             // Populate hours ComboBox
             for (int i = 0; i < 24; i++)
-                hoursComboBox.Items.Add(i.ToString("D2")); // Format with leading zero
+                hoursComboBox.Items.Add(i.ToString());
 
             // Populate minutes ComboBox
             for (int i = 0; i < 60; i++)
@@ -40,8 +40,9 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
             int examId = int.Parse(txtExamId.Text);
             string description = Description.Text;
             bool isRandomAnswer = Random_Questions_Order.IsChecked == true;
+            DatePicker date = ExamDate;
 
-            Exam newExan = new Exam(examId, Name, description, isRandomAnswer);
+            Exam newExan = new Exam(examId, Name, description, isRandomAnswer, date, int.Parse(hoursComboBox.Text), int.Parse(minutesComboBox.Text));
             // teacher.AddExam(newExan);
 
 

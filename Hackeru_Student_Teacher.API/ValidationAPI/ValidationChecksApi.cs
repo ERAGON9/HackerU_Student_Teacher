@@ -1,10 +1,12 @@
-﻿using Hackeru_Student_Teacher.ClientWPF.Models;
+﻿using Hackeru_Student_Teacher.API.Models_API;
+using Hackeru_Student_Teacher.API.Models_Connect;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace Hackeru_Student_Teacher.ClientWPF.Progarm
 {
-    public class ValidationChecks
+    public class ValidationChecksApi
     {
         // Example of legal mail addresses:
         //liorbarak99@gmail.com
@@ -136,7 +138,8 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
             return false;
         }
 
-
+        /*
+         * 
         /// <summary>
         /// 
         /// </summary>
@@ -183,43 +186,26 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
             return true;        
         }
 
+        */
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public static bool IsLoginValid(List<IUser> users, string email, string password)
+        public static bool IsLoginValid(List<IUser> users, UserLogin userLogin)
         {
-            // Empty fields validation
-            bool isEmptyFields = IsLoginFieldsAreEmpty(email, password);
-            if (isEmptyFields)
-            {
-                MessageBox.Show("Invalid fields format. Please fill all the fields to login.");
-                return false;
-            }
-
-            // Mail validation
-            bool IsmailValid = EmailChecksAtAndDot(email);
-            if (!IsmailValid)
-            {
-                MessageBox.Show("Invalid email format, please try again.");
-                return false;
-            }
-
             // User mail address registered
-            bool isUserExists = ValidateIfUserAlreadyExist(users, email);
+            bool isUserExists = ValidateIfUserAlreadyExist(users, userLogin.Email);
             if (!isUserExists)
             {
-                MessageBox.Show("User with this mail not exists. Please use a different email.");
-                return false;
+                return false; //NotFound("User with this mail not exists. Please use a different email."); // ?
             }
 
             // User password correct
-            IUser existsUser = users.FirstOrDefault(user => user.Password == password);
+            IUser existsUser = users.FirstOrDefault(user => user.Password == userLogin.Password);
             if (existsUser == null)
             {
-                MessageBox.Show("Incorrect password, Please try again.");
-                return false;
+                return false; // NotFound("Incorrect password, Please try again.")  // ?
             }
 
             return true;

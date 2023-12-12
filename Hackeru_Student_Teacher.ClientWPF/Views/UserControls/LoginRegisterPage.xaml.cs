@@ -1,7 +1,9 @@
-﻿using Hackeru_Student_Teacher.ClientWPF.Models;
+﻿using Hackeru_Student_Teacher.ClientWPF.Models_WPF;
+using Hackeru_Student_Teacher.ClientWPF.ApiRequestorWPF;
 using Hackeru_Student_Teacher.ClientWPF.Progarm;
 using System.Windows;
 using System.Windows.Controls;
+using Hackeru_Student_Teacher.ClientWPF.Models_Connect;
 
 namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 {
@@ -10,6 +12,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
     /// </summary>
     public partial class LoginRegisterPage : UserControl
     {
+        ApiRequestor apiRequestor;
 
         List<IUser> users = new List<IUser>();
         //delete later - we add them to Database.
@@ -17,6 +20,8 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         public LoginRegisterPage()
         {
             InitializeComponent();
+
+            apiRequestor = new ApiRequestor();
 
             // Add Hard coded data (delete at the end)
             users.Add(new Teacher("Lior Teacher", "LiorT@gmail.com", "LiorTeacher"));
@@ -32,7 +37,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
             string password = tbPasswordRegister.Password;
             Enums.UserRole role = Enums.UserRole.Student; // Default value
 
-            bool dataValid = ValidationChecks.IsRegisterValid(users, username, email, password, comboBoxRegister.SelectedItem);
+            bool dataValid = ValidationChecksWpf.IsRegisterValid(users, username, email, password, comboBoxRegister.SelectedItem);
 
             if (dataValid)
             {
@@ -50,26 +55,40 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         }
 
 
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             // Get data from UI
             string email = tbEmailLogin.Text;
             string password = tbPasswordLogin.Password;
 
-            bool dataValid = ValidationChecks.IsLoginValid(users, email, password);
+            bool dataValid = ValidationChecksWpf.IsLoginValid(email, password);
 
             if (dataValid)
             {
-                IUser existsUser = users.FirstOrDefault(user => user.Email == email && user.Password == password);
+                //2.2) Create Object of UserLogin 
+                UserLogin userLogin = new UserLogin(email, password);
 
-                MessageBox.Show("User found, you redirect to your workplace.");
+                //2.3 Run Async RequestLoginAsync and Get
+                IUser userReturned = await apiRequestor.LoginRequestAsync(userLogin);
 
-                if (existsUser.IsTeacher == Enums.UserRole.Teacher) // Check user role
-                    contentControl.Content = new TeacherPage(); // Navigate to TeacherPage.xaml
+                if (userReturned != null)
+                {
+
+                    //IUser existsUser = users.FirstOrDefault(user => user.Email == email && user.Password == password);
+
+                    MessageBox.Show("User found, you redirect to your workplace.");
+
+                    if (userReturned.IsTeacher == Enums.UserRole.Teacher) // Check user role
+                        contentControl.Content = new TeacherPage(); // Navigate to TeacherPage.xaml
+                    else
+                        contentControl.Content = new StudentPage(); // Navigate to StudentPage.xaml
+                }
                 else
-                    contentControl.Content = new StudentPage(); // Navigate to StudentPage.xaml
-            }
+                {
+                    MessageBox.Show("User with this mail and password not exists, please check the mail and the password and try again.");
+                }
 
+            }
         }
 
         private void ShowPasswordLogin_Click(object sender, RoutedEventArgs e)

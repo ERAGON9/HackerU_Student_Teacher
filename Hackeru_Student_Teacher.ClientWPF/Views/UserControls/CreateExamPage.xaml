@@ -34,6 +34,7 @@
             <!-- <Label Content="Teacher: x" FontWeight="Bold" FontSize="25"/>    //Not necessary in my opinion, you agree? -->
         </StackPanel>
 
+        
         <!-- left StackPanel-->
         <StackPanel Grid.Row="1" HorizontalAlignment="Left" Width="150">
             <Label Content="Name Of Exam:" FontWeight="Bold" FontSize="15"/>
@@ -42,10 +43,10 @@
             <TextBox Name="txtExamId" Grid.Column="0" Width="135" Height="25" HorizontalAlignment="Left"/>
             <Label  Content="Description:" FontWeight="Bold" FontSize="15"/>
             <TextBox Name="Description" Grid.Column="0" Width="135" Height="50" HorizontalAlignment="Left"/>
-
         </StackPanel>
+        <RadioButton Name="Random_Questions_Order" Content="Random Questions Order" FontWeight="Bold" FontSize="15" Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Top" Height="19"/>
 
-
+        
         <!-- Center StackPanel-->
         <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Grid.ColumnSpan="2" Width="150">
             <Label FontWeight="Bold" FontSize="15" Content="Exam Date:"  />
@@ -53,13 +54,14 @@
 
             <Label Content="Time for the test:" FontWeight="Bold" FontSize="15" Grid.Column="1"/>
 
-            <Label Content=":" FontWeight="Bold" HorizontalAlignment="Center"/>
-
+            <Label Content=":" FontWeight="Bold" HorizontalAlignment="Center" FontSize="15"/>
         </StackPanel>
-        <ComboBox Name="hoursComboBox" Width="65" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Height="22" >
+        
+        <Label Content="Hours:" FontWeight="Bold" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="6,114,0,0"/>
+        <ComboBox Name="hoursComboBox" Text="Hours" Width="65" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Height="22" >
             <!-- Add hour items (0 to 23) -->
         </ComboBox>
-
+        <Label Content="Minutes:" FontWeight="Bold" HorizontalAlignment="Left" Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" Margin="3,116,0,0"/>
         <ComboBox Name="minutesComboBox" Width="65" HorizontalAlignment="Left" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" Height="22">
             <!-- Add minute items (0 to 59) -->
         </ComboBox>
@@ -73,7 +75,6 @@
 
 
         <!-- Bottom window-->
-        <RadioButton Name="Random_Questions_Order" Content="Random Questions Order" FontWeight="Bold" FontSize="15" Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Top" Height="19"/>
         <Button Content="Create" Name="btnCreate" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="50" Grid.ColumnSpan="2"  />
         <Button Content="Cancel" Name="btnCancel" Grid.Row="2"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="70" Height="50" Click="btnCancel_Click"   />
 

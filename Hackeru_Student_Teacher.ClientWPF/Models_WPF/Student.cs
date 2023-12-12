@@ -1,4 +1,6 @@
-﻿namespace Hackeru_Student_Teacher.ClientWPF.Models
+﻿using System.Data.SqlTypes;
+
+namespace Hackeru_Student_Teacher.ClientWPF.Models_WPF
 {
     public class Student : IUser
     {

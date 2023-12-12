@@ -1,4 +1,4 @@
-﻿namespace Hackeru_Student_Teacher.ClientWPF.Models
+﻿namespace Hackeru_Student_Teacher.API.Models_API
 {
     public class Teacher : IUser
     {
