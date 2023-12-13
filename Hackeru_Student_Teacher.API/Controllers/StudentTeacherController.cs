@@ -11,40 +11,27 @@ namespace Hackeru_Student_Teacher.API.Controllers
     [ApiController]
     public class StudentTeacherController : ControllerBase
     {
-        List<User> users = new List<User>();
-
-        /*
-        // GET: api/<StudentTeacherController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<StudentTeacherController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-        */
+        // It's create new list every time we enter the class, so data not really saved!
+        List<User> users = new List<User>(); 
 
 
         /// <summary>
         /// 1) Register API That Gets newUser and return OK if the user Added to dataBase or BadRequest if not.
-        /// /api/StudentTeacher/Register
+        /// /api/StudentTeacher/register
         /// </summary>
         /// <param name="newUser"></param>
         /// <returns></returns>
-        [HttpPost("request")]
+        [HttpPost("register")]
         public ActionResult Register([FromBody] DeserializerUser newUser)
         {
             bool dataValid = ValidationChecksApi.IsRegisterValid(users, newUser);
 
             if (dataValid)
             {
-                if(newUser.IsTeacher == Enums.UserRole.Teacher)
+                if (newUser.IsTeacher == Enums.UserRole.Teacher)
                     users.Add(new Teacher(newUser));
+                else
+                    users.Add(new Student(newUser));
 
                 return Ok();
             }
@@ -65,7 +52,7 @@ namespace Hackeru_Student_Teacher.API.Controllers
             bool UserFound = true; //ValidationChecksApi.IsLoginValid(users, userLogin);  // Your validation logic here.
             if (UserFound)
             {
-                //IUser existsUser = users.FirstOrDefault(user => user.Email == userLogin.Email && user.Password == userLogin.Password);
+                //User existsUser = users.FirstOrDefault(user => user.Email == userLogin.Email && user.Password == userLogin.Password);
 
                 User existsUser = new Teacher("Lior Teacher", "LiorT@gmail.com", "LiorTeacher");
                 //User existsUser = new Student("Lior Student", "LiorS@gmail.com", "LiorStudent"));

@@ -28,13 +28,11 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
     {
         ApiRequestor apiRequestor;
 
-
         public LoginPage()
         {
             InitializeComponent();
+
             apiRequestor = new ApiRequestor();
-
-
         }
 
 
