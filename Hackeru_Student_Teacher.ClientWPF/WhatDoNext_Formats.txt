@@ -28,7 +28,7 @@
 - add pictures to main window (edit them first) @@ 
 - toggle switch with mah.apps
 - STYLE!!!				 (WIP)
-- Create the ExamPage
+- Create the ExamPage (need items to display - will make after geting exams from data base)
 
 
 12/12/23 - Oz To do:

@@ -18,7 +18,7 @@ namespace Hackeru_Student_Teacher.ClientWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            contentControl.Content = new LoginRegisterPage();
+            contentControl.Content = new LoginPage();
         }
     }
 }
