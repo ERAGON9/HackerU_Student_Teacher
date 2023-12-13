@@ -72,5 +72,10 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         {
             MessageBox.Show($"Entered Password: {tbPasswordLogin.Password}");
         }
+
+        private void GotoRgister_Click(object sender, RoutedEventArgs e)
+        {
+            contentControl.Content = new RegisterPage();
+        }
     }
 }

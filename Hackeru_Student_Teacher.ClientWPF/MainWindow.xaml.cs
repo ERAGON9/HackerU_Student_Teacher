@@ -16,9 +16,10 @@ namespace Hackeru_Student_Teacher.ClientWPF
         }
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btn_Start(object sender, RoutedEventArgs e)
         {
             contentControl.Content = new LoginPage();
+
         }
     }
 }

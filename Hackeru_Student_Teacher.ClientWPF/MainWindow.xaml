@@ -36,7 +36,7 @@
                 <RowDefinition Height="139*"/>
                 <RowDefinition Height="353*"/>
             </Grid.RowDefinitions>
-            <Button Content="lets get started" Grid.Row="0" Width="200" Height="50" Click="Button_Click" VerticalAlignment="Bottom"/>
+            <Button Content="lets get started" Grid.Row="0" Width="200" Height="50" Click="btn_Start" VerticalAlignment="Bottom" />
             <Image Source="\Items\Student-edited.jpg" Grid.Row="1" Width="550" Height="400" VerticalAlignment="Bottom" HorizontalAlignment="Right"  ></Image>
             <Image Source="\Items\University.jpg" Grid.Row="1" Width="450" Height="300" VerticalAlignment="Bottom" HorizontalAlignment="Left" ></Image>
 

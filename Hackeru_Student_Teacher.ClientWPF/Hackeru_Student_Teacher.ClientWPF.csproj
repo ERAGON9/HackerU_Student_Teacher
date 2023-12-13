@@ -12,6 +12,7 @@
     <None Remove="Items\Student-edited.jpg" />
     <None Remove="Items\study.ico" />
     <None Remove="Items\university.jpg" />
+    <None Remove="Items\visible.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +23,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Items\university.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Items\visible.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

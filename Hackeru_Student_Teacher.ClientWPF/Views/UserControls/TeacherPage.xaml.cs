@@ -50,7 +50,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Logged out!");
-            contentControl.Content = new LoginRegisterPage();
+            contentControl.Content = new RegisterPage();
         }
 
 
