@@ -42,8 +42,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.ApiRequestorWPF
                 // Check the status code that returned is 200 types.
                 response.EnsureSuccessStatusCode();
 
-                //3.3 Get Json Data (as DeserializerUser) From Server Response.
-                //DeserializerUser userResponse = await response.Content.ReadFromJsonAsync<DeserializerUser>();
+                //3.3 If we got to here it means The server return 'OK' so the new user added to dataBase.
                 return true;
             }
             catch (Exception ex)

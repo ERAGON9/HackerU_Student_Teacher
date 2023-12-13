@@ -59,7 +59,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
                 bool response = await apiRequestor.RegisterRequestAsync(newUser);
 
                 if (response) // Succes message
-                    MessageBox.Show($"{selectedComboBoxItem.Content.ToString()} registered! \n UserName: {newUser.UserName} \n Email: {newUser.Email}");
+                    MessageBox.Show($"{selectedComboBoxItem.Content.ToString()} registered! \nUserName: {newUser.UserName} \nEmail: {newUser.Email} \nNow you can to login with your user!");
                 else // Eror message
                     MessageBox.Show("User with this email already exists. Please use a different email.");
 
