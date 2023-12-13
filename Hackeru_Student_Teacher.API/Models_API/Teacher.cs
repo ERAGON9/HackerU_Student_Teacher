@@ -1,4 +1,6 @@
-﻿namespace Hackeru_Student_Teacher.API.Models_API
+﻿using Hackeru_Student_Teacher.API.Models_Connect;
+
+namespace Hackeru_Student_Teacher.API.Models_API
 {
     public class Teacher : User
     {
@@ -10,6 +12,8 @@
         //C'tor
         public Teacher(string userName, string email, string password) : base(userName, email, password, Enums.UserRole.Teacher)
         {}
+        public Teacher(DeserializerUser user) : base(user.UserName, user.Email, user.Password, user.IsTeacher)
+        { }
 
 
         // Functions

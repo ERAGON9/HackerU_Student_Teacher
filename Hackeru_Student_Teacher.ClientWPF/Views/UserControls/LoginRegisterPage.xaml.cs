@@ -14,7 +14,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
     {
         ApiRequestor apiRequestor;
 
-        List<User> users = new List<User>();
+        //List<User> users = new List<User>();
         //delete later - we add them to Database.
 
         public LoginRegisterPage()
@@ -24,20 +24,20 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
             apiRequestor = new ApiRequestor();
 
             // Add Hard coded data (delete at the end)
-            users.Add(new Teacher("Lior Teacher", "LiorT@gmail.com", "LiorTeacher"));
-            users.Add(new Student("Lior Student", "LiorS@gmail.com", "LiorStudent"));
+            //users.Add(new Teacher("Lior Teacher", "LiorT@gmail.com", "LiorTeacher"));
+            //users.Add(new Student("Lior Student", "LiorS@gmail.com", "LiorStudent"));
         }
 
 
-        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        private async void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-            // Get data from UI
+            // Get data from UI.
             string username = tbUserNameRegister.Text;
             string email = tbEmailRegister.Text;
             string password = tbPasswordRegister.Password;
             Enums.UserRole role = Enums.UserRole.Student; // Default value
 
-            bool dataValid = ValidationChecksWpf.IsRegisterValid(users, username, email, password, comboBoxRegister.SelectedItem);
+            bool dataValid = ValidationChecksWpf.IsRegisterValid(username, email, password, comboBoxRegister.SelectedItem);
 
             if (dataValid)
             {
@@ -45,11 +45,24 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
                 if (selectedComboBoxItem.Content.ToString() == "Teacher")
                     role = Enums.UserRole.Teacher;
 
-                User newUser = role == Enums.UserRole.Student ? new Student(username, email, password) : new Teacher(username, email, password);
-                
-                // New user added
-                users.Add(newUser);
-                MessageBox.Show($"{selectedComboBoxItem.Content.ToString()} registered! \n UserName: {newUser.UserName} \n Email: {newUser.Email}");
+                //2.2) Create Object of User (Student/Teacher)
+                DeserializerUser newUser;
+                if (role == Enums.UserRole.Student)
+                    newUser = new DeserializerUser(username, email, password, Enums.UserRole.Student);
+                else
+                    newUser = new DeserializerUser(username, email, password, Enums.UserRole.Teacher);
+
+                // New user added.
+                //users.Add(newUser);
+
+                //2.3 Run Async RegisterRequestAsync and Get bool 'true' if the user added to dataBase or 'false' if not.
+                bool response = await apiRequestor.RegisterRequestAsync(newUser);
+
+                if (response) // Succes message
+                    MessageBox.Show($"{selectedComboBoxItem.Content.ToString()} registered! \n UserName: {newUser.UserName} \n Email: {newUser.Email}");
+                else // Eror message
+                    MessageBox.Show("User with this email already exists. Please use a different email.");
+
             }
 
         }
@@ -68,7 +81,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
                 //2.2) Create Object of UserLogin 
                 UserLogin userLogin = new UserLogin(email, password);
 
-                //2.3 Run Async RequestLoginAsync and Get
+                //2.3 Run Async LoginRequestAsync and Get DeserializerUser if the user exists or null if not.
                 DeserializerUser returnedUser = await apiRequestor.LoginRequestAsync(userLogin);
 
                 if (returnedUser != null)
@@ -81,10 +94,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
                         contentControl.Content = new StudentPage();
                 }
                 else
-                {
                     MessageBox.Show("User with this mail and password not exists, please check the mail and the password and try again.");
-                }
-
             }
         }
 

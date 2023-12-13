@@ -27,13 +27,30 @@ namespace Hackeru_Student_Teacher.API.Controllers
         {
             return "value";
         }
-
-        // POST api/<StudentTeacherController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
         */
+
+
+        /// <summary>
+        /// 1) Register API That Gets newUser and return OK if the user Added to dataBase or BadRequest if not.
+        /// /api/StudentTeacher/Register
+        /// </summary>
+        /// <param name="newUser"></param>
+        /// <returns></returns>
+        [HttpPost("request")]
+        public ActionResult Register([FromBody] DeserializerUser newUser)
+        {
+            bool dataValid = ValidationChecksApi.IsRegisterValid(users, newUser);
+
+            if (dataValid)
+            {
+                if(newUser.IsTeacher == Enums.UserRole.Teacher)
+                    users.Add(new Teacher(newUser));
+
+                return Ok();
+            }
+
+            return BadRequest();
+        }
 
 
         /// <summary>
@@ -49,13 +66,15 @@ namespace Hackeru_Student_Teacher.API.Controllers
             if (UserFound)
             {
                 //IUser existsUser = users.FirstOrDefault(user => user.Email == userLogin.Email && user.Password == userLogin.Password);
+
                 User existsUser = new Teacher("Lior Teacher", "LiorT@gmail.com", "LiorTeacher");
                 //User existsUser = new Student("Lior Student", "LiorS@gmail.com", "LiorStudent"));
+
                 return Ok(existsUser);
             }
-            else
-                //404 Error
-                return NotFound("User Not Found");
+
+            //404 Error
+            return NotFound("User Not Found");
         }
 
 

@@ -14,53 +14,6 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
 
 
         /// <summary>
-        /// The function check if an email adress that gotten from the user is a valid mail address,
-        /// by checking it's contain '@' and '.' like all mail address must included!
-        /// </summary>
-        /// <param name="emailToCheck"></param>
-        /// <returns>'true' if the mail is legal,
-        /// or specific error message and 'false'</returns>
-        public static bool EmailChecksAtAndDot(string emailToCheck)
-        {
-            bool validateAt = false;
-            bool validateDot = false;
-
-            foreach (char character in emailToCheck)
-            {
-                if (character == '@')
-                    validateAt = true;
-                if (character == '.')
-                    validateDot = true;
-            }
-            if (!validateAt || !validateDot)
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        /// <summary>
-        /// The function check if a user that already registered before trying to register again,
-        /// with thw same mail adress.
-        /// </summary>
-        /// <param name="users"></param>
-        /// <param name="newUser"></param>
-        /// <returns>'true' is the mail not used before,
-        /// or specific error message and 'false'</returns>
-        public static bool ValidateIfUserAlreadyExist(List<User> users, string mailGotten)
-        {
-            foreach (User user in users)
-            {
-                if (user.Email == mailGotten)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        /// <summary>
         /// The function check when new user filling the register form he leave an empty field
         /// without filling it with necessary data.
         /// </summary>
@@ -81,26 +34,33 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
             if (comboBoxRegister == null)
                 return true;
 
-                    return false;
+            return false;
         }
 
 
         /// <summary>
-        /// The function check when new user filling the login form he leave an empty field
-        /// without filling it with necessary data.
+        /// The function check if an email adress that gotten from the user is a valid mail address,
+        /// by checking it's contain '@' and '.' like all mail address must included!
         /// </summary>
-        /// <param name="email"></param>
-        /// <param name="password"></param>
-        /// <returns>'true' if there is empty field after clicking 'login'
-        /// or 'false' if all the fields include data.</returns>
-        public static bool IsLoginFieldsAreEmpty(string email, string password)
+        /// <param name="emailToCheck"></param>
+        /// <returns>'true' if the mail is legal,
+        /// or specific error message and 'false'</returns>
+        public static bool EmailChecksAtAndDot(string emailToCheck)
         {
-            if (string.IsNullOrEmpty(email))
-                return true;
-            if (string.IsNullOrEmpty(password))
-                return true;
+            bool validateAt = false;
+            bool validateDot = false;
 
-            return false;
+            foreach (char character in emailToCheck)
+            {
+                if (character == '@')
+                    validateAt = true;
+                if (character == '.')
+                    validateDot = true;
+            }
+            if (!validateAt || !validateDot)
+                return false;
+
+            return true;
         }
 
 
@@ -138,8 +98,46 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
             return false;
         }
 
-        /*
-         * 
+
+        /// <summary>
+        /// The function check if a user that already registered before trying to register again,
+        /// with thw same mail adress.
+        /// </summary>
+        /// <param name="users"></param>
+        /// <param name="newUser"></param>
+        /// <returns>'true' is the mail not used before,
+        /// or specific error message and 'false'</returns>
+        public static bool ValidateIfUserAlreadyExist(List<User> users, string mailGotten)
+        {
+            foreach (User user in users)
+            {
+                if (user.Email == mailGotten)
+                    return true;
+            }
+            return false;
+        }
+
+
+        /// <summary>
+        /// The function check when new user filling the login form he leave an empty field
+        /// without filling it with necessary data.
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns>'true' if there is empty field after clicking 'login'
+        /// or 'false' if all the fields include data.</returns>
+        public static bool IsLoginFieldsAreEmpty(string email, string password)
+        {
+            if (string.IsNullOrEmpty(email))
+                return true;
+            if (string.IsNullOrEmpty(password))
+                return true;
+
+            return false;
+        }
+
+        
+        
         /// <summary>
         /// 
         /// </summary>
@@ -148,68 +146,44 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
         /// <param name="email"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public static bool IsRegisterValid(List<IUser> users, string username, string email, string password, object comboBoxRegister)
+        public static bool IsRegisterValid(List<User> users, DeserializerUser user)
         {
-            // Empty fields validation
-            bool isEmptyFields = IsRegisterFieldsAreEmpty(username, email, password, comboBoxRegister);
-            if (isEmptyFields)
-            {
-                MessageBox.Show("Invalid fields format. Please fill all the fields and your status (teacher/student) to register.");
-                return false;
-            }
-
-            // Mail validation
-            bool isMailValid = EmailChecksAtAndDot(email);
-            if (!isMailValid)
-            {
-                MessageBox.Show("Invalid email format. Please enter a valid email address. (Include '@' and '.')");
-                return false;
-            }
-
-            // Password validation
-            bool isPasswordValid = LegalPassword(password);
-            //bool passwordCheck = true;   // delete later, easier for debuging like this
-            if (!isPasswordValid)
-            {
-                MessageBox.Show("Invalid password format. Please enter a valid password that incluse: more than 8 characters, a digit, an upper case letter and a symbol(special character).");
-                return false;
-            }
 
             // User already exists validation
-            bool isUserExists = ValidateIfUserAlreadyExist(users, email);
+            bool isUserExists = ValidateIfUserAlreadyExist(users, user.Email);
             if (isUserExists)
             {
-                MessageBox.Show("User with this email already exists. Please use a different email.");
                 return false;
             }
 
             return true;        
         }
+        
 
-        */
 
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="users"></param>
+        /// <param name="userLogin"></param>
         /// <returns></returns>
         public static bool IsLoginValid(List<User> users, LoginUser userLogin)
         {
             // Mail address gotten is belong to registered user.
             bool isUserExists = ValidateIfUserAlreadyExist(users, userLogin.Email);
-            if (!isUserExists)
+            if (isUserExists)
             {
-                return false; //NotFound("User with this mail not exists. Please use a different email."); // ?
+                // Password gotten is equal to the password belong to the user with the mail above. 
+                User existsUser = users.FirstOrDefault(user => user.Email == userLogin.Email);
+                if (existsUser.Password != userLogin.Password)
+                {
+                    return false; // NotFound("Incorrect password, Please try again.")
+                }
+                else
+                    return true;
             }
 
-            // Password gotten is equal to the password belong to the user with the mail above. 
-            User existsUser = users.FirstOrDefault(user => user.Email == userLogin.Email);
-            if (existsUser.Password != userLogin.Password)
-            {
-                return false; // NotFound("Incorrect password, Please try again.")  // ?
-            }
-
-            return true;
+            return false; //NotFound("User with this mail not exists. Please use a different email.");
         }
-
     }
 }
