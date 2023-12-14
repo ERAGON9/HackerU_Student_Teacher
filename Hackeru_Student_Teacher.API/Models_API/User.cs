@@ -3,6 +3,7 @@
     public abstract class User
     {
         // Properties
+        public int Id { get; set; }
         public string UserName { get; set; }
         public Enums.UserRole IsTeacher { get; set; }
         public string Email { get; set; }

@@ -43,7 +43,7 @@
         </ComboBox>
 
         <StackPanel Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" >
-            <TextBlock Text=" already a member?" FontSize="20"/>
+            <TextBlock Text=" Already a member?" FontSize="20"/>
             <Button  Name="GotoLogin" Content="Login Here" Height="30" Width="120" FontSize="15" Margin="3" Click="GotoLogin_Click" />
         </StackPanel>
 

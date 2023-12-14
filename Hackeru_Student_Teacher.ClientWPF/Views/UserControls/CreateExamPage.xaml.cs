@@ -42,7 +42,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
             bool isRandomAnswer = Random_Questions_Order.IsChecked == true;
             DatePicker date = ExamDate;
 
-            Exam newExan = new Exam(examId, Name, description, isRandomAnswer, date, int.Parse(hoursComboBox.Text), int.Parse(minutesComboBox.Text));
+            Exam newExan = new Exam(examId, Name, description, isRandomAnswer, int.Parse(hoursComboBox.Text), int.Parse(minutesComboBox.Text));
             // teacher.AddExam(newExan);
 
 

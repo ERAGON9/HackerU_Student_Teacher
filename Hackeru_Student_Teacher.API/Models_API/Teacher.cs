@@ -4,7 +4,7 @@ namespace Hackeru_Student_Teacher.API.Models_API
 {
     public class Teacher : User
     {
-        // User Properties: {UserName, IsTeacher, Email, Password, Exams} already included from Base class 'User'
+        // User Properties: {Id, UserName, IsTeacher, Email, Password, Exams} already included from Base class 'User'
 
         // Teacher Properties
 
