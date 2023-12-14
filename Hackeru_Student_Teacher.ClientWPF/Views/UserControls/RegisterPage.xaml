@@ -36,7 +36,7 @@
         <Button Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,365,0" Grid.Column="1" Grid.Row="3"  FontSize="10" FontWeight="Bold" FontStyle="Italic" Style="{StaticResource MahApps.Styles.Button.Circle}" Click="ShowPasswordRegister_Click">
             <Image Source="/Items/visible.ico" Width="20" Height="20"/>
         </Button>
-        <Button  Name ="btnRegister" Content="Register"   Width="100" Height="35" Grid.Column="1" Grid.Row="5" BorderThickness="2" Background="PeachPuff" FontSize="14" FontStyle="Italic" FontWeight="DemiBold" Click="btnRegister_Click"   />
+        <Button  Name ="btnRegister" Content="Register"   Width="100" Height="35" Grid.Column="1" Grid.Row="5" BorderThickness="2" Background="PeachPuff" FontSize="14" FontStyle="Italic" FontWeight="DemiBold" Click="btnRegister_Click" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"  />
         <ComboBox Name="comboBoxRegister" Width="150" Height="25" Grid.Column="1" Grid.Row="4">
             <ComboBoxItem Content="Student"/>
             <ComboBoxItem Content="Teacher"/>
@@ -44,7 +44,7 @@
 
         <StackPanel Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" >
             <TextBlock Text=" Already a member?" FontSize="20"/>
-            <Button  Name="GotoLogin" Content="Login Here" Height="30" Width="120" FontSize="15" Margin="3" Click="GotoLogin_Click" />
+            <Button  Name="GotoLogin" Content="Login Here" Height="30" Width="120" FontSize="15" Margin="3"  Background="PeachPuff" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Click="GotoLogin_Click" />
         </StackPanel>
 
         <!-- Contentcontrol section-->

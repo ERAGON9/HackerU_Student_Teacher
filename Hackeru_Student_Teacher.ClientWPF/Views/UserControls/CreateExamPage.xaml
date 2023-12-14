@@ -44,7 +44,7 @@
             <Label  Content="Description:" FontWeight="Bold" FontSize="15"/>
             <TextBox Name="Description" Grid.Column="0" Width="135" Height="50" HorizontalAlignment="Left"/>
         </StackPanel>
-        <RadioButton Name="Random_Questions_Order" Content="Random Questions Order" FontWeight="Bold" FontSize="15" Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Top" Height="19" Background="Transparent"/>
+        <RadioButton Name="Random_Questions_Order" Content="Random Questions Order" FontWeight="Bold" FontSize="15" Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Top" Height="19" Background="Transparent" />
 
 
         <!-- Center StackPanel-->
@@ -67,17 +67,17 @@
         </ComboBox>
 
         <!-- right StackPanel-->
-        <StackPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Width="190" Margin="120,0,0,0" Grid.ColumnSpan="2" >
-            <Button Content="Add new Question" Name="addQuestion"  Margin="20"  Width="150" Height="30" BorderThickness="3"  />
-            <Button Content="Delete Question" Name="deleteQuestion"  Margin="20" Width="150" Height="30" BorderThickness="3"  />
-            <Button Content="Edit Questions" Name="editQuestion"  Margin="20" Width="150" Height="30" BorderThickness="3"    />
+        <StackPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Width="190" Margin="120,0,0,0" Grid.ColumnSpan="2"  >
+            <Button Content="Add new Question" Name="addQuestion"  Margin="10"  Width="150" Height="30" BorderThickness="3" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"  />
+            <Button Content="Delete Question" Name="deleteQuestion"  Margin="10" Width="150" Height="30" BorderThickness="3" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"  />
+            <Button Content="Edit Questions" Name="editQuestion"  Margin="10" Width="150" Height="30" BorderThickness="3"  Style="{DynamicResource MahApps.Styles.Button.Dialogs}"  />
         </StackPanel>
 
 
         <!-- Bottom window-->
 
-        <Button Content="Create" Name="btnCreate" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="50" Grid.ColumnSpan="2"  />
-        <Button Content="Cancel" Name="btnCancel" Grid.Row="2"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="70" Height="50" Click="btnCancel_Click"   />
+        <Button Content="Create" Name="btnCreate" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="50" Grid.ColumnSpan="2" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" />
+        <Button Content="Cancel" Name="btnCancel" Grid.Row="2"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="70" Height="50" Click="btnCancel_Click"  Style="{DynamicResource MahApps.Styles.Button.Dialogs}" />
 
 
         <!-- Right window-->

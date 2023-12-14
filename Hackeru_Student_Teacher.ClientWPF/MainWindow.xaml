@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hackeru_Student_Teacher.ClientWPF"
-        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        xmlns:UserControls="clr-namespace:Hackeru_Student_Teacher.ClientWPF.Views.UserControls" xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:UserControls="clr-namespace:Hackeru_Student_Teacher.ClientWPF.Views.UserControls"
+       xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         x:Class="Hackeru_Student_Teacher.ClientWPF.MainWindow"
         mc:Ignorable="d"
         Title="Student-Teacher"
@@ -14,7 +14,7 @@
         Height="600" Width="1000"
         ResizeMode="NoResize"
         WindowTitleBrush="DodgerBlue"
-        Icon="C:\ComputerScience\HackerU\C#_Module\HackerU_FinalProject\Hackeru_Student_Teacher\HackerU_Student_Teacher\Hackeru_Student_Teacher.ClientWPF\Items\study.ico"
+        Icon="/Items/study.ico"
         BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
         BorderThickness="3"
         >
@@ -36,9 +36,9 @@
                 <RowDefinition Height="139*"/>
                 <RowDefinition Height="353*"/>
             </Grid.RowDefinitions>
-            <Button Content="lets get started" Grid.Row="0" Width="200" Height="50" Click="btn_Start" VerticalAlignment="Bottom" />
-            <Image Source="\Items\Student-edited.jpg" Grid.Row="1" Width="550" Height="400" VerticalAlignment="Bottom" HorizontalAlignment="Right"  ></Image>
-            <Image Source="\Items\University.jpg" Grid.Row="1" Width="450" Height="300" VerticalAlignment="Bottom" HorizontalAlignment="Left" ></Image>
+            <Button Content="lets get started" Grid.Row="0" Width="200" Height="50" Click="btn_Start" VerticalAlignment="Bottom"  />
+            <Image Source="/Items/Student-edited.jpg" Grid.Row="1" Width="550" Height="400" VerticalAlignment="Bottom" HorizontalAlignment="Right"  ></Image>
+            <Image Source="/Items/University.jpg" Grid.Row="1" Width="450" Height="300" VerticalAlignment="Bottom" HorizontalAlignment="Left" ></Image>
 
         </Grid>
 

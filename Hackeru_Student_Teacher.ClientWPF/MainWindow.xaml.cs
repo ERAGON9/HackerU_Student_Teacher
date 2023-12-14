@@ -1,6 +1,7 @@
 ﻿using Hackeru_Student_Teacher.ClientWPF.Views.UserControls;
 using MahApps.Metro.Controls;
 using System.Windows;
+using System.Windows.Controls;
 namespace Hackeru_Student_Teacher.ClientWPF
 {
     /// <summary>
@@ -12,6 +13,7 @@ namespace Hackeru_Student_Teacher.ClientWPF
         public MainWindow()
         {
             InitializeComponent();
+
 
         }
 
