@@ -71,7 +71,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
         private void ShowPasswordRegister_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show($"Entered Password: {tbPasswordRegister.Password}");
+            MessageBox.Show($"Entered Password: {tbPasswordRegister.Password}");//want to change to display the password in the textbox, not in message box
         }
 
         private void GotoLogin_Click(object sender, RoutedEventArgs e)

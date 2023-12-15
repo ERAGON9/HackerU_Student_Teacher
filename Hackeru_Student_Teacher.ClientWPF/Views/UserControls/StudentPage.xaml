@@ -31,7 +31,7 @@
         <Label Foreground="black" Content="Student: Page" Grid.ColumnSpan="2" HorizontalAlignment="Left" FontSize="30" FontWeight="Medium" FontStyle="Italic"/>
         <!-- add name of student later-->
         <ListBox  Name="SelectedExamListBox" Grid.Row="2" VerticalContentAlignment="Top" Height="50" Width="200" BorderBrush="RoyalBlue" BorderThickness="2" ></ListBox>
-        <Button Name="ExamStart" Content="Begin Exam"  Width="150" Height="30" Grid.Row="2" VerticalAlignment="Bottom" Margin="0,0,0,5" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"/>
+        <Button Name="ExamDisplay" Content="Display Exam"  Width="150" Height="30" Grid.Row="2" VerticalAlignment="Bottom" Margin="0,0,0,5" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"/>
         <StackPanel Grid.Row="1">
             <!-- insert user data here (avrg grade,full name, etc..)-->
         </StackPanel>
