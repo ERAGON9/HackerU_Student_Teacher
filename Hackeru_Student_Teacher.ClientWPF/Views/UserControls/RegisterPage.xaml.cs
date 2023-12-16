@@ -58,8 +58,11 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
                 //2.3 Run Async RegisterRequestAsync and Get bool 'true' if the user added to dataBase or 'false' if not.
                 bool response = await apiRequestor.RegisterRequestAsync(newUser);
 
-                if (response) // Succes message
+                if (response)
+                {  // Succes message
                     MessageBox.Show($"{selectedComboBoxItem.Content.ToString()} registered! \nUserName: {newUser.UserName} \nEmail: {newUser.Email} \nNow you can to login with your user!");
+                    contentControl.Content = new LoginPage();
+                }
                 else // Eror message
                     MessageBox.Show("User with this email already exists. Please use a different email.");
 

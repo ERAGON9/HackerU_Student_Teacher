@@ -19,9 +19,9 @@ namespace Hackeru_Student_Teacher.ClientWPF.Models_WPF
 
 
         //C'tor
-        public Exam(int examId, string name, string description, bool isRandomAnswers, /*DatePicker date,*/ int hours, int minutes)
+        public Exam(string name, string description, bool isRandomAnswers, /*DatePicker date,*/ int hours, int minutes)
         {
-            ExamId = examId;
+
             Name = name;
             Description = description;
             IsRandomAnswers = isRandomAnswers;

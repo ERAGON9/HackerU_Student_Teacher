@@ -11,7 +11,7 @@
         <TextBlock  Name="tbMenu" FontSize="50" Text="Student-Teacher" TextAlignment="Center" >
             <TextBlock.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
-                    <GradientStop Color="#FF376DF1" Offset="1"/>
+                    <GradientStop Color="#FF376DF1" Offset="1.3"/>
                     <GradientStop Color="AliceBlue"/>
                 </LinearGradientBrush>
             </TextBlock.Background>

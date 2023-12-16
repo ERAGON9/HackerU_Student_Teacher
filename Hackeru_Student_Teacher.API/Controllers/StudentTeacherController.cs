@@ -12,7 +12,7 @@ namespace Hackeru_Student_Teacher.API.Controllers
     public class StudentTeacherController : ControllerBase
     {
         // It's create new list every time we enter the class, so data not really saved!
-        List<User> users = new List<User>(); 
+        List<User> users = new List<User>();
 
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace Hackeru_Student_Teacher.API.Controllers
                 //User existsUser = users.FirstOrDefault(user => user.Email == userLogin.Email && user.Password == userLogin.Password);
 
                 User existsUser = new Teacher("Lior Teacher", "LiorT@gmail.com", "LiorTeacher");
-                //User existsUser = new Student("Lior Student", "LiorS@gmail.com", "LiorStudent"));
+                //User existsUser = new Student("Lior Student", "LiorS@gmail.com", "LiorStudent");
 
                 return Ok(existsUser);
             }

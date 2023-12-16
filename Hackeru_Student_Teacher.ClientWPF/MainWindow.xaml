@@ -14,7 +14,7 @@
         Height="600" Width="1000"
         ResizeMode="NoResize"
         WindowTitleBrush="DodgerBlue"
-        Icon="/Items/study.ico"
+        Icon="Items\study.ico"
         BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
         BorderThickness="3"
         WindowStartupLocation="CenterScreen">
@@ -37,8 +37,8 @@
                 <RowDefinition Height="353*"/>
             </Grid.RowDefinitions>
             <Button Content="lets get started" Grid.Row="0" Width="200" Height="50"  VerticalAlignment="Bottom" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" BorderThickness="1" Background="Bisque" BorderBrush="SeaGreen" Click="btn_Start" />
-            <Image Source="/Items/Student-edited.jpg" Grid.Row="1" Width="550" Height="400" VerticalAlignment="Bottom" HorizontalAlignment="Right"  ></Image>
-            <Image Source="/Items/University.jpg" Grid.Row="1" Width="450" Height="300" VerticalAlignment="Bottom" HorizontalAlignment="Left" ></Image>
+            <Image Source="\Items\Student-edited.jpg" Grid.Row="1" Width="550" Height="400" VerticalAlignment="Bottom" HorizontalAlignment="Right"  ></Image>
+            <Image Source="\Items\University.jpg" Grid.Row="1" Width="450" Height="300" VerticalAlignment="Bottom" HorizontalAlignment="Left" ></Image>
 
         </Grid>
 

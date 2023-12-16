@@ -37,12 +37,12 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         private void Create_Click(object sender, RoutedEventArgs e)
         {
             string Name = txtExamName.Text;
-            int examId = int.Parse(txtExamId.Text);
+
             string description = Description.Text;
             bool isRandomAnswer = Random_Questions_Order.IsChecked == true;
             DatePicker date = ExamDate;
 
-            Exam newExan = new Exam(examId, Name, description, isRandomAnswer, int.Parse(hoursComboBox.Text), int.Parse(minutesComboBox.Text));
+            Exam newExan = new Exam(Name, description, isRandomAnswer, int.Parse(hoursComboBox.Text), int.Parse(minutesComboBox.Text));
             // teacher.AddExam(newExan);
 
 

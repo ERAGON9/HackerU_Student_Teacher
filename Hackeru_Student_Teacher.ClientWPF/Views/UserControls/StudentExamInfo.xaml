@@ -8,8 +8,9 @@
              d:DesignHeight="600" d:DesignWidth="1000">
     <Grid Margin="20" Background="AliceBlue">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="51*"/>
-            <ColumnDefinition Width="109*"/>
+            <ColumnDefinition Width="153*"/>
+            <ColumnDefinition Width="101*"/>
+            <ColumnDefinition Width="226*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="82*"/>
@@ -18,19 +19,19 @@
             <RowDefinition Height="148*"/>
             <RowDefinition Height="235*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="2">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.ColumnSpan="2" Grid.Column="1" Margin="59,0,0,0" Width="230">
             <TextBlock Text="Exam Name:" FontSize="25"></TextBlock>
             <TextBlock Name="ExamName" Text="Example" FontSize="20" Margin="10"></TextBlock>
         </StackPanel>
 
-        <StackPanel Grid.Row="1">
-            <TextBlock Text="Id:"></TextBlock>
-            <TextBlock Name="ExamId" Text="Example"></TextBlock>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
+
         </StackPanel>
 
 
 
-        <StackPanel Grid.ColumnSpan="2"></StackPanel>
-        <StackPanel Grid.ColumnSpan="2"></StackPanel>
+        <StackPanel Grid.ColumnSpan="3"></StackPanel>
+        <StackPanel Grid.ColumnSpan="3"></StackPanel>
+
     </Grid>
 </UserControl>
