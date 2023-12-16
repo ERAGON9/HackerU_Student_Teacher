@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="Hackeru_Student_Teacher.ClientWPF.Views.UserControls.CreateExamPage"
+﻿<UserControl x:Class="Hackeru_Student_Teacher.ClientWPF.Views.UserControls.EditExamPage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Hackeru_Student_Teacher.ClientWPF.Views.UserControls" xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:local="clr-namespace:Hackeru_Student_Teacher.ClientWPF.Views.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -30,7 +30,7 @@
 
         <!-- header StackPanel-->
         <StackPanel Grid.ColumnSpan="3">
-            <Label Content="Exam Creation" FontWeight="Bold" FontSize="30"/>
+            <Label Content="Exam Edit" FontWeight="Bold" FontSize="30"/>
 
         </StackPanel>
 
@@ -70,6 +70,9 @@
             </ComboBox>
         </StackPanel>
 
+
+
+
         <!-- right StackPanel-->
         <StackPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Width="190" Margin="120,0,0,0" Grid.ColumnSpan="2"  >
             <Button Content="Add new Question" Name="addQuestion"  Margin="10"  Width="150" Height="30" BorderThickness="3" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"  />
@@ -80,7 +83,7 @@
 
         <!-- Bottom window-->
 
-        <Button Content="Create" Name="btnCreate" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="50" Grid.ColumnSpan="2" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" />
+        <Button Content="Save Edit" Name="btnSaveEdit" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="50" Grid.ColumnSpan="2" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" />
         <Button Content="Cancel" Name="btnCancel" Grid.Row="2"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="70" Height="50" Click="btnCancel_Click"  Style="{DynamicResource MahApps.Styles.Button.Dialogs}" />
 
 
@@ -91,6 +94,7 @@
 
         <!-- Contentcontrol section-->
         <ContentControl Name="contentControl" Grid.ColumnSpan="4"  Grid.RowSpan="3"/>
+
 
     </Grid>
 </UserControl>

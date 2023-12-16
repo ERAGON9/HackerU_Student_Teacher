@@ -20,31 +20,50 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
     /// </summary>
     public partial class StudentPage : UserControl
     {
+        private List<string> examData = new List<string>
+        {
+            "Apple", "Orange", "Banana", "Pineapple", "Grapes",
+            "Watermelon", "Strawberry", "Kiwi", "Mango", "Peach"
+        };
+        private List<string> filteredExams;
         public StudentPage()
         {
             InitializeComponent();
+            PopulateListBox(examData);
         }
-
-
-        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            // Handle search as the text changes in the TextBox (instant search)
-            string searchText = searchTextBox.Text;
-            PerformSearch(searchText);
-        }
-
-        private void PerformSearch(string searchText)
-        {
-            //  search logic here
-
-            // Update the UI with the search results (list box)
-
-        }
-
         private void Search_Click(object sender, RoutedEventArgs e)
         {
-            string searchText = searchTextBox.Text;
-            PerformSearch(searchText);
+            string searchText = searchTextBox.Text.ToLower();
+
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                PopulateListBox(examData);
+                return;
+            }
+
+            filteredExams = examData.Where(item => item.ToLower().Contains(searchText)).ToList();
+            PopulateListBox(filteredExams);
+        }
+
+        private void PopulateListBox(IEnumerable<string> items)
+        {
+            ExamListBox.ItemsSource = items;
+        }
+
+        private void searchTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (searchTextBox.Text == "Search exam:")
+            {
+                searchTextBox.Text = "";
+            }
+        }
+
+        private void searchTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(searchTextBox.Text))
+            {
+                searchTextBox.Text = "Search exam:";
+            }
         }
 
         private void ShowExamsHistory_Click(object sender, RoutedEventArgs e)

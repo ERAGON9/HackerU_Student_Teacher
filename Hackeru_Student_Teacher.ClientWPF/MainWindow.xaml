@@ -19,7 +19,7 @@
         BorderThickness="3"
         WindowStartupLocation="CenterScreen">
 
-    <Grid Background="AliceBlue">
+    <Grid Background="AliceBlue" >
 
 
         <Grid.RowDefinitions>

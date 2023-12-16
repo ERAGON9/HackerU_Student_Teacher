@@ -16,13 +16,18 @@ using System.Windows.Shapes;
 namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 {
     /// <summary>
-    /// Interaction logic for SearchControl.xaml
+    /// Interaction logic for EditExamPage.xaml
     /// </summary>
-    public partial class SearchControl : UserControl
+    public partial class EditExamPage : UserControl
     {
-        public SearchControl()
+        public EditExamPage()
         {
             InitializeComponent();
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            contentControl.Content = new TeacherPage();
         }
     }
 }

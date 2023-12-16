@@ -6,7 +6,13 @@
              xmlns:local="clr-namespace:Hackeru_Student_Teacher.ClientWPF.Views.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="AliceBlue">
+    <Grid >
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF376DF1" Offset="1"/>
+                <GradientStop Color="AliceBlue"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -19,9 +25,9 @@
         </Grid.RowDefinitions>
 
         <!-- Column 2-->
-        <TextBox Name="searchTextBox" Text="Search exam..." Height="30" Grid.Column="2" VerticalAlignment="Top" TextChanged="SearchTextBox_TextChanged" Foreground="LightGray"  />
-        <Button Name="Search" Height="30" Width="30" Content="*" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Search_Click"  Background="Transparent" BorderBrush="LightGray" Foreground="Gray" ></Button>
-        <ListBox Name="SearchExamListBox" Height="350" Width="200" Grid.Column="2" Grid.RowSpan="3" VerticalAlignment="Center"></ListBox>
+        <TextBox Name="searchTextBox" Text="Search exam:" Height="30" FontSize="15" FontWeight="Medium" Grid.Column="2" VerticalAlignment="Top" GotFocus="searchTextBox_GotFocus" LostFocus="searchTextBox_LostFocus"  />
+        <Button Name="Search" Height="30" Width="50"  Content="Search" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Search_Click"  ></Button>
+        <ListBox Name="ExamListBox" Height="350" Width="200" Grid.Column="2" Grid.RowSpan="3" VerticalAlignment="Center"></ListBox>
         <Button Name="ShowExamsHistory" Content="Show Exam History"  Width="150" Height="30" Grid.Column="2" Grid.Row="3" VerticalAlignment="Bottom" Click="ShowExamsHistory_Click" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" />
 
         <!-- Column 1 (Currently Empty maybe add something later)-->

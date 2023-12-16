@@ -66,11 +66,25 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
             }
         }
 
+
         private void ShowPasswordLogin_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show($"Entered Password: {tbPasswordLogin.Password}");
-        }
+            // Show the password temporarily
+            passwordTextBox.Text = $"Password:{tbPasswordLogin.Password}";
+            passwordTextBox.Visibility = Visibility.Visible;
 
+            // Set a timer to hide the password after a few seconds (for demonstration)
+            var timer = new System.Windows.Threading.DispatcherTimer();
+            timer.Tick += Timer_Tick;
+            timer.Interval = TimeSpan.FromSeconds(5);
+            timer.Start();
+
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            // Hide the password again after the timer expires
+            passwordTextBox.Visibility = Visibility.Collapsed;
+        }
         private void GotoRgister_Click(object sender, RoutedEventArgs e)
         {
             contentControl.Content = new RegisterPage();
