@@ -25,10 +25,9 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
             InitializeComponent();
         }
 
-
-
-
-
-
+        private void StartButton_Click(object sender, RoutedEventArgs e)
+        {
+            //need to insert a logic to start the test.
+        }
     }
 }

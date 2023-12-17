@@ -25,10 +25,11 @@
         </Grid.RowDefinitions>
 
         <!-- Column 2-->
-        <TextBox Name="searchTextBox" Text="Search exam:" Height="30" FontSize="15" FontWeight="Medium" Grid.Column="2" VerticalAlignment="Top" GotFocus="searchTextBox_GotFocus" LostFocus="searchTextBox_LostFocus"  />
-        <Button Name="Search" Height="30" Width="50"  Content="Search" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Search_Click"  ></Button>
-        <ListBox Name="ExamListBox" Height="350" Width="200" Grid.Column="2" Grid.RowSpan="3" VerticalAlignment="Center"></ListBox>
-        <Button Name="ShowExamsHistory" Content="Show Exam History"  Width="150" Height="30" Grid.Column="2" Grid.Row="3" VerticalAlignment="Bottom" Click="ShowExamsHistory_Click" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" />
+        <TextBox Name="searchTextBox" Text="Search exam:" Height="36" FontSize="15" FontWeight="Medium" Grid.Column="2" VerticalAlignment="Top" GotFocus="searchTextBox_GotFocus" LostFocus="searchTextBox_LostFocus"  />
+        <Button Name="Search" Height="30" Width="50"  Content="Search" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" BorderThickness="0" Background="LightSteelBlue" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Click="Search_Click"  ></Button>
+        <Button Content="Refresh List" HorizontalAlignment="Right" Grid.Column="2" BorderThickness="1" Background="LightSteelBlue" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Margin="0,0,0,40" Click="ShowAllButton_Click" />
+        <ListBox Name="ExamListBox" Height="300" Width="200" Grid.Column="2" Grid.RowSpan="3" VerticalAlignment="Center" SelectionChanged="ExamListBox_SelectionChanged"></ListBox>
+        <Button Name="ShowExamsHistory" Content="Show Exam History"  Width="150" Height="30" Grid.Column="2" Grid.Row="3" VerticalAlignment="Bottom" Background="LightSteelBlue" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Click="ShowExamsHistory_Click" />
 
         <!-- Column 1 (Currently Empty maybe add something later)-->
 
@@ -37,7 +38,7 @@
         <Label Foreground="black" Content="Student: Page" Grid.ColumnSpan="2" HorizontalAlignment="Left" FontSize="30" FontWeight="Medium" FontStyle="Italic"/>
         <!-- add name of student later-->
         <ListBox  Name="SelectedExamListBox" Grid.Row="2" VerticalContentAlignment="Top" Height="50" Width="200" BorderBrush="RoyalBlue" BorderThickness="2" ></ListBox>
-        <Button Name="ExamDisplay" Content="Display Exam"  Width="150" Height="30" Grid.Row="2" VerticalAlignment="Bottom" Margin="0,0,0,5" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"/>
+        <Button Name="ExamDisplay" Content="Display Exam"  Width="150" Height="30" Grid.Row="2" VerticalAlignment="Bottom" Margin="0,0,0,5" Background="LightSteelBlue" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"/>
         <StackPanel Grid.Row="1">
             <!-- insert user data here (avrg grade,full name, etc..)-->
         </StackPanel>

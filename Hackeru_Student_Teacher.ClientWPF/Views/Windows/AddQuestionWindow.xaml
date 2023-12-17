@@ -1,0 +1,47 @@
+﻿<mah:MetroWindow x:Class="Hackeru_Student_Teacher.ClientWPF.Views.Windows.AddQuestionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hackeru_Student_Teacher.ClientWPF.Views.Windows"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        Title="Add Question"
+        TitleCharacterCasing="Normal"
+        ResizeMode="NoResize"
+        WindowTitleBrush="DodgerBlue"
+        Icon="\Items\study.ico"
+        BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+        BorderThickness="3"
+        WindowStartupLocation="CenterScreen"         
+        Height="350" Width="600">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.9,1" StartPoint="0.2,0">
+                <GradientStop Color="#FF376DF1" Offset="1.3"/>
+                <GradientStop Color="AliceBlue"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="27*"/>
+        </Grid.RowDefinitions>
+        <TextBlock  Text="Write question to add:" FontWeight="Bold" FontSize="15"/>
+        <TextBox Name="Questiontb" Text="Ex: what is the best coding language?" Foreground="Gray" FontSize="15" Background="Transparent" VerticalContentAlignment="Center" GotFocus="Questiontb_GotFocus" LostFocus="Questiontb_LostFocus" />
+        <StackPanel Grid.Row="1">
+            <RadioButton Name="Answer1" Background="Transparent" Content="1" Margin="5"></RadioButton>
+            <RadioButton Name="Answer2" Background="Transparent" Content="2" Margin="5"></RadioButton>
+            <RadioButton Name="Answer3" Background="Transparent" Content="3" Margin="5"></RadioButton>
+            <RadioButton Name="Answer4" Background="Transparent" Content="4" Margin="5"></RadioButton>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+            <Button Name="cancelbt" Content="Cancel" BorderThickness="3" Height="50" Width="100" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Background="SkyBlue" FontWeight="Bold" Click="cancelbt_Click" />
+            <Button Name="Addbt" Content="Add" BorderThickness="3" Height="50" Width="100" Margin="20,0,0,0" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Background="SkyBlue" FontWeight="Bold" Click="Addbt_Click" />
+        </StackPanel>
+
+    </Grid>
+</mah:MetroWindow>

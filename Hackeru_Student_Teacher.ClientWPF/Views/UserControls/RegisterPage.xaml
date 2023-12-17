@@ -41,7 +41,7 @@
                 <Image Source="/Items/visible.ico" Width="20" Height="20"/>
             </Button>
         </StackPanel>
-        <TextBox Name="passwordTextBox" Grid.Row="3" VerticalAlignment="Top" Width="200" Background="Transparent" BorderThickness="0" FontWeight="Bold" Foreground="Red" HorizontalContentAlignment="Center"  />
+        <TextBlock Name="passwordTextBox" Grid.Row="3" VerticalAlignment="Top" Width="200" Background="Transparent" FontWeight="Bold" Foreground="Red"  />
 
         <ComboBox Name="comboBoxRegister" Width="150" Height="25" Grid.Row="3">
             <ComboBoxItem Content="Student"/>

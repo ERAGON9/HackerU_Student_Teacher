@@ -38,7 +38,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="2" VerticalAlignment="Top" Height="80">
-            <TextBox Name="passwordTextBox" Width="300" Height="30" Background="Transparent" BorderThickness="0" FontWeight="Bold" Foreground="Red" HorizontalContentAlignment="Center"  />
+            <TextBlock Name="passwordTextBox" Width="300" Height="30" Background="Transparent"  FontWeight="Bold" Foreground="Red"   />
             <Button  Name="btnLogin" Content="Login" Grid.Row="2" VerticalAlignment="Top" Grid.ColumnSpan="2" BorderThickness="2" Background="PeachPuff" FontSize="15" FontStyle="Italic" FontWeight="DemiBold" Height="50" Width="100" Click="btnLogin_Click" />
         </StackPanel>
 

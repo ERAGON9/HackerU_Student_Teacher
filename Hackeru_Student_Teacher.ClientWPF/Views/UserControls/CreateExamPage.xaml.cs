@@ -13,14 +13,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Hackeru_Student_Teacher.ClientWPF.Views.Windows;
+using static Hackeru_Student_Teacher.ClientWPF.Views.Windows.AddQuestionWindow;
 
 namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 {
     /// <summary>
     /// Interaction logic for CreateExamPage.xaml
     /// </summary>
+    /// 
     public partial class CreateExamPage : UserControl
     {
+
+
+
+
         public CreateExamPage()
         {
             InitializeComponent();
@@ -53,5 +60,19 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         {
             contentControl.Content = new TeacherPage();
         }
+
+
+        private void addQuestion_Click(object sender, RoutedEventArgs e)
+        {
+            AddQuestionWindow addQuestionWindow = new AddQuestionWindow();
+            addQuestionWindow.ShowDialog();
+
+
+        }
+
+
+
+
+
     }
 }

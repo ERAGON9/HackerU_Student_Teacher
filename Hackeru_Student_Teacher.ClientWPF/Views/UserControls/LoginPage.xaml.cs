@@ -17,6 +17,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+
+
 
 
 namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
@@ -27,12 +30,14 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
     public partial class LoginPage : UserControl
     {
         ApiRequestor apiRequestor;
-
+        private DispatcherTimer timer;
         public LoginPage()
         {
             InitializeComponent();
-
             apiRequestor = new ApiRequestor();
+            timer = new DispatcherTimer();
+            timer.Tick += Timer_Tick;
+            timer.Interval = TimeSpan.FromSeconds(5);
         }
 
 
@@ -73,10 +78,13 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
             passwordTextBox.Text = $"Password:{tbPasswordLogin.Password}";
             passwordTextBox.Visibility = Visibility.Visible;
 
-            // Set a timer to hide the password after a few seconds (for demonstration)
-            var timer = new System.Windows.Threading.DispatcherTimer();
-            timer.Tick += Timer_Tick;
-            timer.Interval = TimeSpan.FromSeconds(5);
+            // Stop the timer if it's running
+            if (timer.IsEnabled)
+            {
+                timer.Stop();
+            }
+
+            // Start the timer to hide the password after a few seconds
             timer.Start();
 
         }
@@ -84,6 +92,9 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         {
             // Hide the password again after the timer expires
             passwordTextBox.Visibility = Visibility.Collapsed;
+
+            // Stop the timer
+            timer.Stop();
         }
         private void GotoRgister_Click(object sender, RoutedEventArgs e)
         {

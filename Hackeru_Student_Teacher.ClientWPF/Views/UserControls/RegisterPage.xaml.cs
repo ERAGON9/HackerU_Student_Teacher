@@ -4,6 +4,7 @@ using Hackeru_Student_Teacher.ClientWPF.Progarm;
 using System.Windows;
 using System.Windows.Controls;
 using Hackeru_Student_Teacher.ClientWPF.Models_Connect;
+using System.Windows.Threading;
 
 namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 {
@@ -14,18 +15,16 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
     {
         ApiRequestor apiRequestor;
 
-        //List<User> users = new List<User>();
-        //delete later - we add them to Database.
+        private DispatcherTimer timer;
+
 
         public RegisterPage()
         {
             InitializeComponent();
-
             apiRequestor = new ApiRequestor();
-
-            // Add Hard coded data (delete at the end)
-            //users.Add(new Teacher("Lior Teacher", "LiorT@gmail.com", "LiorTeacher"));
-            //users.Add(new Student("Lior Student", "LiorS@gmail.com", "LiorStudent"));
+            timer = new DispatcherTimer();
+            timer.Tick += Timer_Tick;
+            timer.Interval = TimeSpan.FromSeconds(5);
         }
 
 
@@ -75,13 +74,16 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         private void ShowPasswordRegister_Click(object sender, RoutedEventArgs e)
         {
             // Show the password temporarily
-            passwordTextBox.Text = $"Password: {tbPasswordRegister.Password}";
+            passwordTextBox.Text = $"Password:{tbPasswordRegister.Password}";
             passwordTextBox.Visibility = Visibility.Visible;
 
-            // Set a timer to hide the password after a few seconds (for demonstration)
-            var timer = new System.Windows.Threading.DispatcherTimer();
-            timer.Tick += Timer_Tick;
-            timer.Interval = TimeSpan.FromSeconds(5);
+            // Stop the timer if it's running
+            if (timer.IsEnabled)
+            {
+                timer.Stop();
+            }
+
+            // Start the timer to hide the password after a few seconds
             timer.Start();
 
         }
@@ -89,6 +91,9 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         {
             // Hide the password again after the timer expires
             passwordTextBox.Visibility = Visibility.Collapsed;
+
+            // Stop the timer
+            timer.Stop();
         }
         private void GotoLogin_Click(object sender, RoutedEventArgs e)
         {

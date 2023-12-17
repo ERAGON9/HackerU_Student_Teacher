@@ -70,5 +70,24 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         {
             //Content to exam history
         }
+
+        private void ShowAllButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Reset the ListBox to display the entire list
+            PopulateListBox(examData);
+        }
+
+        private void ExamListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SelectedExamListBox.Items.Clear();
+
+            // Check if an item is selected
+            if (ExamListBox.SelectedItem != null)
+            {
+                // Get the selected item and add it to the second ListBox
+                SelectedExamListBox.Items.Add(ExamListBox.SelectedItem);
+            }
+        }
+
     }
 }

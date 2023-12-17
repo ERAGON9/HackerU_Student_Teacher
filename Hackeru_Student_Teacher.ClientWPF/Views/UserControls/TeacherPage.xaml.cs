@@ -71,17 +71,14 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
             ExamList.ItemsSource = items;
         }
 
-        private void searchBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void searchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             string searchText = searchBox.Text.ToLower();
 
-            if (string.IsNullOrWhiteSpace(searchText))
-            {
-                PopulateListBox(data);
-                return;
-            }
+            var filteredData = string.IsNullOrWhiteSpace(searchText)
+                ? data
+                : data.Where(item => item.ToLower().Contains(searchText)).ToList();
 
-            var filteredData = data.Where(item => item.ToLower().Contains(searchText)).ToList();
             PopulateListBox(filteredData);
         }
 
@@ -89,19 +86,16 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         {
             string searchText = searchBox.Text.ToLower();
 
-            if (string.IsNullOrWhiteSpace(searchText))
-            {
-                PopulateListBox(data);
-                return;
-            }
+            var filteredData = string.IsNullOrWhiteSpace(searchText)
+                ? data
+                : data.Where(item => item.ToLower().Contains(searchText)).ToList();
 
-            var filteredData = data.Where(item => item.ToLower().Contains(searchText)).ToList();
             PopulateListBox(filteredData);
         }
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             // Clear the text when the textbox gets focus
-            searchBox.Text = "";
+            searchBox.Text = null;
         }
 
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
@@ -112,7 +106,11 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
                 searchBox.Text = originalText;
             }
         }
-
+        private void ShowAllButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Reset the ListBox to display the entire list
+            PopulateListBox(data);
+        }
 
     }
 

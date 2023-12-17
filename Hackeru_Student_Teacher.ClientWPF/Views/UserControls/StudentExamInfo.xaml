@@ -14,30 +14,41 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="153*"/>
-            <ColumnDefinition Width="101*"/>
-            <ColumnDefinition Width="226*"/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="82*"/>
-            <RowDefinition Height="52*"/>
-            <RowDefinition Height="43*"/>
-            <RowDefinition Height="148*"/>
-            <RowDefinition Height="235*"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.ColumnSpan="2" Grid.Column="1" Margin="59,0,0,0" Width="230">
-            <TextBlock Text="Exam Name:" FontSize="25"></TextBlock>
-            <TextBlock Name="ExamName" Text="Example" FontSize="20" Margin="10"></TextBlock>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.ColumnSpan="2" Grid.Column="1" >
+            <TextBlock Text="Exam Name: " FontSize="40"></TextBlock>
+            <TextBlock Name="ExamNameTB" Text="Example" FontSize="40"></TextBlock>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Description:" FontSize="30"></TextBlock>
+            <TextBlock Name="DescriptionTB"></TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <TextBlock Text="Time for test:" FontSize="30"></TextBlock>
+            <TextBlock></TextBlock>
 
         </StackPanel>
 
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <TextBlock Text="Number of questions in exam: " FontSize="30"></TextBlock>
+            <TextBlock></TextBlock>
 
+        </StackPanel>
 
-        <StackPanel Grid.ColumnSpan="3"></StackPanel>
-        <StackPanel Grid.ColumnSpan="3"></StackPanel>
+        <Button Name="StartButton" Content="Start Exam" Grid.Row="4" Grid.Column="1" Width="120" Height="60" Click="StartButton_Click" ></Button>
 
     </Grid>
 </UserControl>
