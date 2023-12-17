@@ -8,7 +8,7 @@ namespace Hackeru_Student_Teacher.API.Models_API
         public int Id { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
-        //public DatePicker Date { get; set; }
+        public DateOnly Date { get; set; }
         public int Hours { get; set; } = 0;
         public int Minutes { get; set; } = 0;
         public List<Question> Questions { get; set; }
@@ -18,12 +18,12 @@ namespace Hackeru_Student_Teacher.API.Models_API
 
 
         //C'tor
-        public Exam(string name, string description, bool isRandomAnswers, /*DatePicker date,*/ int hours, int minutes)
+        public Exam(string name, string description, bool isRandomAnswers, DateOnly date, int hours, int minutes)
         {
             Name = name;
             Description = description;
             IsRandomAnswers = isRandomAnswers;
-            //Date = date;
+            Date = date;
             Hours = hours;
             Minutes = minutes;
             Questions = new List<Question>();

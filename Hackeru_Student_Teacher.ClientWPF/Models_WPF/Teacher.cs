@@ -1,15 +1,19 @@
-﻿namespace Hackeru_Student_Teacher.ClientWPF.Models_WPF
+﻿using Hackeru_Student_Teacher.ClientWPF.Models_Connect;
+
+namespace Hackeru_Student_Teacher.ClientWPF.Models_WPF
 {
     public class Teacher : User
     {
-        // User Properties: {UserName, IsTeacher, Email, Password, Exams} already included from Base class 'User'
+        // User Properties: {Id, UserName, IsTeacher, Email, Password, Exams} already included from Base class 'User'
 
         // Teacher Properties
 
 
         //C'tor
-        public Teacher(string userName, string email, string password): base(userName, email, password, Enums.UserRole.Teacher)
-        {}
+        public Teacher(string userName, string email, string password) : base(userName, email, password, Enums.UserRole.Teacher)
+        { }
+        public Teacher(DeserializerUser user) : base(user.UserName, user.Email, user.Password, user.IsTeacher)
+        { }
 
 
         // Functions

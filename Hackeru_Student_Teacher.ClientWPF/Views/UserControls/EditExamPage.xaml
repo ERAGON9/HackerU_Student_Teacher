@@ -52,8 +52,6 @@
             <DatePicker Name="ExamDate" Foreground="Gray" Grid.Column="1" Width="150"/>
 
             <Label Content="Time for the test:" FontWeight="Bold" FontSize="15" Grid.Column="1"/>
-
-
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
@@ -69,8 +67,6 @@
                 <!-- Add minute items (0 to 59) -->
             </ComboBox>
         </StackPanel>
-
-
 
 
         <!-- right StackPanel-->

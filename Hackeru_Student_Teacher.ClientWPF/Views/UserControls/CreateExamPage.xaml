@@ -52,8 +52,6 @@
             <DatePicker Name="ExamDate" Foreground="Gray" Grid.Column="1" Width="150"/>
 
             <Label Content="Time for the test:" FontWeight="Bold" FontSize="15" Grid.Column="1"/>
-
-
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
@@ -70,16 +68,16 @@
             </ComboBox>
         </StackPanel>
 
+        
         <!-- right StackPanel-->
         <StackPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Width="190" Margin="120,0,0,0"  >
-            <Button Content="Add new Question" Name="addQuestion"  Margin="10"  Width="150" Height="30" BorderThickness="3" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Click="addQuestion_Click"  />
+            <Button Content="Add new Question" Name="addQuestion"  Margin="10"  Width="150" Height="30" BorderThickness="3" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" />
             <Button Content="Delete Question" Name="deleteQuestion"  Margin="10" Width="150" Height="30" BorderThickness="3" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"  />
             <Button Content="Edit Questions" Name="editQuestion"  Margin="10" Width="150" Height="30" BorderThickness="3"  Style="{DynamicResource MahApps.Styles.Button.Dialogs}"  />
         </StackPanel>
 
 
         <!-- Bottom window-->
-
         <Button Content="Create" Name="btnCreate" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="50" Grid.ColumnSpan="2" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" />
         <Button Content="Cancel" Name="btnCancel" Grid.Row="2"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="70" Height="50" Click="btnCancel_Click"  Style="{DynamicResource MahApps.Styles.Button.Dialogs}" />
 

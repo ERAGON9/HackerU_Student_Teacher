@@ -25,12 +25,14 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-
+        
+        <!-- Center StackPanel. -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.ColumnSpan="2" Grid.Column="1" >
             <TextBlock Text="Exam Name: " FontSize="40"></TextBlock>
             <TextBlock Name="ExamNameTB" Text="Example" FontSize="40"></TextBlock>
         </StackPanel>
 
+        <!-- Left Section. -->
         <StackPanel Grid.Row="1">
             <TextBlock Text="Description:" FontSize="30"></TextBlock>
             <TextBlock Name="DescriptionTB"></TextBlock>
@@ -48,7 +50,7 @@
 
         </StackPanel>
 
-        <Button Name="StartButton" Content="Start Exam" Grid.Row="4" Grid.Column="1" Width="120" Height="60" Click="StartButton_Click" ></Button>
+        <Button Name="StartButton" Content="Start Exam" Grid.Row="4" Grid.Column="1" Width="120" Height="60" FontSize="15" FontStyle="Italic" Click="StartButton_Click" ></Button>
 
     </Grid>
 </UserControl>

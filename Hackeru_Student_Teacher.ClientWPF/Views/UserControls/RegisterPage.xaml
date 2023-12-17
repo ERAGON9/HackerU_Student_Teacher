@@ -48,7 +48,7 @@
             <ComboBoxItem Content="Teacher"/>
         </ComboBox>
 
-        <Button  Name ="btnRegister" Content="Register"   Width="100" Height="35" Grid.Row="4" BorderThickness="2" Background="PeachPuff" FontSize="14" FontStyle="Italic" FontWeight="DemiBold" Click="btnRegister_Click" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"  />
+        <Button  Name ="btnRegister" Content="Register"   Width="100" Height="35" Grid.Row="4" BorderThickness="2" Background="PeachPuff" FontSize="15" FontStyle="Italic" FontWeight="DemiBold" Click="btnRegister_Click" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"  />
 
         <StackPanel Grid.Row="5" VerticalAlignment="Top" HorizontalAlignment="Center"  >
             <TextBlock Text=" Already a member?" FontSize="20"/>

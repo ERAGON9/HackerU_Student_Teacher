@@ -14,7 +14,7 @@
         Height="600" Width="1000"
         ResizeMode="NoResize"
         WindowTitleBrush="DodgerBlue"
-        Icon="Items\study.ico"
+        Icon="C:\ComputerScience\HackerU\C#_Module\HackerU_FinalProject\Hackeru_Student_Teacher\HackerU_Student_Teacher\Hackeru_Student_Teacher.ClientWPF\Items\study.ico"
         BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
         BorderThickness="3"
         WindowStartupLocation="CenterScreen">

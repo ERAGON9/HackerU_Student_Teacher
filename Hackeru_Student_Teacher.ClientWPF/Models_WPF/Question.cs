@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace Hackeru_Student_Teacher.ClientWPF.Models_WPF
 {
-    public class Question
+     public class Question
     {
         // Properties
-        public string Description { get; set; }
+        public int Id { get; set; }
+        public string? Description { get; set; }
         public int GradeTheQuestionEqual { get; set; }
-        public string Answer1 { get; set; }
-        public string Answer2 { get; set; }
-        public string Answer3 { get; set; }
-        public string Answer4 { get; set; }
+        public string? Answer1 { get; set; }
+        public string? Answer2 { get; set; }
+        public string? Answer3 { get; set; }
+        public string? Answer4 { get; set; }
         public int CorrectAnswer { get; set; } = 0; // Defult value before initialize;
         public int ChoosenAnswer { get; set; } = 0; // Defult value before initialize;
 
@@ -29,6 +30,8 @@ namespace Hackeru_Student_Teacher.ClientWPF.Models_WPF
             Answer4 = answer4;
             CorrectAnswer = correctAnswer;
         }
+        public Question() { }
+
 
         // Functions
         public void UpdateChoosenAnswer(int choosenNumber)

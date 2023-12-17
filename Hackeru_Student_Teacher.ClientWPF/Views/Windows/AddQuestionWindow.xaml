@@ -29,15 +29,22 @@
             <RowDefinition Height="43*"/>
             <RowDefinition Height="27*"/>
         </Grid.RowDefinitions>
+        
+        
         <TextBlock  Text="Write question to add:" FontWeight="Bold" FontSize="15"/>
         <TextBox Name="Questiontb" Text="Ex: what is the best coding language?" Foreground="Gray" FontSize="15" Background="Transparent" VerticalContentAlignment="Center" GotFocus="Questiontb_GotFocus" LostFocus="Questiontb_LostFocus" />
         <StackPanel Grid.Row="1">
-            <RadioButton Name="Answer1" Background="Transparent" Content="1" Margin="5"></RadioButton>
-            <RadioButton Name="Answer2" Background="Transparent" Content="2" Margin="5"></RadioButton>
-            <RadioButton Name="Answer3" Background="Transparent" Content="3" Margin="5"></RadioButton>
-            <RadioButton Name="Answer4" Background="Transparent" Content="4" Margin="5"></RadioButton>
+            <RadioButton Name="Answer1" Background="Transparent" Content="1." Margin="5"></RadioButton>
+            <!-- Add place to enter the answer. -->
+            <RadioButton Name="Answer2" Background="Transparent" Content="2." Margin="5"></RadioButton>
+            <!-- Add place to enter the answer. -->
+            <RadioButton Name="Answer3" Background="Transparent" Content="3." Margin="5"></RadioButton>
+            <!-- Add place to enter the answer. -->
+            <RadioButton Name="Answer4" Background="Transparent" Content="4." Margin="5"></RadioButton>
+            <!-- Add place to enter the answer. -->
         </StackPanel>
-
+        
+        <!-- Down StackPannel-->
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
             <Button Name="cancelbt" Content="Cancel" BorderThickness="3" Height="50" Width="100" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Background="SkyBlue" FontWeight="Bold" Click="cancelbt_Click" />
             <Button Name="Addbt" Content="Add" BorderThickness="3" Height="50" Width="100" Margin="20,0,0,0" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Background="SkyBlue" FontWeight="Bold" Click="Addbt_Click" />

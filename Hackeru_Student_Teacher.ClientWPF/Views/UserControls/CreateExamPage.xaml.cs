@@ -13,21 +13,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Hackeru_Student_Teacher.ClientWPF.Views.Windows;
-using static Hackeru_Student_Teacher.ClientWPF.Views.Windows.AddQuestionWindow;
 
 namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 {
     /// <summary>
     /// Interaction logic for CreateExamPage.xaml
     /// </summary>
-    /// 
     public partial class CreateExamPage : UserControl
     {
-
-
-
-
         public CreateExamPage()
         {
             InitializeComponent();
@@ -47,11 +40,22 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
             string description = Description.Text;
             bool isRandomAnswer = Random_Questions_Order.IsChecked == true;
-            DatePicker date = ExamDate;
+            DatePicker dateFromGUI = ExamDate;
+            DateTime dateConvert;
 
-            Exam newExan = new Exam(Name, description, isRandomAnswer, int.Parse(hoursComboBox.Text), int.Parse(minutesComboBox.Text));
-            // teacher.AddExam(newExan);
+            // Validation fields not empty + Name is Uniq!!!
 
+            if (dateFromGUI.SelectedDate != null)
+            {
+                dateConvert = (DateTime)dateFromGUI.SelectedDate;
+                DateOnly examDate = new DateOnly(dateConvert.Year, dateConvert.Month, dateConvert.Day);
+                Exam newExan = new Exam(Name, description, isRandomAnswer, examDate, int.Parse(hoursComboBox.Text), int.Parse(minutesComboBox.Text));
+                // teacher.AddExam(newExan);
+            }
+            else
+            {
+                // Eror no exam date entered!
+            }
 
         }
 
@@ -60,19 +64,5 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         {
             contentControl.Content = new TeacherPage();
         }
-
-
-        private void addQuestion_Click(object sender, RoutedEventArgs e)
-        {
-            AddQuestionWindow addQuestionWindow = new AddQuestionWindow();
-            addQuestionWindow.ShowDialog();
-
-
-        }
-
-
-
-
-
     }
 }
