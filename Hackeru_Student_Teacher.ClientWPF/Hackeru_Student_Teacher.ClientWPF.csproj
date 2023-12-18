@@ -16,18 +16,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Items\Student-edited.jpg">
+    <Resource Include="Items\Student-edited.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Items\study.ico">
+    </Resource>
+    <Resource Include="Items\study.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Items\university.jpg">
+    </Resource>
+    <Resource Include="Items\university.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Items\visible.ico">
+    </Resource>
+    <Resource Include="Items\visible.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

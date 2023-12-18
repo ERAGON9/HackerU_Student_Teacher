@@ -14,7 +14,6 @@ namespace Hackeru_Student_Teacher.ClientWPF
         {
             InitializeComponent();
 
-
         }
 
 
