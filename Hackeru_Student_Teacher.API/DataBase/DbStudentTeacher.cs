@@ -21,7 +21,7 @@ namespace Hackeru_Student_Teacher.API.DataBase
         // Functions
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@"Data Source=C:\Users\liorb\OneDrive\Desktop\tryingDb");
+            optionsBuilder.UseSqlite(@"Data Source=tryingDb.db");
         }
     }
 }
