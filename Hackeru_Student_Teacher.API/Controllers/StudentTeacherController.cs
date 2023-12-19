@@ -1,4 +1,5 @@
-﻿using Hackeru_Student_Teacher.API.Models_API;
+﻿using Hackeru_Student_Teacher.API.DataBase;
+using Hackeru_Student_Teacher.API.Models_API;
 using Hackeru_Student_Teacher.API.Models_Connect;
 using Hackeru_Student_Teacher.ClientWPF.Progarm;
 using Microsoft.AspNetCore.Mvc;
@@ -11,37 +12,38 @@ namespace Hackeru_Student_Teacher.API.Controllers
     [ApiController]
     public class StudentTeacherController : ControllerBase
     {
-        // It's create new list every time we enter the class, so data not really saved!
-        List<User> users = new List<User>();
-
-
         /// <summary>
-        /// 1) Register API That Gets newUser and return OK if the user Added to dataBase or BadRequest if not.
+        /// Register API That Gets DeserializerUser object newUser,
+        /// if the user not already exists it will add him to the dataBase.
         /// /api/StudentTeacher/register
         /// </summary>
         /// <param name="newUser"></param>
-        /// <returns></returns>
+        /// <returns>'OK' if the user Added to dataBase or 'BadRequest' if not.</returns>
         [HttpPost("register")]
         public ActionResult Register([FromBody] DeserializerUser newUser)
         {
-            bool dataValid = ValidationChecksApi.IsRegisterValid(users, newUser);
-
-            if (dataValid)
+            using (var dataBase = new DbStudentTeacher())
             {
-                if (newUser.IsTeacher == Enums.UserRole.Teacher)
-                    users.Add(new Teacher(newUser));
-                else
-                    users.Add(new Student(newUser));
 
-                return Ok();
+                bool dataValid = ValidationChecksApi.IsRegisterValid(dataBase, newUser);
+
+                if (dataValid)
+                {
+                    if (newUser.IsTeacher == Enums.UserRole.Teacher)
+                        dataBase.Teachers.Add(new Teacher(newUser));
+                    else
+                        dataBase.Students.Add(new Student(newUser));
+                    dataBase.SaveChanges();
+                    return Ok();
+                }
+
+                return BadRequest();
             }
-
-            return BadRequest();
         }
 
 
         /// <summary>
-		/// 1) Login API That Gets email and password and return OK if the user found or NotFound if not.
+		/// Login API That Gets email and password and return OK if the user found or NotFound if not.
 		/// /api/StudentTeacher/login
 		/// </summary>
 		/// <param name="userLogin"></param>

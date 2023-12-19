@@ -6,13 +6,9 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
 {
     public class ValidationChecksWpf
     {
-        // Example of legal mail addresses:
-        //liorbarak99@gmail.com
-        //liorbaa@mta.ac.il
-
 
         /// <summary>
-        /// The function check when new user filling the register form he leave an empty field
+        /// The function check when new user filling the register form, if he leaves an empty field
         /// without filling it with necessary data.
         /// </summary>
         /// <param name="username"></param>
@@ -37,12 +33,12 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
 
 
         /// <summary>
-        /// The function check if an email adress that gotten from the user is a valid mail address,
-        /// by checking it's contain '@' and '.' like all mail address must included!
+        /// The function check if a mail address that gotten from the user is a valid mail address,
+        /// by checking it's contain '@' and '.'. (all mail addresses must include!)
         /// </summary>
         /// <param name="emailToCheck"></param>
         /// <returns>'true' if the mail is legal,
-        /// or specific error message and 'false'</returns>
+        /// or 'false' if the mail not valid.</returns>
         public static bool EmailChecksAtAndDot(string emailToCheck)
         {
             bool validateAt = false;
@@ -63,10 +59,16 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
 
 
         /// <summary>
-        /// 
+        /// The function check if a password that gotten from the user is a valid password,
+        /// by checking it's contain:
+        /// At least 8 characters.
+        /// At least 1 digit.
+        /// At least 1 upper case letter.
+        /// at least 1 simbol.
         /// </summary>
         /// <param name="password"></param>
-        /// <returns></returns>
+        /// <returns>'true' if the password is legal,
+        /// or 'false' if the password not valid.</returns>
         public static bool LegalPassword(string password)
         {
             bool thereIsNumber = false;
@@ -96,37 +98,15 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
             return false;
         }
 
-        /*
 
         /// <summary>
-        /// The function check if a user that already registered before trying to register again,
-        /// with thw same mail adress.
-        /// </summary>
-        /// <param name="users"></param>
-        /// <param name="newUser"></param>
-        /// <returns>'true' is the mail not used before,
-        /// or specific error message and 'false'</returns>
-        public static bool ValidateIfUserAlreadyExist(List<User> users, string mailGotten)
-        {
-            foreach (User user in users)
-            {
-                if (user.Email == mailGotten)
-                    return true;
-            }
-            return false;
-        }
-
-        */
-
-
-        /// <summary>
-        /// The function check when new user filling the login form he leave an empty field
+        /// The function check when new user filling the login form, he leaved an empty field
         /// without filling it with necessary data.
         /// </summary>
         /// <param name="email"></param>
         /// <param name="password"></param>
         /// <returns>'true' if there is empty field after clicking 'login'
-        /// or 'false' if all the fields include data.</returns>
+        /// or 'false' if all the fields included data.</returns>
         public static bool IsLoginFieldsAreEmpty(string email, string password)
         {
             if (string.IsNullOrEmpty(email))
@@ -139,13 +119,15 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
 
 
         /// <summary>
-        /// 
+        /// The function get new user data and run validation on the data, to check all the necessary data inserted
+        /// and all the data is valid to create new user (teacher or student) to the system.
         /// </summary>
         /// <param name="users"></param>
         /// <param name="username"></param>
         /// <param name="email"></param>
         /// <param name="password"></param>
-        /// <returns></returns>
+        /// <returns>'true' if all the data pass the requirements
+        /// or 'false' if not.</returns>
         public static bool IsRegisterValid(string username, string email, string password, object comboBoxRegister)
         {
             // Empty fields validation
@@ -166,33 +148,24 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
 
             // Password validation
             bool isPasswordValid = LegalPassword(password);
-            //bool passwordCheck = true;   // delete later, easier for debuging like this
             if (!isPasswordValid)
             {
                 MessageBox.Show("Invalid password format. Please enter a valid password that incluse: more than 8 characters, a digit, an upper case letter and a symbol(special character).");
                 return false;
             }
 
-            /* Will be chacked at Server Side!
-
-            // User already exists validation
-            bool isUserExists = ValidateIfUserAlreadyExist(users, email);
-            if (isUserExists)
-            {
-                MessageBox.Show("User with this email already exists. Please use a different email.");
-                return false;
-            }
-
-            */
-
             return true;        
         }
 
 
         /// <summary>
-        /// 
+        /// The function get data and run validation on the data, to check all the necessary data inserted
+        /// and all the data is valid to login to exists user (teacher or student) in the system.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns>'true' if all the data pass the requirements
+        /// or 'false' if not.</returns>
         public static bool IsLoginValid(string email, string password)
         {
             // Empty fields validation
@@ -213,7 +186,6 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
 
             // Password validation
             bool isPasswordValid = LegalPassword(password);
-            //bool passwordCheck = true;   // delete later, easier for debuging like this
             if (!isPasswordValid)
             {
                 MessageBox.Show("Invalid password format. Please enter a valid password that incluse: more than 8 characters, a digit, an upper case letter and a symbol(special character).");

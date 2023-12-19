@@ -3,11 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-     
-
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000">
-
 
     <Grid >
         <Grid.Background>
@@ -26,14 +23,13 @@
         </Grid.RowDefinitions>
 
         <!--<TextBlock  TextAlignment="Center" Text="Register" FontWeight="Bold" FontSize="35" Grid.Column="1" Grid.Row="0"/>-->
-        <TextBlock  TextAlignment="Center" Text="UserName" FontWeight="Bold" FontSize="15" VerticalAlignment="Center" Height="30" />
+        <TextBlock   Text="UserName" FontWeight="Bold" FontSize="15" TextAlignment="Center" VerticalAlignment="Center" Height="30" />
         <TextBox  Name="tbUserNameRegister" Width="200" Height="30" Background="WhiteSmoke" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Foreground="Gray"   />
 
-        <TextBlock  TextAlignment="Center" Text="Email" FontWeight="Bold" FontSize="15"  Grid.Row="1" VerticalAlignment="Center" Height="30" />
+        <TextBlock   Text="Email" FontWeight="Bold" FontSize="15"  Grid.Row="1" TextAlignment="Center" VerticalAlignment="Center" Height="30" />
         <TextBox  Name="tbEmailRegister" Width="200" Height="30" Background="WhiteSmoke" Grid.Row="1" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Foreground="Gray"  />
 
-
-        <TextBlock  TextAlignment="Center" Text="Password" FontWeight="Bold" FontSize="15" Grid.Row="2" VerticalAlignment="Center" Height="30" />
+        <TextBlock   Text="Password" FontWeight="Bold" FontSize="15" Grid.Row="2" TextAlignment="Center" VerticalAlignment="Center" Height="30" />
 
         <StackPanel Orientation="Horizontal" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="27,0,0,0">
             <PasswordBox  Name="tbPasswordRegister" Width="200" Height="30" Background="WhiteSmoke" />
@@ -48,7 +44,7 @@
             <ComboBoxItem Content="Teacher"/>
         </ComboBox>
 
-        <Button  Name ="btnRegister" Content="Register"   Width="100" Height="35" Grid.Row="4" BorderThickness="2" Background="PeachPuff" FontSize="15" FontStyle="Italic" FontWeight="DemiBold" Click="btnRegister_Click" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"  />
+        <Button  Name="btnRegister" Content="Register" Width="100" Height="35" Grid.Row="4" BorderThickness="2" Background="PeachPuff" FontSize="15" FontStyle="Italic" FontWeight="DemiBold" Click="btnRegister_Click" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"  />
 
         <StackPanel Grid.Row="5" VerticalAlignment="Top" HorizontalAlignment="Center"  >
             <TextBlock Text=" Already a member?" FontSize="20"/>
@@ -58,10 +54,6 @@
         <!-- Contentcontrol section-->
         <ContentControl Name="contentControl" Grid.RowSpan="6"/>
 
-
     </Grid>
-
-
-
 
 </UserControl>
