@@ -6,10 +6,10 @@ namespace Hackeru_Student_Teacher.API.DataBase
     public class DbStudentTeacher: DbContext
     {
         // Properties
-        DbSet<Student> Students {  get; set; }
-        DbSet<Teacher> Teachers { get; set; }
-        DbSet<Exam> Exams { get; set; }
-        DbSet<Question> Question { get; set; }
+        public DbSet<Student> Students {  get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Exam> Exams { get; set; }
+        public DbSet<Question> Question { get; set; }
 
         // C'tor
         public DbStudentTeacher()

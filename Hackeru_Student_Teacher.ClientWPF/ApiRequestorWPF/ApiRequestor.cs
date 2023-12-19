@@ -24,30 +24,32 @@ namespace Hackeru_Student_Teacher.ClientWPF.ApiRequestorWPF
             httpClient.BaseAddress = new Uri(apiUrl);
         }
 
+
         /// <summary>
-        /// 
+        ///  Send register request to server with DeserializerUser and get answer the server response.
         /// </summary>
         /// <param name="newUser"></param>
+        /// <returns>'true' if the response returned is ok (succeeded) or 'false' if not.</returns>
         public async Task<bool> RegisterRequestAsync(DeserializerUser newUser)
         {
             try
             {
-                //3.1) Convert Register data (inside User Object) to JSON.
+                //4) Convert Register data (inside DeserializerUser Object) to JSON.
                 string jsonRegisterData = JsonSerializer.Serialize<DeserializerUser>(newUser);
                 using StringContent registerContent = new StringContent(jsonRegisterData, Encoding.UTF8, @"application/json");
 
-                //3.2 Get response from the server.
+                //4.1) Get response from the server.
                 using HttpResponseMessage response = await httpClient.PostAsync("/api/StudentTeacher/register", registerContent);
 
-                // Check the status code that returned is 200 types.
+                //4.2) Check the status code that returned is 200 types.
                 response.EnsureSuccessStatusCode();
 
-                //3.3 If we got to here it means The server return 'OK' so the new user added to dataBase.
+                //4.3) If we got to here it means The server return 'OK' so the new user added to dataBase!
                 return true;
             }
-            catch (Exception ex)
+            catch
             {
-                // Handle exception
+                //4.3) If we got to here it means The server return 'BadRequest' so the new user not added to dataBase!
                 return false;
             }
         }
@@ -73,11 +75,11 @@ namespace Hackeru_Student_Teacher.ClientWPF.ApiRequestorWPF
                 response.EnsureSuccessStatusCode();
 
                 //3.3 Get Json Data (as DeserializerUser) From Server Response.
-                DeserializerUser userResponse = await response.Content.ReadFromJsonAsync<DeserializerUser>();
+                DeserializerUser? userResponse = await response.Content.ReadFromJsonAsync<DeserializerUser>();
 
                 return userResponse;
             }
-            catch (Exception ex)
+            catch
             {
                 // Handle exception
                 return null;

@@ -30,7 +30,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
         private async void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-            // Get data from UI.
+            //1) Get data from UI.
             string username = tbUserNameRegister.Text;
             string email = tbEmailRegister.Text;
             string password = tbPasswordRegister.Password;
@@ -44,29 +44,26 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
                 if (selectedComboBoxItem.Content.ToString() == "Teacher")
                     role = Enums.UserRole.Teacher;
 
-                //2.2) Create Object of User (Student/Teacher)
+                //2) Create Object of DeserializerUser (Student/Teacher)
                 DeserializerUser newUser;
                 if (role == Enums.UserRole.Student)
                     newUser = new DeserializerUser(username, email, password, Enums.UserRole.Student);
                 else
                     newUser = new DeserializerUser(username, email, password, Enums.UserRole.Teacher);
 
-                // New user added.
-                //users.Add(newUser);
 
-                //2.3 Run Async RegisterRequestAsync and Get bool 'true' if the user added to dataBase or 'false' if not.
+                //3) Run Async RegisterRequestAsync and Get bool 'true' if the user added to dataBase or 'false' if not.
                 bool response = await apiRequestor.RegisterRequestAsync(newUser);
 
+                //5) Act depend on the response content.
                 if (response)
                 {  // Succes message
-                    MessageBox.Show($"{selectedComboBoxItem.Content.ToString()} registered! \nUserName: {newUser.UserName} \nEmail: {newUser.Email} \nNow you can to login with your user!");
+                    MessageBox.Show($"{selectedComboBoxItem.Content} registered! \nUserName: {newUser.UserName} \nEmail: {newUser.Email} \nNow you can to login with your user!");
                     contentControl.Content = new LoginPage();
                 }
                 else // Eror message
                     MessageBox.Show("User with this email already exists. Please use a different email.");
-
             }
-
         }
 
 
@@ -85,7 +82,6 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
             // Start the timer to hide the password after a few seconds
             timer.Start();
-
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
