@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Hackeru_Student_Teacher.ClientWPF.Views.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="1000">
     <Grid >
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -25,10 +25,12 @@
         </Grid.RowDefinitions>
 
         <!-- Column 2-->
-        <TextBox Name="searchTextBox" Text="Search exam:" Height="36" FontSize="15" FontWeight="Medium" Grid.Column="2" VerticalAlignment="Top" GotFocus="searchTextBox_GotFocus" LostFocus="searchTextBox_LostFocus"  />
-        <Button Name="Search" Height="30" Width="50"  Content="Search" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" BorderThickness="0" Background="LightSteelBlue" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Click="Search_Click"  ></Button>
-        <Button Content="Refresh List" HorizontalAlignment="Right" Grid.Column="2" BorderThickness="1" Background="LightSteelBlue" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Margin="0,0,0,40" Click="ShowAllButton_Click" />
-        <ListBox Name="ExamListBox" Height="300" Width="200" Grid.Column="2" Grid.RowSpan="3" VerticalAlignment="Center" SelectionChanged="ExamListBox_SelectionChanged"></ListBox>
+        <TextBox Name="searchTextBox" Text="Search exam:" Height="36" FontSize="15" FontWeight="Medium" Grid.Column="2" VerticalAlignment="Bottom" GotFocus="searchTextBox_GotFocus" Margin="0,0,0,10" LostFocus="searchTextBox_LostFocus"  />
+        <Button Name="Search" Height="30" Width="50"  Content="Search" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" BorderThickness="0" Background="LightSteelBlue" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Margin="0,0,0,10" Click="Search_Click"  ></Button>
+        <Button Content="Refresh List" HorizontalAlignment="Right" Grid.Column="2"  BorderThickness="1" Background="LightSteelBlue" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Click="ShowAllButton_Click" />
+        <TextBlock Text="Hello (UserName)" Grid.Column="2" FontSize="15" FontWeight="bold" FontStyle="Oblique" HorizontalAlignment="Right" Margin="0,0,110,0" ></TextBlock>
+        <Button  Name="Logoutbt" Grid.Column="2" Height="30" Width="80" Content="Logout" VerticalAlignment="Top" HorizontalAlignment="Right"  ></Button>
+        <ListBox Name="ExamListBox" Height="250" Width="300" Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Top" SelectionChanged="ExamListBox_SelectionChanged"></ListBox>
         <Button Name="ShowExamsHistory" Content="Show Exam History"  Width="150" Height="30" Grid.Column="2" Grid.Row="3" VerticalAlignment="Bottom" Background="LightSteelBlue" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Click="ShowExamsHistory_Click" />
 
         <!-- Column 1 (Currently Empty maybe add something later)-->

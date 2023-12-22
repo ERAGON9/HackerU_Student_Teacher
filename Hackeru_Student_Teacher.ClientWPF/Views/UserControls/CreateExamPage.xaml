@@ -68,10 +68,10 @@
             </ComboBox>
         </StackPanel>
 
-        
+
         <!-- right StackPanel-->
         <StackPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Width="190" Margin="120,0,0,0"  >
-            <Button Content="Add new Question" Name="addQuestion"  Margin="10"  Width="150" Height="30" BorderThickness="3" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" />
+            <Button Content="Add new Question" Name="addQuestion"  Margin="10"  Width="150" Height="30" BorderThickness="3" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Click="addQuestion_Click" />
             <Button Content="Delete Question" Name="deleteQuestion"  Margin="10" Width="150" Height="30" BorderThickness="3" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"  />
             <Button Content="Edit Questions" Name="editQuestion"  Margin="10" Width="150" Height="30" BorderThickness="3"  Style="{DynamicResource MahApps.Styles.Button.Dialogs}"  />
         </StackPanel>
