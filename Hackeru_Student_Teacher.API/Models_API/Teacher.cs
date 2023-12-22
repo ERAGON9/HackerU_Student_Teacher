@@ -12,7 +12,9 @@ namespace Hackeru_Student_Teacher.API.Models_API
         //C'tor
         public Teacher(string userName, string email, string password) : base(userName, email, password, Enums.UserRole.Teacher)
         {}
-        public Teacher(DeserializerUser user) : base(user.UserName, user.Email, user.Password, user.IsTeacher)
+        public Teacher(string userName, string email, string password, List<Exam> exams) : base(userName, email, password, Enums.UserRole.Teacher, exams)
+        { }
+        public Teacher(DeserializerUser user) : base(user.UserName, user.Email, user.Password, user.IsTeacher, user.Exams)
         { }
 
 

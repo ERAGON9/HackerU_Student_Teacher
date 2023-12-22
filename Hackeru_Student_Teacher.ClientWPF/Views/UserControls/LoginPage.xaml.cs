@@ -43,7 +43,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
         private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            // Get data from UI
+            //1) Get data from UI
             string email = tbEmailLogin.Text;
             string password = tbPasswordLogin.Password;
 
@@ -51,12 +51,13 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
             if (dataValid)
             {
-                //2.2) Create Object of UserLogin 
+                //2) Create Object of UserLogin 
                 UserLogin userLogin = new UserLogin(email, password);
 
-                //2.3 Run Async LoginRequestAsync and Get DeserializerUser if the user exists or null if not.
-                DeserializerUser returnedUser = await apiRequestor.LoginRequestAsync(userLogin);
+                //3) Run Async LoginRequestAsync and Get DeserializerUser if the user exists or null if not.
+                DeserializerUser? returnedUser = await apiRequestor.LoginRequestAsync(userLogin);
 
+                //5) Act depend on the response content.
                 if (returnedUser != null)
                 {
                     MessageBox.Show("User found, you redirect to your workplace.");

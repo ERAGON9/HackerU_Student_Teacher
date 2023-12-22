@@ -49,21 +49,26 @@ namespace Hackeru_Student_Teacher.API.Controllers
 		/// <param name="userLogin"></param>
 		/// <returns></returns>
 		[HttpPost("login")]
-        public ActionResult<User> Login([FromBody] LoginUser userLogin)
+        public ActionResult<DeserializerUser> Login([FromBody] LoginUser userLogin)
         {
-            bool UserFound = true; //ValidationChecksApi.IsLoginValid(users, userLogin);  // Your validation logic here.
-            if (UserFound)
+            using (var dataBase = new DbStudentTeacher())
             {
-                //User existsUser = users.FirstOrDefault(user => user.Email == userLogin.Email && user.Password == userLogin.Password);
+                bool UserFound = ValidationChecksApi.IsLoginValid(dataBase, userLogin);
+                if (UserFound)
+                {
+                    User? existsUser = dataBase.Students.ToList().FirstOrDefault(student => student.Email == userLogin.Email && student.Password == userLogin.Password);
+                    if(existsUser == null)
+                        existsUser = dataBase.Teachers.ToList().FirstOrDefault(teacher => teacher.Email == userLogin.Email && teacher.Password == userLogin.Password);
 
-                //User existsUser = new Teacher("Lior Teacher", "LiorT@gmail.com", "LiorTeacher");
-                User existsUser = new Student("Lior Student", "LiorS@gmail.com", "LiorStudent");
+                    //User existsUser = new Teacher("Lior Teacher", "LiorT@gmail.com", "LiorTeacher");
+                    //User existsUser = new Student("Lior Student", "LiorS@gmail.com", "LiorStudent");
+                    DeserializerUser foundUser = new DeserializerUser(existsUser);
+                    return Ok(foundUser);
+                }
 
-                return Ok(existsUser);
+                // 404 Error. (user not found)
+                return NotFound("User Not Found");
             }
-
-            //404 Error
-            return NotFound("User Not Found");
         }
 
 

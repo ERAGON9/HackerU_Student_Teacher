@@ -156,7 +156,6 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
         /// or 'false' if not.</returns>
         public static bool IsRegisterValid(DbStudentTeacher dataBase, DeserializerUser user)
         {
-
             // User already exists validation
 
             List<Student> students = dataBase.Students.ToList();
@@ -181,23 +180,28 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
         /// <param name="userLogin"></param>
         /// <returns>'true' if all the data pass the requirements
         /// or 'false' if not.</returns>
-        public static bool IsLoginValid(List<User> users, LoginUser userLogin)
+        public static bool IsLoginValid(DbStudentTeacher dataBase, LoginUser userLogin)
         {
+            List<Student> students = dataBase.Students.ToList();
+            List<Teacher> teachers = dataBase.Teachers.ToList();
+
             // Mail address gotten is belong to registered user.
-            bool isUserExists = true; //ValidateIfUserAlreadyExist(users, userLogin.Email);
+            bool isUserExists = ValidateIfUserAlreadyExist(students, teachers, userLogin.Email);
+
             if (isUserExists)
             {
+                User? existsUser = students.FirstOrDefault(student => student.Email == userLogin.Email);
+                if (existsUser == null)
+                    existsUser = teachers.FirstOrDefault(teacher => teacher.Email == userLogin.Email);
+
                 // Password gotten is equal to the password belong to the user with the mail above. 
-                User? existsUser = users.FirstOrDefault(user => user.Email == userLogin.Email);
-                if (existsUser.Password != userLogin.Password)
-                {
-                    return false; // NotFound("Incorrect password, Please try again.")
-                }
-                else
+                if (existsUser != null && existsUser.Password == userLogin.Password)
                     return true;
+                else
+                    return false; // Incorrect password.
             }
 
-            return false; //NotFound("User with this mail not exists. Please use a different email.");
+            return false; // User with this mail not exists.
         }
     }
 }

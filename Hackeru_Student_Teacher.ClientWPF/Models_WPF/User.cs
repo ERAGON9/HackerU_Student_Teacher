@@ -19,6 +19,14 @@
             IsTeacher = role;
             Exams = new List<Exam>();
         }
+        protected User(string name, string email, string password, Enums.UserRole role, List<Exam> exams)
+        {
+            UserName = name;
+            Email = email;
+            Password = password;
+            IsTeacher = role;
+            Exams = exams;
+        }
 
         // Functions:
         public void SetEmail(string newEmail)

@@ -60,28 +60,28 @@ namespace Hackeru_Student_Teacher.ClientWPF.ApiRequestorWPF
         /// </summary>
         /// <param name="userLogin"></param>
         /// <returns></returns>
-        public async Task<DeserializerUser> LoginRequestAsync(UserLogin userLogin)
+        public async Task<DeserializerUser?> LoginRequestAsync(UserLogin userLogin)
         {
             try
             {
-                //3.1) Convert login data (inside UserLogin Object) to JSON.
+                //4) Convert login data (inside UserLogin Object) to JSON.
                 string jsonLoginData = JsonSerializer.Serialize<UserLogin>(userLogin);
                 using StringContent loginContent = new StringContent(jsonLoginData, Encoding.UTF8, @"application/json");
 
-                //3.2 Get response from the server.
+                //4.1) Get response from the server.
                 using HttpResponseMessage response = await httpClient.PostAsync("/api/StudentTeacher/login", loginContent);
 
-                // Check the status code that returned is 200 types.
+                //4.2) Check the status code that returned is 200 types.
                 response.EnsureSuccessStatusCode();
 
-                //3.3 Get Json Data (as DeserializerUser) From Server Response.
+                //4.3) Get Json Data (as DeserializerUser) From Server Response.
                 DeserializerUser? userResponse = await response.Content.ReadFromJsonAsync<DeserializerUser>();
 
                 return userResponse;
             }
             catch
             {
-                // Handle exception
+                //4.3) If we got to here it means The server return 'NotFound', user with this details not found at the dataBase!
                 return null;
             }
         }
