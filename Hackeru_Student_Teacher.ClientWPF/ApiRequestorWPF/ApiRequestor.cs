@@ -79,7 +79,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.ApiRequestorWPF
 
                 return userResponse;
             }
-            catch
+            catch(Exception ex)
             {
                 //4.3) If we got to here it means The server return 'NotFound', user with this details not found at the dataBase!
                 return null;

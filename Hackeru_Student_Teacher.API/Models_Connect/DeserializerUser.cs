@@ -19,11 +19,6 @@ namespace Hackeru_Student_Teacher.API.Models_Connect
         public List<Exam> Exams { get; set; }
 
         //C'tor
-        // Parameterless constructor for deserialization
-        public DeserializerUser()
-        {
-            Exams = new List<Exam>();
-        }
         // Constructor with JsonConstructorAttribute
         [JsonConstructor]
         public DeserializerUser(int id, string userName, Enums.UserRole isTeacher, string email, string password, List<Exam> exams)
@@ -53,6 +48,7 @@ namespace Hackeru_Student_Teacher.API.Models_Connect
         }
         public DeserializerUser(User user)
         {
+            Id = user.Id;
             UserName = user.UserName;
             Email = user.Email;
             Password = user.Password;
