@@ -60,12 +60,10 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
                 //5) Act depend on the response content.
                 if (returnedUser != null)
                 {
-                    MessageBox.Show("User found, you redirect to your workplace.");
-
                     if (returnedUser.IsTeacher == Enums.UserRole.Teacher)
-                        contentControl.Content = new TeacherPage();
+                        contentControl.Content = new TeacherPage(new Teacher(returnedUser));
                     else
-                        contentControl.Content = new StudentPage();
+                        contentControl.Content = new StudentPage(new Student(returnedUser));
                 }
                 else
                     MessageBox.Show("User with this mail and password not exists, please check the mail and the password and try again.");

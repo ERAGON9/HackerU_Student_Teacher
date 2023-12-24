@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hackeru_Student_Teacher.ClientWPF.Models_WPF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +21,17 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
     /// </summary>
     public partial class EditExamPage : UserControl
     {
-        public EditExamPage()
+        public static Teacher CurrentTeacher { get; set; }
+        public EditExamPage(Teacher activeTeacher)
         {
             InitializeComponent();
+
+            CurrentTeacher = activeTeacher;
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            contentControl.Content = new TeacherPage();
+            contentControl.Content = new TeacherPage(CurrentTeacher);
         }
     }
 }

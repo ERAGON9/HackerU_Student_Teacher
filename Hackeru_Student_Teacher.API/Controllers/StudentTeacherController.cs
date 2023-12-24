@@ -56,9 +56,9 @@ namespace Hackeru_Student_Teacher.API.Controllers
                 bool UserFound = ValidationChecksApi.IsLoginValid(dataBase, userLogin);
                 if (UserFound)
                 {
-                    User? existsUser = dataBase.Students.ToList().FirstOrDefault(student => student.Email == userLogin.Email && student.Password == userLogin.Password);
+                    User? existsUser = dataBase.Students.FirstOrDefault(student => student.Email == userLogin.Email && student.Password == userLogin.Password);
                     if(existsUser == null)
-                        existsUser = dataBase.Teachers.ToList().FirstOrDefault(teacher => teacher.Email == userLogin.Email && teacher.Password == userLogin.Password);
+                        existsUser = dataBase.Teachers.FirstOrDefault(teacher => teacher.Email == userLogin.Email && teacher.Password == userLogin.Password);
 
                     //User existsUser = new Teacher("Lior Teacher", "LiorT@gmail.com", "LiorTeacher");
                     //User existsUser = new Student("Lior Student", "LiorS@gmail.com", "LiorStudent");
@@ -71,6 +71,22 @@ namespace Hackeru_Student_Teacher.API.Controllers
             }
         }
 
+
+        //// Get api/<StudentTeacherController>/5
+        //[HttpGet("{teacherTetsNames}")]
+        //public ActionResult<List<string>> TeacherTets(string teacherMail)
+        //{
+        //    using (var dataBase = new DbStudentTeacher())
+        //    {
+        //        Teacher teacher = dataBase.Teachers.FirstOrDefault(teacher => teacherMail == teacher.Email);
+
+        //        foreach (Exam exam in dataBase.Exams)
+        //        {
+        //            if (exam == teacherName)
+        //        }
+
+        //    }
+        //}
 
         /*
         // PUT api/<StudentTeacherController>/5

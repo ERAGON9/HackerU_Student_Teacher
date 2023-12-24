@@ -37,7 +37,7 @@
         <!-- Right window-->
         <!-- Need to put at 'UserName' the userName of the Teacher that is login.  And put the Label and Button on same row.-->
 
-        <TextBlock Text="Hello (UserName)" FontSize="15" FontWeight="bold" FontStyle="Oblique" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,150,0"  />
+        <TextBlock Name="UserName" Text="Hello (UserName)" FontSize="15" FontWeight="bold" FontStyle="Oblique" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,150,0"  />
         <Button Name="Logout" Content="Logout" Grid.Column="1" Width="100" HorizontalAlignment="Right" Background="LightSteelBlue" BorderThickness="1" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Click="Logout_Click"/>
 
         <TextBox Name="searchBox" Text="Search for Exam:"  Grid.Row="2" FontSize="15" Grid.Column="1" FontWeight="Medium" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Margin="0,11,0,12"  />

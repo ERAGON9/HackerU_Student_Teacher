@@ -56,10 +56,10 @@ namespace Hackeru_Student_Teacher.ClientWPF.ApiRequestorWPF
 
 
         /// <summary>
-        ///3) Call Server API And Get JSON TEXT By LOGIN
+        /// Send login request to server with UserLogin and get answer the server response.
         /// </summary>
         /// <param name="userLogin"></param>
-        /// <returns></returns>
+        /// <returns> DeserializerUser with the user data if exists at the database or null if not.</returns>
         public async Task<DeserializerUser?> LoginRequestAsync(UserLogin userLogin)
         {
             try

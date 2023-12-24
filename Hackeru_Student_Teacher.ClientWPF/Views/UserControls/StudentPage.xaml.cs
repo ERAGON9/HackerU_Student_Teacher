@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Hackeru_Student_Teacher.ClientWPF.Models_Connect;
+using Hackeru_Student_Teacher.ClientWPF.Models_WPF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,16 +22,23 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
     /// </summary>
     public partial class StudentPage : UserControl
     {
+
+        private static Student CurrentStudent { get; set; }
+
         private List<string> examData = new List<string>
         {
             "Apple", "Orange", "Banana", "Pineapple", "Grapes",
             "Watermelon", "Strawberry", "Kiwi", "Mango", "Peach"
         };
         private List<string> filteredExams;
-        public StudentPage()
+        public StudentPage(Student activeStudent)
         {
             InitializeComponent();
             PopulateListBox(examData);
+
+            CurrentStudent = activeStudent;
+
+            UserName.Text = "Hello " + CurrentStudent.UserName.ToString();
         }
         private void Search_Click(object sender, RoutedEventArgs e)
         {

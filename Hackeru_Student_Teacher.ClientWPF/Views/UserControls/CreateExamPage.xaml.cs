@@ -22,7 +22,8 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
     /// </summary>
     public partial class CreateExamPage : UserControl
     {
-        public CreateExamPage()
+        public static Teacher CurrentTeacher { get; set; }
+        public CreateExamPage(Teacher activeTeacher)
         {
             InitializeComponent();
 
@@ -33,6 +34,8 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
             // Populate minutes ComboBox
             for (int i = 0; i < 60; i++)
                 minutesComboBox.Items.Add(i.ToString("D2")); // Format with leading zero
+
+            CurrentTeacher = activeTeacher;
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)
@@ -63,7 +66,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            contentControl.Content = new TeacherPage();
+            contentControl.Content = new TeacherPage(CurrentTeacher);
         }
 
         private void addQuestion_Click(object sender, RoutedEventArgs e)
