@@ -31,6 +31,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
     {
         ApiRequestor apiRequestor;
         private DispatcherTimer timer;
+
         public LoginPage()
         {
             InitializeComponent();

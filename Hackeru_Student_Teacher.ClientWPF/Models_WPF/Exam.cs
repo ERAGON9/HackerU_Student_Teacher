@@ -6,8 +6,8 @@ namespace Hackeru_Student_Teacher.ClientWPF.Models_WPF
     {
         // Properties
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
         public DateOnly Date {  get; set; }
         public int Hours { get; set; } = 0;
         public int Minutes { get; set; } = 0;
@@ -17,7 +17,11 @@ namespace Hackeru_Student_Teacher.ClientWPF.Models_WPF
         public bool IsRandomAnswers { get; set; }
 
 
-        //C'tor
+        //C'tors
+        public Exam()
+        {
+            Questions = new List<Question>();
+        }
         public Exam(string name, string description, bool isRandomAnswers, DateOnly date, int hours, int minutes)
         {
             Name = name;

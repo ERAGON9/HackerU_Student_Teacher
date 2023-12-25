@@ -9,7 +9,9 @@ namespace Hackeru_Student_Teacher.ClientWPF.Models_WPF
         // Teacher Properties
 
 
-        //C'tor
+        //C'tors
+        public Teacher() : base()
+        { }
         public Teacher(string userName, string email, string password) : base(userName, email, password, Enums.UserRole.Teacher)
         { }
         public Teacher(string userName, string email, string password, List<Exam> exams) : base(userName, email, password, Enums.UserRole.Teacher, exams)

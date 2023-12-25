@@ -60,9 +60,8 @@ namespace Hackeru_Student_Teacher.API.Controllers
                     if(existsUser == null)
                         existsUser = dataBase.Teachers.FirstOrDefault(teacher => teacher.Email == userLogin.Email && teacher.Password == userLogin.Password);
 
-                    //User existsUser = new Teacher("Lior Teacher", "LiorT@gmail.com", "LiorTeacher");
-                    //User existsUser = new Student("Lior Student", "LiorS@gmail.com", "LiorStudent");
                     DeserializerUser foundUser = new DeserializerUser(existsUser);
+
                     return Ok(foundUser);
                 }
 
@@ -71,6 +70,25 @@ namespace Hackeru_Student_Teacher.API.Controllers
             }
         }
 
+
+        [HttpPost("addExam")]
+        public ActionResult AddExam([FromBody] TeacherAndExam teacherAndExam)
+        {
+            using (var dataBase = new DbStudentTeacher())
+            {
+                dataBase.Exams.Add(teacherAndExam.Exam);
+                Teacher? teacherToUpdate = dataBase.Teachers.FirstOrDefault(teacher => teacher.Email == teacherAndExam.Teacher.Email);
+                if (teacherToUpdate != null)
+                {
+                    teacherToUpdate.Exams.Add(teacherAndExam.Exam);
+                    dataBase.Teachers.Update(teacherToUpdate);
+                    dataBase.SaveChanges();
+                    return Ok();
+                }
+                else
+                    return BadRequest();
+            }
+        }
 
         //// Get api/<StudentTeacherController>/5
         //[HttpGet("{teacherTetsNames}")]

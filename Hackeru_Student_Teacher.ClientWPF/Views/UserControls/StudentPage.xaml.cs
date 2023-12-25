@@ -30,7 +30,9 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
             "Apple", "Orange", "Banana", "Pineapple", "Grapes",
             "Watermelon", "Strawberry", "Kiwi", "Mango", "Peach"
         };
-        private List<string> filteredExams;
+        private List<string> filteredExams = new List<string> { };
+
+
         public StudentPage(Student activeStudent)
         {
             InitializeComponent();
@@ -40,6 +42,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
             UserName.Text = "Hello " + CurrentStudent.UserName.ToString();
         }
+
         private void Search_Click(object sender, RoutedEventArgs e)
         {
             string searchText = searchTextBox.Text.ToLower();

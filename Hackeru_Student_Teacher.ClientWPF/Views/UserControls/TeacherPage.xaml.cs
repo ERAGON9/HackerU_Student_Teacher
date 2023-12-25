@@ -29,7 +29,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
         private List<string> teacherTests = new List<string>{};
 
-        List<Exam> Exams = new List<Exam>();
+
         public TeacherPage(Teacher activeTeacher)
         {
             InitializeComponent();
@@ -64,16 +64,13 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
 
         private void examStatistics_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        {}
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Logged out!");
             contentControl.Content = new LoginPage();
         }
-
 
 
         private void PopulateListBox(IEnumerable<string> items)
@@ -98,6 +95,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
             PopulateListBox(filteredData);
         }
+
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             // Clear the text when the textbox gets focus.
@@ -112,6 +110,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
                 searchBox.Text = originalText;
             }
         }
+
         private void ShowAllButton_Click(object sender, RoutedEventArgs e)
         {
             // Reset the ListBox to display the entire list.
@@ -119,6 +118,5 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         }
 
     }
-
 }
 

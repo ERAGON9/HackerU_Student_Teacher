@@ -48,7 +48,7 @@
 
         <!-- Center StackPanel-->
         <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Grid.ColumnSpan="2" Width="150">
-            <Label FontWeight="Bold" FontSize="15" Content="Exam Date:"  />
+            <Label  Content="Exam Date:"  FontWeight="Bold" FontSize="15" />
             <DatePicker Name="ExamDate" Foreground="Gray" Grid.Column="1" Width="150"/>
 
             <Label Content="Time for the test:" FontWeight="Bold" FontSize="15" Grid.Column="1"/>
@@ -78,7 +78,7 @@
 
 
         <!-- Bottom window-->
-        <Button Content="Create" Name="btnCreate" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="50" Grid.ColumnSpan="2" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" />
+        <Button Content="Create" Name="btnCreate" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="50" Grid.ColumnSpan="2" Click="Create_Click" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" />
         <Button Content="Cancel" Name="btnCancel" Grid.Row="2"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="70" Height="50" Click="btnCancel_Click"  Style="{DynamicResource MahApps.Styles.Button.Dialogs}" />
 
 

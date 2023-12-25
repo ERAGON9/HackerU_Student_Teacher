@@ -17,7 +17,11 @@ namespace Hackeru_Student_Teacher.API.Models_API
         public bool IsRandomAnswers { get; set; }
 
 
-        //C'tor
+        //C'tors
+        public Exam()
+        {
+            Questions = new List<Question>();
+        }
         public Exam(string name, string description, bool isRandomAnswers, DateOnly date, int hours, int minutes)
         {
             Name = name;
@@ -26,10 +30,6 @@ namespace Hackeru_Student_Teacher.API.Models_API
             Date = date;
             Hours = hours;
             Minutes = minutes;
-            Questions = new List<Question>();
-        }
-        public Exam()
-        {
             Questions = new List<Question>();
         }
 

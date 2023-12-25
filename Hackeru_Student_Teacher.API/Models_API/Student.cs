@@ -11,13 +11,16 @@ namespace Hackeru_Student_Teacher.API.Models_API
         public double AvgGrade { get; set; } = 0.0;
 
 
-        // C'tor:
+        // C'tors
+        public Student(): base()
+        { }
         public Student(string userName, string email, string password) : base(userName, email, password, Enums.UserRole.Student)
         {}
         public Student(string userName, string email, string password, List<Exam> exams) : base(userName, email, password, Enums.UserRole.Student, exams)
         { }
         public Student(DeserializerUser user) : base(user.UserName, user.Email, user.Password, user.IsTeacher, user.Exams)
         { }
+
 
         // Functions:
         // From Base class 'User' {SetEmail(), SetPassword()}

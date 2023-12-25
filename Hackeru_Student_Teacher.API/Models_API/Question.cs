@@ -19,7 +19,9 @@ namespace Hackeru_Student_Teacher.API.Models_API
         public int CorrectAnswer { get; set; } = 0; // Defult value before initialize;
         public int ChoosenAnswer { get; set; } = 0; // Defult value before initialize;
 
-        // C'tor
+        // C'tors
+        public Question()
+        { }
         public Question(string description, int grade, string answer1, string answer2, string answer3, string answer4, int correctAnswer)
         {
             Description = description;
@@ -30,7 +32,6 @@ namespace Hackeru_Student_Teacher.API.Models_API
             Answer4 = answer4;
             CorrectAnswer = correctAnswer;
         }
-        public Question() { }
 
 
         // Functions

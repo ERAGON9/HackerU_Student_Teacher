@@ -51,7 +51,6 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
                 else
                     newUser = new DeserializerUser(username, email, password, Enums.UserRole.Teacher);
 
-
                 //3) Run Async RegisterRequestAsync and Get bool 'true' if the user added to dataBase or 'false' if not.
                 bool response = await apiRequestor.RegisterRequestAsync(newUser);
 

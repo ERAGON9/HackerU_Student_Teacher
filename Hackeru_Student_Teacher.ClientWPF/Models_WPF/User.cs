@@ -13,7 +13,11 @@ namespace Hackeru_Student_Teacher.ClientWPF.Models_WPF
         public string? Password { get; set; }
         public List<Exam> Exams { get; set; }
 
-        // C'tor
+        // C'tors
+        protected User()
+        {
+            Exams = new List<Exam>();
+        }
         protected User(string name, string email, string password, Enums.UserRole role)
         {
             UserName = name;

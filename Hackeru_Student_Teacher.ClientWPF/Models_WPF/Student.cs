@@ -12,7 +12,9 @@ namespace Hackeru_Student_Teacher.ClientWPF.Models_WPF
         public double AvgGrade { get; set; } = 0.0;
 
 
-        // C'tor:
+        // C'tors
+        public Student() : base()
+        { }
         public Student(string userName, string email, string password) : base(userName, email, password, Enums.UserRole.Student)
         { }
         public Student(string userName, string email, string password, List<Exam> exams) : base(userName, email, password, Enums.UserRole.Student, exams)

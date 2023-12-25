@@ -1,4 +1,6 @@
-﻿using Hackeru_Student_Teacher.ClientWPF.Models_WPF;
+﻿using Hackeru_Student_Teacher.ClientWPF.ApiRequestorWPF;
+using Hackeru_Student_Teacher.ClientWPF.Models_WPF;
+using Hackeru_Student_Teacher.ClientWPF.Progarm;
 using Hackeru_Student_Teacher.ClientWPF.Views.Windows;
 using System;
 using System.Collections.Generic;
@@ -23,9 +25,13 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
     public partial class CreateExamPage : UserControl
     {
         public static Teacher CurrentTeacher { get; set; }
+
+        ApiRequestor apiRequestor;
+
         public CreateExamPage(Teacher activeTeacher)
         {
             InitializeComponent();
+            apiRequestor = new ApiRequestor();
 
             // Populate hours ComboBox
             for (int i = 0; i < 24; i++)
@@ -38,31 +44,34 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
             CurrentTeacher = activeTeacher;
         }
 
-        private void Create_Click(object sender, RoutedEventArgs e)
+        private async void Create_Click(object sender, RoutedEventArgs e)
         {
             string Name = txtExamName.Text;
-
             string description = Description.Text;
             bool isRandomAnswer = Random_Questions_Order.IsChecked == true;
             DatePicker dateFromGUI = ExamDate;
-            DateTime dateConvert;
 
             // Validation fields not empty + Name is Uniq!!!
+            bool dataValid = ValidationChecksWpf.IsNewExamValid(Name, description, dateFromGUI);
 
-            if (dateFromGUI.SelectedDate != null)
+            if (dataValid)
             {
-                dateConvert = (DateTime)dateFromGUI.SelectedDate;
+                DateTime dateConvert = (DateTime)dateFromGUI.SelectedDate;
                 DateOnly examDate = new DateOnly(dateConvert.Year, dateConvert.Month, dateConvert.Day);
                 Exam newExan = new Exam(Name, description, isRandomAnswer, examDate, int.Parse(hoursComboBox.Text), int.Parse(minutesComboBox.Text));
-                // teacher.AddExam(newExan);
-            }
-            else
-            {
-                // Eror no exam date entered!
-            }
+                CurrentTeacher.AddExam(newExan);
 
+                bool response = await apiRequestor.AddExamAsync(newExan, CurrentTeacher);
+
+                if (response) // Succes message
+                {
+                    MessageBox.Show("Exam added successfully!");
+                    contentControl.Content = new TeacherPage(CurrentTeacher);
+                }
+                else // Eror message
+                    MessageBox.Show("The exam not added, please try again.");
+            }
         }
-
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {

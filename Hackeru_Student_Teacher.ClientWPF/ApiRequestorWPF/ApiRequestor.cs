@@ -86,6 +86,29 @@ namespace Hackeru_Student_Teacher.ClientWPF.ApiRequestorWPF
             }
         }
 
+        public async Task<bool> AddExamAsync(Exam newExam, Teacher teacherToUpdate)
+        {
+            try
+            {
+                //4) Convert login data (inside TeacherAndExam Object) to JSON.
+                TeacherAndExam teacherAndExam = new TeacherAndExam(teacherToUpdate, newExam);
+                string jsonAddExamData = JsonSerializer.Serialize<TeacherAndExam>(teacherAndExam);
+                using StringContent addExamContent = new StringContent(jsonAddExamData, Encoding.UTF8, @"application/json");
+
+                //4.1) Get response from the server.
+                using HttpResponseMessage response = await httpClient.PostAsync("/api/StudentTeacher/addExam", addExamContent);
+
+                //4.2) Check the status code that returned is 200 types.
+                response.EnsureSuccessStatusCode();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //4.3) If we got to here it means The server return 'BadRequest'.
+                return false;
+            }
+        }
 
     }
 }

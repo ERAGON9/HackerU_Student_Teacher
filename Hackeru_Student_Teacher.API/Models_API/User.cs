@@ -4,13 +4,18 @@
     {
         // Properties
         public int Id { get; set; }
-        public string UserName { get; set; }
+        public string? UserName { get; set; }
         public Enums.UserRole IsTeacher { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public string? Email { get; set; }
+        public string? Password { get; set; }
         public List<Exam> Exams { get; set; }
 
-        // C'tor
+
+        // C'tors
+        protected User()
+        {
+            Exams = new List<Exam>();
+        }
         protected User(string name, string email, string password, Enums.UserRole role)
         {
             UserName = name;
@@ -27,6 +32,7 @@
             IsTeacher = role;
             Exams = exams;
         }
+
 
         // Functions:
         public void SetEmail(string newEmail)

@@ -99,6 +99,18 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
         }
 
 
+        public static bool IsNewExamFieldsAreEmpty(string Name, string description, DatePicker dateFromGUI)
+        {
+            if (string.IsNullOrEmpty(Name))
+                return false;
+            if (string.IsNullOrEmpty(description))
+                return false;
+            if (dateFromGUI == null)
+                return false;
+
+            return true;
+        }
+
         /// <summary>
         /// The function check when new user filling the login form, he leaved an empty field
         /// without filling it with necessary data.
@@ -194,5 +206,35 @@ namespace Hackeru_Student_Teacher.ClientWPF.Progarm
 
             return true;
         }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <param name="description"></param>
+        /// <param name="isRandomAnswer"></param>
+        /// <param name="dateFromGUI"></param>
+        /// <returns></returns>
+        public static bool IsNewExamValid(string Name, string description, DatePicker dateFromGUI)
+        {
+            // Empty fields validation
+            bool isEmptyFields = IsNewExamFieldsAreEmpty(Name, description, dateFromGUI);
+            if (!isEmptyFields)
+            {
+                MessageBox.Show("Invalid fields format. Please fill all the fields to login.");
+                return false;
+            }
+
+            if (((DateTime)dateFromGUI.SelectedDate).Date < DateTime.Now)
+            {
+                MessageBox.Show("Invalid date. Please fill date in the future,not in the past.");
+                return false;
+            }
+
+            return true;
+        }
+
+
     }
 }
