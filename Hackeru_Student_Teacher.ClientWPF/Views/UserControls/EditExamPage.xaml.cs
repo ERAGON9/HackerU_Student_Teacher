@@ -21,7 +21,9 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
     /// </summary>
     public partial class EditExamPage : UserControl
     {
-        public static Teacher CurrentTeacher { get; set; }
+        public Teacher CurrentTeacher { get; set; }
+
+
         public EditExamPage(Teacher activeTeacher)
         {
             InitializeComponent();

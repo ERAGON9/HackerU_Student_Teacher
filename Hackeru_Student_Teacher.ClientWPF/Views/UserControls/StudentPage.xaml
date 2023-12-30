@@ -38,7 +38,7 @@
         
         <!-- Column 2-->
         <TextBlock Name="UserName" Text="Hello (UserName)" Grid.Column="2" FontSize="15" FontWeight="bold" FontStyle="Oblique" HorizontalAlignment="Right" Margin="0,0,110,0" ></TextBlock>
-        <Button  Name="Logoutbt" Grid.Column="2" Height="30" Width="80" Content="Logout" VerticalAlignment="Top" HorizontalAlignment="Right"  ></Button>
+        <Button  Name="Logoutbt" Grid.Column="2" Height="30" Width="80" Content="Logout" VerticalAlignment="Top" HorizontalAlignment="Right" Click="Logoutbt_Click"  ></Button>
 
         <Button Content="Refresh List" HorizontalAlignment="Right" Grid.Column="2"  BorderThickness="1" Background="LightSteelBlue" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Click="ShowAllButton_Click" />
 

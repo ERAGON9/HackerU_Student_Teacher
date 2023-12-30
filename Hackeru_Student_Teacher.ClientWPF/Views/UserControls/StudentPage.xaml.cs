@@ -1,5 +1,7 @@
-﻿using Hackeru_Student_Teacher.ClientWPF.Models_Connect;
+﻿using Hackeru_Student_Teacher.ClientWPF.ApiRequestorWPF;
+using Hackeru_Student_Teacher.ClientWPF.Models_Connect;
 using Hackeru_Student_Teacher.ClientWPF.Models_WPF;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,25 +24,43 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
     /// </summary>
     public partial class StudentPage : UserControl
     {
+        ApiRequestor apiRequestor;
+        private Student CurrentStudent { get; set; }
 
-        private static Student CurrentStudent { get; set; }
+        private List<string> examsNames = new List<string>();
 
-        private List<string> examData = new List<string>
-        {
-            "Apple", "Orange", "Banana", "Pineapple", "Grapes",
-            "Watermelon", "Strawberry", "Kiwi", "Mango", "Peach"
-        };
-        private List<string> filteredExams = new List<string> { };
+        private List<string> filteredExams = new List<string>();
 
 
         public StudentPage(Student activeStudent)
         {
             InitializeComponent();
-            PopulateListBox(examData);
+
+            apiRequestor = new ApiRequestor();
 
             CurrentStudent = activeStudent;
 
+            FillAllTestsAsync();
+
+            PopulateListBox(examsNames);
+
             UserName.Text = "Hello " + CurrentStudent.UserName.ToString();
+        }
+
+        private async void FillAllTestsAsync()
+        {
+            List<Exam> allExams = new List<Exam>();
+
+            allExams = await apiRequestor.GetAllExams();
+            if (allExams != null)
+            {
+                foreach (Exam exam in allExams)
+                    examsNames.Add(exam.Name);
+            }
+            else
+            {
+                MessageBox.Show("Somethig with the dataBase went wrong, try again or call support team please.");
+            }
         }
 
         private void Search_Click(object sender, RoutedEventArgs e)
@@ -49,11 +69,11 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
             if (string.IsNullOrWhiteSpace(searchText))
             {
-                PopulateListBox(examData);
+                PopulateListBox(examsNames);
                 return;
             }
 
-            filteredExams = examData.Where(item => item.ToLower().Contains(searchText)).ToList();
+            filteredExams = examsNames.Where(item => item.ToLower().Contains(searchText)).ToList();
             PopulateListBox(filteredExams);
         }
 
@@ -86,7 +106,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         private void ShowAllButton_Click(object sender, RoutedEventArgs e)
         {
             // Reset the ListBox to display the entire list
-            PopulateListBox(examData);
+            PopulateListBox(examsNames);
         }
 
         private void ExamListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -101,5 +121,9 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
             }
         }
 
+        private void Logoutbt_Click(object sender, RoutedEventArgs e)
+        {
+            //contentControl.Content = new LoginPage();
+        }
     }
 }

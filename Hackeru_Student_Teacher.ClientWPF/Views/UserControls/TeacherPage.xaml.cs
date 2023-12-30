@@ -23,11 +23,11 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
     /// </summary>
     public partial class TeacherPage : UserControl
     {
-        private static Teacher CurrentTeacher { get; set; }
+        private Teacher CurrentTeacher { get; set; }
 
         private string originalText = "Search For Exam:";
 
-        private List<string> teacherTests = new List<string>{};
+        private List<string> teacherTestsNames = new List<string>{};
 
 
         public TeacherPage(Teacher activeTeacher)
@@ -36,19 +36,17 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
             CurrentTeacher = activeTeacher;
 
-            teacherTests = FillAllTests(teacherTests);
+            FillAllTeacherTests();
 
-            PopulateListBox(teacherTests);
+            PopulateListBox(teacherTestsNames);
 
             UserName.Text = "Hello " + CurrentTeacher.UserName.ToString();
         }
 
-        private List<string> FillAllTests(List<string> teacherTests)
+        private void FillAllTeacherTests()
         {
             foreach (Exam exam in CurrentTeacher.Exams)
-                teacherTests.Add(exam.Name);
-
-            return teacherTests;
+                teacherTestsNames.Add(exam.Name);
         }
 
         private void newExam_Click(object sender, RoutedEventArgs e)
@@ -68,7 +66,6 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Logged out!");
             contentControl.Content = new LoginPage();
         }
 
@@ -82,7 +79,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         {
             string searchText = searchBox.Text.ToLower();
 
-            var filteredData = string.IsNullOrWhiteSpace(searchText) ? teacherTests : teacherTests.Where(item => item.ToLower().Contains(searchText)).ToList();
+            var filteredData = string.IsNullOrWhiteSpace(searchText) ? teacherTestsNames : teacherTestsNames.Where(item => item.ToLower().Contains(searchText)).ToList();
 
             PopulateListBox(filteredData);
         }
@@ -91,7 +88,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         {
             string searchText = searchBox.Text.ToLower();
 
-            var filteredData = string.IsNullOrWhiteSpace(searchText) ? teacherTests : teacherTests.Where(item => item.ToLower().Contains(searchText)).ToList();
+            var filteredData = string.IsNullOrWhiteSpace(searchText) ? teacherTestsNames : teacherTestsNames.Where(item => item.ToLower().Contains(searchText)).ToList();
 
             PopulateListBox(filteredData);
         }
@@ -114,7 +111,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         private void ShowAllButton_Click(object sender, RoutedEventArgs e)
         {
             // Reset the ListBox to display the entire list.
-            PopulateListBox(teacherTests);
+            PopulateListBox(teacherTestsNames);
         }
 
     }

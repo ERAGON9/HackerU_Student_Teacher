@@ -86,6 +86,13 @@ namespace Hackeru_Student_Teacher.ClientWPF.ApiRequestorWPF
             }
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="newExam"></param>
+        /// <param name="teacherToUpdate"></param>
+        /// <returns></returns>
         public async Task<bool> AddExamAsync(Exam newExam, Teacher teacherToUpdate)
         {
             try
@@ -110,5 +117,31 @@ namespace Hackeru_Student_Teacher.ClientWPF.ApiRequestorWPF
             }
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<Exam>> GetAllExams()
+        {
+            try
+            {
+                //4) Get response from the server.
+                using HttpResponseMessage response = await httpClient.GetAsync("/api/StudentTeacher/getAllExams");
+
+                //4.1) Check the status code that returned is 200 types.
+                response.EnsureSuccessStatusCode();
+
+                //4.2) Get Json Data (as DeserializerUser) From Server Response.
+                List<Exam> allExamsResponse = await response.Content.ReadFromJsonAsync<List<Exam>>();
+
+                return allExamsResponse;
+            }
+            catch (Exception ex)
+            {
+                //4.2) If we got to here it means The server return 'BadRequest'.
+                return null;
+            }
+        }
     }
 }

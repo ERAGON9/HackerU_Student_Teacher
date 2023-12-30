@@ -22,21 +22,26 @@ namespace Hackeru_Student_Teacher.API.Controllers
         [HttpPost("register")]
         public ActionResult Register([FromBody] DeserializerUser newUser)
         {
-            using (var dataBase = new DbStudentTeacher())
+            try
             {
-
-                bool dataValid = ValidationChecksApi.IsRegisterValid(dataBase, newUser);
-
-                if (dataValid)
+                using (var dataBase = new DbStudentTeacher())
                 {
-                    if (newUser.IsTeacher == Enums.UserRole.Teacher)
-                        dataBase.Teachers.Add(new Teacher(newUser));
-                    else
-                        dataBase.Students.Add(new Student(newUser));
-                    dataBase.SaveChanges();
-                    return Ok();
-                }
+                    bool dataValid = ValidationChecksApi.IsRegisterValid(dataBase, newUser);
 
+                    if (dataValid)
+                    {
+                        if (newUser.IsTeacher == Enums.UserRole.Teacher)
+                            dataBase.Teachers.Add(new Teacher(newUser));
+                        else
+                            dataBase.Students.Add(new Student(newUser));
+                        dataBase.SaveChanges();
+                        return Ok();
+                    }
+                    return BadRequest();
+                }
+            }
+            catch (Exception ex)
+            {
                 return BadRequest();
             }
         }
@@ -51,60 +56,82 @@ namespace Hackeru_Student_Teacher.API.Controllers
 		[HttpPost("login")]
         public ActionResult<DeserializerUser> Login([FromBody] LoginUser userLogin)
         {
-            using (var dataBase = new DbStudentTeacher())
+            try
             {
-                bool UserFound = ValidationChecksApi.IsLoginValid(dataBase, userLogin);
-                if (UserFound)
+                using (var dataBase = new DbStudentTeacher())
                 {
-                    User? existsUser = dataBase.Students.FirstOrDefault(student => student.Email == userLogin.Email && student.Password == userLogin.Password);
-                    if(existsUser == null)
-                        existsUser = dataBase.Teachers.FirstOrDefault(teacher => teacher.Email == userLogin.Email && teacher.Password == userLogin.Password);
+                    bool UserFound = ValidationChecksApi.IsLoginValid(dataBase, userLogin);
+                    if (UserFound)
+                    {
+                        User? existsUser = dataBase.Students.FirstOrDefault(student => student.Email == userLogin.Email && student.Password == userLogin.Password);
+                        if (existsUser == null)
+                            existsUser = dataBase.Teachers.FirstOrDefault(teacher => teacher.Email == userLogin.Email && teacher.Password == userLogin.Password);
 
-                    DeserializerUser foundUser = new DeserializerUser(existsUser);
+                        DeserializerUser foundUser = new DeserializerUser(existsUser);
 
-                    return Ok(foundUser);
+                        return Ok(foundUser);
+                    }
+                    // 404 Error. (user not found)
+                    return NotFound("User Not Found");
                 }
-
-                // 404 Error. (user not found)
-                return NotFound("User Not Found");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
             }
         }
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="teacherAndExam"></param>
+        /// <returns></returns>
         [HttpPost("addExam")]
         public ActionResult AddExam([FromBody] TeacherAndExam teacherAndExam)
         {
-            using (var dataBase = new DbStudentTeacher())
+            try
             {
-                dataBase.Exams.Add(teacherAndExam.Exam);
-                Teacher? teacherToUpdate = dataBase.Teachers.FirstOrDefault(teacher => teacher.Email == teacherAndExam.Teacher.Email);
-                if (teacherToUpdate != null)
+                using (var dataBase = new DbStudentTeacher())
                 {
-                    teacherToUpdate.Exams.Add(teacherAndExam.Exam);
-                    dataBase.Teachers.Update(teacherToUpdate);
-                    dataBase.SaveChanges();
-                    return Ok();
+                    dataBase.Exams.Add(teacherAndExam.Exam);
+                    Teacher? teacherToUpdate = dataBase.Teachers.FirstOrDefault(teacher => teacher.Email == teacherAndExam.Teacher.Email);
+                    if (teacherToUpdate != null)
+                    {
+                        teacherToUpdate.Exams.Add(teacherAndExam.Exam);
+                        dataBase.Teachers.Update(teacherToUpdate);
+                        dataBase.SaveChanges();
+                        return Ok();
+                    }
+                    else
+                        return BadRequest();
                 }
-                else
-                    return BadRequest();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
             }
         }
 
-        //// Get api/<StudentTeacherController>/5
-        //[HttpGet("{teacherTetsNames}")]
-        //public ActionResult<List<string>> TeacherTets(string teacherMail)
-        //{
-        //    using (var dataBase = new DbStudentTeacher())
-        //    {
-        //        Teacher teacher = dataBase.Teachers.FirstOrDefault(teacher => teacherMail == teacher.Email);
+        
 
-        //        foreach (Exam exam in dataBase.Exams)
-        //        {
-        //            if (exam == teacherName)
-        //        }
+        [HttpGet("getAllExams")]
+        public ActionResult<List<Exam>> GetAllExams()
+        {
+            try
+            {
+                using (var dataBase = new DbStudentTeacher())
+                {
+                    List<Exam> allExams = dataBase.Exams.ToList();
 
-        //    }
-        //}
+                    return Ok(allExams);
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
+        }
 
         /*
         // PUT api/<StudentTeacherController>/5

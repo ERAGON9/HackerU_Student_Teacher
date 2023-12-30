@@ -24,13 +24,14 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
     /// </summary>
     public partial class CreateExamPage : UserControl
     {
-        public static Teacher CurrentTeacher { get; set; }
-
         ApiRequestor apiRequestor;
+        public Teacher CurrentTeacher { get; set; }
+
 
         public CreateExamPage(Teacher activeTeacher)
         {
             InitializeComponent();
+
             apiRequestor = new ApiRequestor();
 
             // Populate hours ComboBox
