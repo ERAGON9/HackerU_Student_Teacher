@@ -15,10 +15,9 @@
         </Grid.Background>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="153*"/>
-            <ColumnDefinition Width="82*"/>
-            <ColumnDefinition Width="298*"/>
-            <ColumnDefinition Width="267*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -28,63 +27,44 @@
         </Grid.RowDefinitions>
 
 
-        <!-- header StackPanel-->
-        <StackPanel Grid.ColumnSpan="3">
-            <Label Content="Exam Creation" FontWeight="Bold" FontSize="30"/>
 
-        </StackPanel>
-
+        <Label Content="Exam Creation" FontFamily="Times New Roman"  FontStyle="Italic" FontWeight="Bold" FontSize="45" Grid.Column="1" VerticalAlignment="Center" HorizontalContentAlignment="Center" />
 
         <!-- left StackPanel-->
-        <StackPanel Grid.Row="1" HorizontalAlignment="Left" Width="150">
-            <Label Content="Name Of Exam:" FontWeight="Bold" FontSize="15"/>
-            <TextBox Name="txtExamName" Grid.Column="0" Width="135" Height="25" HorizontalAlignment="Left"/>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" >
+            <Label Content="Name Of Exam:" FontWeight="Bold" FontSize="20"/>
+            <TextBox Name="txtExamName" Width="200" Height="25"/>
 
-            <Label  Content="Description:" FontWeight="Bold" FontSize="15"/>
-            <TextBox Name="Description" Grid.Column="0" Width="135" Height="50" HorizontalAlignment="Left"/>
+            <Label  Content="Description:" FontWeight="Bold" FontSize="20"/>
+            <TextBox Name="Description" Grid.Column="0" Width="200" Height="90"/>
         </StackPanel>
-        <CheckBox Name="Random_Questions_Order" Content="Random Questions Order" FontWeight="Bold" FontSize="15" Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Top" Height="19" />
+        <CheckBox Name="Random_Questions_Order" Content="Random Questions Order" FontWeight="Bold" FontSize="20" Grid.Row="2" VerticalAlignment="Top"  />
 
 
         <!-- Center StackPanel-->
-        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Grid.ColumnSpan="2" Width="150">
-            <Label  Content="Exam Date:"  FontWeight="Bold" FontSize="15" />
-            <DatePicker Name="ExamDate" Foreground="Gray" Grid.Column="1" Width="150"/>
+        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Grid.ColumnSpan="2" >
+            <Label  Content="Exam Date:"  FontWeight="Bold" FontSize="20" />
+            <DatePicker Name="ExamDate" Foreground="Gray" Width="150"/>
 
-            <Label Content="Time for the test:" FontWeight="Bold" FontSize="15" Grid.Column="1"/>
+            <Label Content="Time for the test:" FontWeight="Bold" FontSize="20"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
-            <Label Content="Hours:" FontWeight="Bold" />
-            <ComboBox Name="hoursComboBox" Text="Hours" Width="60" Height="22" HorizontalAlignment="Left" >
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,0,0,25">
+            <Label Content="Hours:" FontWeight="Bold" FontSize="20" />
+            <ComboBox Name="hoursComboBox" Text="Hours" Width="80" Height="35"  >
                 <!-- Add hour items (0 to 23) -->
             </ComboBox>
-        </StackPanel >
 
-        <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">
-            <Label Content="Minutes:" FontWeight="Bold"  />
-            <ComboBox Name="minutesComboBox" Width="65" Height="22" HorizontalAlignment="Left">
+            <Label Content="Minutes:" FontWeight="Bold" FontSize="20" />
+            <ComboBox Name="minutesComboBox" Width="80" Height="35">
                 <!-- Add minute items (0 to 59) -->
             </ComboBox>
-        </StackPanel>
 
-
-        <!-- right StackPanel-->
-        <StackPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Width="190" Margin="120,0,0,0"  >
-            <Button Content="Add new Question" Name="addQuestion"  Margin="10"  Width="150" Height="30" BorderThickness="3" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Click="addQuestion_Click" />
-            <Button Content="Delete Question" Name="deleteQuestion"  Margin="10" Width="150" Height="30" BorderThickness="3" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"  />
-            <Button Content="Edit Questions" Name="editQuestion"  Margin="10" Width="150" Height="30" BorderThickness="3"  Style="{DynamicResource MahApps.Styles.Button.Dialogs}"  />
-        </StackPanel>
-
+        </StackPanel >
 
         <!-- Bottom window-->
-        <Button Content="Create" Name="btnCreate" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="50" Grid.ColumnSpan="2" Click="Create_Click" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" />
-        <Button Content="Cancel" Name="btnCancel" Grid.Row="2"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="70" Height="50" Click="btnCancel_Click"  Style="{DynamicResource MahApps.Styles.Button.Dialogs}" />
-
-
-        <!-- Right window-->
-        <Label Content="Questions in Exam:" FontWeight="Bold" FontSize="20" Grid.Column="3" VerticalAlignment="Top" Margin="0,63,0,0" Height="37"/>
-        <ListBox  Name="ExamQuestionslb" Grid.Column="3" Grid.Row="1"/>
+        <Button Content="Create" Name="btnCreate" Grid.Row="2" Grid.Column="1" Width="120" Height="50" FontSize="20" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Click="Create_Click" />
+        <Button Content="Cancel" Name="btnCancel" Grid.Row="2"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="90" Height="50"  FontSize="15" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Click="btnCancel_Click" />
 
 
         <!-- Contentcontrol section-->

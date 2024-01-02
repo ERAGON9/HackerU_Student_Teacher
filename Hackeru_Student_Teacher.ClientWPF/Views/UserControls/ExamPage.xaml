@@ -34,9 +34,10 @@
 
 
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
-            <Button Content="Previous Question" Width="130" Height="40" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"/>
-            <Button Content="Next Question" Width="100" Height="40" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"/>
+            <Button Content="Previous Question" Width="130" Height="40" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="15" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"/>
+            <Button Content="Next Question" Width="100" Height="40" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="15" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"/>
         </StackPanel>
+        <Button Content="Submit exam" Width="130" Height="40" Margin="10" Grid.Row="3" VerticalAlignment="Bottom" FontSize="18" Background="LightYellow" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"/>
 
 
         <ListBox Grid.Row="3" HorizontalAlignment="Left" Width="300" >questions:</ListBox>

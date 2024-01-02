@@ -28,14 +28,14 @@
         <Label Foreground="black" Content="Student Page" Grid.ColumnSpan="2" HorizontalAlignment="Left" FontSize="30" FontWeight="Medium" FontStyle="Italic"/>
 
         <ListBox  Name="SelectedExamListBox" Grid.Row="2" VerticalContentAlignment="Top" Height="50" Width="200" BorderBrush="RoyalBlue" BorderThickness="2" ></ListBox>
-        <Button Name="ExamDisplay" Content="Display Exam"  Width="150" Height="30" Grid.Row="2" VerticalAlignment="Bottom" Margin="0,0,0,5" Background="LightSteelBlue" Style="{DynamicResource MahApps.Styles.Button.Dialogs}"/>
+        <Button Name="ExamDisplay" Content="Display Exam"  Width="150" Height="30" Grid.Row="2" VerticalAlignment="Bottom" Margin="0,0,0,5" Background="LightSteelBlue" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Click="ExamDisplay_Click"/>
         <StackPanel Grid.Row="1">
             <!-- insert user data here (avrg grade,full name, etc..)-->
         </StackPanel>
-        
+
         <!-- Column 1 (Currently Empty maybe add something later)-->
 
-        
+
         <!-- Column 2-->
         <TextBlock Name="UserName" Text="Hello (UserName)" Grid.Column="2" FontSize="15" FontWeight="bold" FontStyle="Oblique" HorizontalAlignment="Right" Margin="0,0,110,0" ></TextBlock>
         <Button  Name="Logoutbt" Grid.Column="2" Height="30" Width="80" Content="Logout" VerticalAlignment="Top" HorizontalAlignment="Right" Click="Logoutbt_Click"  ></Button>
@@ -44,9 +44,11 @@
 
         <TextBox Name="searchTextBox" Text="Search exam:" Height="36" FontSize="15" FontWeight="Medium" Grid.Column="2" VerticalAlignment="Bottom" GotFocus="searchTextBox_GotFocus" Margin="0,0,0,10" LostFocus="searchTextBox_LostFocus"  />
         <Button Name="Search" Height="30" Width="50"  Content="Search" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" BorderThickness="0" Background="LightSteelBlue" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Margin="0,0,0,10" Click="Search_Click"  ></Button>
-        
+
         <ListBox Name="ExamListBox" Height="250" Width="300" Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Top" SelectionChanged="ExamListBox_SelectionChanged"></ListBox>
         <Button Name="ShowExamsHistory" Content="Show Exam History"  Width="150" Height="30" Grid.Column="2" Grid.Row="3" VerticalAlignment="Bottom" Background="LightSteelBlue" Style="{DynamicResource MahApps.Styles.Button.Dialogs}" Click="ShowExamsHistory_Click" />
+
+        <ContentControl Name="contentControl" Grid.ColumnSpan="3"  Grid.RowSpan="3"/>
 
 
     </Grid>

@@ -125,5 +125,10 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         {
             //contentControl.Content = new LoginPage();
         }
+
+        private void ExamDisplay_Click(object sender, RoutedEventArgs e)
+        {
+            contentControl.Content = new StudentExamInfo();
+        }
     }
 }
