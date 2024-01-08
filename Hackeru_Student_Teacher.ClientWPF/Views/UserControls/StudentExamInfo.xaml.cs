@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hackeru_Student_Teacher.ClientWPF.Models_WPF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,11 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             //need to insert a logic to start the test.
+        }
+
+        private void backbtn_Click(object sender, RoutedEventArgs e)
+        {
+            //contentControl.Content = new StudentPage();
         }
     }
 }

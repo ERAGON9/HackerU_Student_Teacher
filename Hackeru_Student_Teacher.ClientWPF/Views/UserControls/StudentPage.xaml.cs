@@ -128,7 +128,7 @@ namespace Hackeru_Student_Teacher.ClientWPF.Views.UserControls
 
         private void ExamDisplay_Click(object sender, RoutedEventArgs e)
         {
-            contentControl.Content = new StudentExamInfo();
+            contentControl.Content = new StudentExamInfo(); //need to send exam data to this page
         }
     }
 }

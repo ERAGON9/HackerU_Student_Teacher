@@ -44,12 +44,11 @@
         <!-- Center StackPanel-->
         <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Grid.ColumnSpan="2" >
             <Label  Content="Exam Date:"  FontWeight="Bold" FontSize="20" />
-            <DatePicker Name="ExamDate" Foreground="Gray" Width="150"/>
-
-            <Label Content="Time for the test:" FontWeight="Bold" FontSize="20"/>
+            <DatePicker Name="ExamDate" Foreground="Black" Width="150"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,0,0,25">
+        <StackPanel Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Right">
+            <Label Content="Time for the test:" FontWeight="Bold" FontSize="20"/>
             <Label Content="Hours:" FontWeight="Bold" FontSize="20" />
             <ComboBox Name="hoursComboBox" Text="Hours" Width="80" Height="35"  >
                 <!-- Add hour items (0 to 23) -->

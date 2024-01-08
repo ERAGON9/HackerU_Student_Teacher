@@ -23,19 +23,25 @@
 
 
 
-08/12/23 - Oz to do:
---------------------
-- add pictures to main window (edit them first) @@ 
-- toggle switch with mah.apps
-- STYLE!!!				 (WIP)
-- Create the ExamPage (need items to display - will make after geting exams from data base)
+
+oz:
+need to go back to current student page from exam info page. 
+ 
+ fix create exam page UI.
+
+ need to see my created exams in teacher account.
+
+ how to create the exams for specific students?
 
 
-12/12/23 - Oz To do:
-------------------
-- seperate login from register (login main ----> register by link [content])
 
+student:
+oz99@gmail.com1
+123456789$A
 
+Teacher
+oz99@gmail.com2
+123456789$A
 
 
 
